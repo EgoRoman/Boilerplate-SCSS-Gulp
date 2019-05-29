@@ -1,0 +1,24 @@
+{
+  "name": "osnova-med",
+  "version": "1.0.0",
+  "description": "Site osnova-med",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roman Egorov",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-filter": "^5.1.0",
+    "gulp-line-ending-corrector": "^1.0.3",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglifycss": "^1.1.0"
+  },
+  "dependencies": {}
+}
