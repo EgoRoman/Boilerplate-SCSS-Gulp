@@ -3,8 +3,8 @@
 /**
  * Paths to project folders
  */
-const themePath = './template/';
-// const projectURL = 'test.r98712ol.beget.tech';
+const themePath = './template/',
+	projectURL = 'project.local'; // Domain in local OpenServer
 
 const paths = {
   styles: {
@@ -79,6 +79,7 @@ gulp.task('watch', ['assemble'], () => {
   browserSync.init({
     server: '.',
     // host: localhost,
+    proxy: projectURL,
     notify: false,
     open: true,
     port: 8080,
