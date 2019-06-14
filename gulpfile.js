@@ -4,7 +4,7 @@
  * Paths to project folders
  */
 const themePath = './template/',
-	projectURL = 'project.local'; // Domain in local OpenServer
+  projectURL = 'project.local'; // Domain in local OpenServer
 
 const paths = {
   styles: {
@@ -12,17 +12,17 @@ const paths = {
     output: themePath + 'dist/css/',
     watch: themePath + 'assets/scss/**/*.scss'
   },
-  dist: themePath + 'dist'
+  scripts: {
+    input: themePath + 'assets/js/main.js',
+    output: themePath + 'dist/js/',
+    watch: themePath + 'assets/js/**/*.js'
+  }
 };
 
 // Browsers you care about for autoprefixing.
 // Browserlist https        ://github.com/ai/browserslist
 const AUTOPREFIXER_BROWSERS = [
-  'last 1 version',
-  'last 2 Chrome versions',
-  'last 2 Firefox versions',
-  'last 2 Opera versions',
-  'last 2 Edge versions'
+  'last 2 versions'
 ];
 
 /**
@@ -38,6 +38,10 @@ const gulp = require('gulp'),
   browserSync = require('browser-sync').create(), // Reloads browser and injects CSS. Time-saving synchronised browser testing.
   rename = require('gulp-rename'), // Renames files E.g. style.css -> style.min.css
   minifycss = require('gulp-uglifycss'), // Minifies CSS files.
+
+  rigger = require('gulp-rigger'),
+  rollup = require('gulp-better-rollup'),
+  uglify = require('gulp-uglify'),
 
   del = require('del');
 
@@ -71,6 +75,23 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(paths.styles.output))
 });
 
+gulp.task('scripts', () => {
+  return gulp.src(paths.scripts.input)
+    .pipe(plumber())
+    .pipe(rigger())
+    .pipe(sourcemaps.init())
+    // .pipe(rollup({}, `iife`))
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
+    .pipe(sourcemaps.write(''))
+    .pipe(gulp.dest(paths.scripts.output));
+});
+
+gulp.task('js-watch', ['scripts'], (done) => {
+  browserSync.reload();
+  done();
+});
+
 /**
  * Watch Tasks.
  */
@@ -79,7 +100,7 @@ gulp.task('watch', ['assemble'], () => {
   browserSync.init({
     server: '.',
     // host: localhost,
-    proxy: projectURL,
+    // proxy: projectURL,
     notify: false,
     open: true,
     port: 8080,
@@ -87,12 +108,7 @@ gulp.task('watch', ['assemble'], () => {
   });
 
   gulp.watch(paths.styles.watch, ['styles']);
-  // gulp.watch('*.html').on('change', (e) => {
-  //   if (e.type !== 'deleted') {
-  //     gulp.start('copy-html');
-  //   }
-  // });
-  // gulp.watch('js/**/*.js', ['js-watch']);
+  gulp.watch(paths.scripts.watch, ['js-watch']);
 });
 
 gulp.task('assemble', ['clean'], () => {
@@ -101,7 +117,7 @@ gulp.task('assemble', ['clean'], () => {
 });
 
 gulp.task('clean', () => {
-  return del(paths.dist);
+  // return del(paths.dist);
 });
 
 // gulp.task('copy', ['copy-html', 'scripts', 'style'], () => {

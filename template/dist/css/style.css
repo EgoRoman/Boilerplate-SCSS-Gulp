@@ -74,7 +74,8 @@ figure {
  */
 /* line 81, template/assets/scss/vendor/_normalize.scss */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -323,7 +324,8 @@ fieldset {
  */
 /* line 336, template/assets/scss/vendor/_normalize.scss */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -361,7 +363,8 @@ textarea {
 /* line 368, template/assets/scss/vendor/_normalize.scss */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -458,14 +461,16 @@ template {
 
 /* line 11, template/assets/scss/vendor/_bootstrap-grid.scss */
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -ms-overflow-style: scrollbar; }
 
 /* line 16, template/assets/scss/vendor/_bootstrap-grid.scss */
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
 /* line 22, template/assets/scss/vendor/_bootstrap-grid.scss */
 .container {
@@ -505,7 +510,10 @@ html {
 
 /* line 62, template/assets/scss/vendor/_bootstrap-grid.scss */
 .row {
+  display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px; }
@@ -536,135 +544,194 @@ html {
 
 /* line 95, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col {
+  -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  flex-grow: 1;
+  -ms-flex-positive: 1;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
   max-width: 100%; }
 
 /* line 103, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-auto {
-  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
   width: auto;
   max-width: none; }
 
 /* line 110, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-1 {
-  flex: 0 0 8.333333%;
+  -ms-flex: 0 0 8.333333%;
+  -webkit-box-flex: 0;
+          flex: 0 0 8.333333%;
   max-width: 8.333333%; }
 
 /* line 116, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-2 {
-  flex: 0 0 16.666667%;
+  -ms-flex: 0 0 16.666667%;
+  -webkit-box-flex: 0;
+          flex: 0 0 16.666667%;
   max-width: 16.666667%; }
 
 /* line 122, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-3 {
-  flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  -webkit-box-flex: 0;
+          flex: 0 0 25%;
   max-width: 25%; }
 
 /* line 128, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-4 {
-  flex: 0 0 33.333333%;
+  -ms-flex: 0 0 33.333333%;
+  -webkit-box-flex: 0;
+          flex: 0 0 33.333333%;
   max-width: 33.333333%; }
 
 /* line 134, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-5 {
-  flex: 0 0 41.666667%;
+  -ms-flex: 0 0 41.666667%;
+  -webkit-box-flex: 0;
+          flex: 0 0 41.666667%;
   max-width: 41.666667%; }
 
 /* line 140, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-6 {
-  flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  -webkit-box-flex: 0;
+          flex: 0 0 50%;
   max-width: 50%; }
 
 /* line 146, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-7 {
-  flex: 0 0 58.333333%;
+  -ms-flex: 0 0 58.333333%;
+  -webkit-box-flex: 0;
+          flex: 0 0 58.333333%;
   max-width: 58.333333%; }
 
 /* line 152, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-8 {
-  flex: 0 0 66.666667%;
+  -ms-flex: 0 0 66.666667%;
+  -webkit-box-flex: 0;
+          flex: 0 0 66.666667%;
   max-width: 66.666667%; }
 
 /* line 158, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-9 {
-  flex: 0 0 75%;
+  -ms-flex: 0 0 75%;
+  -webkit-box-flex: 0;
+          flex: 0 0 75%;
   max-width: 75%; }
 
 /* line 164, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-10 {
-  flex: 0 0 83.333333%;
+  -ms-flex: 0 0 83.333333%;
+  -webkit-box-flex: 0;
+          flex: 0 0 83.333333%;
   max-width: 83.333333%; }
 
 /* line 170, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-11 {
-  flex: 0 0 91.666667%;
+  -ms-flex: 0 0 91.666667%;
+  -webkit-box-flex: 0;
+          flex: 0 0 91.666667%;
   max-width: 91.666667%; }
 
 /* line 176, template/assets/scss/vendor/_bootstrap-grid.scss */
 .col-12 {
-  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  -webkit-box-flex: 0;
+          flex: 0 0 100%;
   max-width: 100%; }
 
 /* line 182, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-first {
-  order: -1; }
+  -ms-flex-order: -1;
+  -webkit-box-ordinal-group: 0;
+          order: -1; }
 
 /* line 187, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-last {
-  order: 13; }
+  -ms-flex-order: 13;
+  -webkit-box-ordinal-group: 14;
+          order: 13; }
 
 /* line 192, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-0 {
-  order: 0; }
+  -ms-flex-order: 0;
+  -webkit-box-ordinal-group: 1;
+          order: 0; }
 
 /* line 197, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-1 {
-  order: 1; }
+  -ms-flex-order: 1;
+  -webkit-box-ordinal-group: 2;
+          order: 1; }
 
 /* line 202, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-2 {
-  order: 2; }
+  -ms-flex-order: 2;
+  -webkit-box-ordinal-group: 3;
+          order: 2; }
 
 /* line 207, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-3 {
-  order: 3; }
+  -ms-flex-order: 3;
+  -webkit-box-ordinal-group: 4;
+          order: 3; }
 
 /* line 212, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-4 {
-  order: 4; }
+  -ms-flex-order: 4;
+  -webkit-box-ordinal-group: 5;
+          order: 4; }
 
 /* line 217, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-5 {
-  order: 5; }
+  -ms-flex-order: 5;
+  -webkit-box-ordinal-group: 6;
+          order: 5; }
 
 /* line 222, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-6 {
-  order: 6; }
+  -ms-flex-order: 6;
+  -webkit-box-ordinal-group: 7;
+          order: 6; }
 
 /* line 227, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-7 {
-  order: 7; }
+  -ms-flex-order: 7;
+  -webkit-box-ordinal-group: 8;
+          order: 7; }
 
 /* line 232, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-8 {
-  order: 8; }
+  -ms-flex-order: 8;
+  -webkit-box-ordinal-group: 9;
+          order: 8; }
 
 /* line 237, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-9 {
-  order: 9; }
+  -ms-flex-order: 9;
+  -webkit-box-ordinal-group: 10;
+          order: 9; }
 
 /* line 242, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-10 {
-  order: 10; }
+  -ms-flex-order: 10;
+  -webkit-box-ordinal-group: 11;
+          order: 10; }
 
 /* line 247, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-11 {
-  order: 11; }
+  -ms-flex-order: 11;
+  -webkit-box-ordinal-group: 12;
+          order: 11; }
 
 /* line 252, template/assets/scss/vendor/_bootstrap-grid.scss */
 .order-12 {
-  order: 12; }
+  -ms-flex-order: 12;
+  -webkit-box-ordinal-group: 13;
+          order: 12; }
 
 /* line 257, template/assets/scss/vendor/_bootstrap-grid.scss */
 .offset-1 {
@@ -713,107 +780,166 @@ html {
 @media (min-width: 576px) {
   /* line 302, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm {
+    -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
     max-width: 100%; }
   /* line 309, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-auto {
-    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    -webkit-box-flex: 0;
+            flex: 0 0 auto;
     width: auto;
     max-width: none; }
   /* line 315, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-1 {
-    flex: 0 0 8.333333%;
+    -ms-flex: 0 0 8.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 8.333333%;
     max-width: 8.333333%; }
   /* line 320, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-2 {
-    flex: 0 0 16.666667%;
+    -ms-flex: 0 0 16.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 16.666667%;
     max-width: 16.666667%; }
   /* line 325, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-3 {
-    flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
     max-width: 25%; }
   /* line 330, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-4 {
-    flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 33.333333%;
     max-width: 33.333333%; }
   /* line 335, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-5 {
-    flex: 0 0 41.666667%;
+    -ms-flex: 0 0 41.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 41.666667%;
     max-width: 41.666667%; }
   /* line 340, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-6 {
-    flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
     max-width: 50%; }
   /* line 345, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-7 {
-    flex: 0 0 58.333333%;
+    -ms-flex: 0 0 58.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 58.333333%;
     max-width: 58.333333%; }
   /* line 350, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-8 {
-    flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 66.666667%;
     max-width: 66.666667%; }
   /* line 355, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-9 {
-    flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    -webkit-box-flex: 0;
+            flex: 0 0 75%;
     max-width: 75%; }
   /* line 360, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-10 {
-    flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 83.333333%;
     max-width: 83.333333%; }
   /* line 365, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-11 {
-    flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 91.666667%;
     max-width: 91.666667%; }
   /* line 370, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-sm-12 {
-    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    -webkit-box-flex: 0;
+            flex: 0 0 100%;
     max-width: 100%; }
   /* line 375, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-first {
-    order: -1; }
+    -ms-flex-order: -1;
+    -webkit-box-ordinal-group: 0;
+            order: -1; }
   /* line 379, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-last {
-    order: 13; }
+    -ms-flex-order: 13;
+    -webkit-box-ordinal-group: 14;
+            order: 13; }
   /* line 383, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-0 {
-    order: 0; }
+    -ms-flex-order: 0;
+    -webkit-box-ordinal-group: 1;
+            order: 0; }
   /* line 387, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-1 {
-    order: 1; }
+    -ms-flex-order: 1;
+    -webkit-box-ordinal-group: 2;
+            order: 1; }
   /* line 391, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-2 {
-    order: 2; }
+    -ms-flex-order: 2;
+    -webkit-box-ordinal-group: 3;
+            order: 2; }
   /* line 395, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-3 {
-    order: 3; }
+    -ms-flex-order: 3;
+    -webkit-box-ordinal-group: 4;
+            order: 3; }
   /* line 399, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-4 {
-    order: 4; }
+    -ms-flex-order: 4;
+    -webkit-box-ordinal-group: 5;
+            order: 4; }
   /* line 403, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-5 {
-    order: 5; }
+    -ms-flex-order: 5;
+    -webkit-box-ordinal-group: 6;
+            order: 5; }
   /* line 407, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-6 {
-    order: 6; }
+    -ms-flex-order: 6;
+    -webkit-box-ordinal-group: 7;
+            order: 6; }
   /* line 411, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-7 {
-    order: 7; }
+    -ms-flex-order: 7;
+    -webkit-box-ordinal-group: 8;
+            order: 7; }
   /* line 415, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-8 {
-    order: 8; }
+    -ms-flex-order: 8;
+    -webkit-box-ordinal-group: 9;
+            order: 8; }
   /* line 419, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-9 {
-    order: 9; }
+    -ms-flex-order: 9;
+    -webkit-box-ordinal-group: 10;
+            order: 9; }
   /* line 423, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-10 {
-    order: 10; }
+    -ms-flex-order: 10;
+    -webkit-box-ordinal-group: 11;
+            order: 10; }
   /* line 427, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-11 {
-    order: 11; }
+    -ms-flex-order: 11;
+    -webkit-box-ordinal-group: 12;
+            order: 11; }
   /* line 431, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-sm-12 {
-    order: 12; }
+    -ms-flex-order: 12;
+    -webkit-box-ordinal-group: 13;
+            order: 12; }
   /* line 435, template/assets/scss/vendor/_bootstrap-grid.scss */
   .offset-sm-0 {
     margin-left: 0; }
@@ -854,107 +980,166 @@ html {
 @media (min-width: 768px) {
   /* line 474, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md {
+    -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
     max-width: 100%; }
   /* line 481, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-auto {
-    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    -webkit-box-flex: 0;
+            flex: 0 0 auto;
     width: auto;
     max-width: none; }
   /* line 487, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-1 {
-    flex: 0 0 8.333333%;
+    -ms-flex: 0 0 8.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 8.333333%;
     max-width: 8.333333%; }
   /* line 492, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-2 {
-    flex: 0 0 16.666667%;
+    -ms-flex: 0 0 16.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 16.666667%;
     max-width: 16.666667%; }
   /* line 497, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-3 {
-    flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
     max-width: 25%; }
   /* line 502, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-4 {
-    flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 33.333333%;
     max-width: 33.333333%; }
   /* line 507, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-5 {
-    flex: 0 0 41.666667%;
+    -ms-flex: 0 0 41.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 41.666667%;
     max-width: 41.666667%; }
   /* line 512, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-6 {
-    flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
     max-width: 50%; }
   /* line 517, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-7 {
-    flex: 0 0 58.333333%;
+    -ms-flex: 0 0 58.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 58.333333%;
     max-width: 58.333333%; }
   /* line 522, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-8 {
-    flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 66.666667%;
     max-width: 66.666667%; }
   /* line 527, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-9 {
-    flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    -webkit-box-flex: 0;
+            flex: 0 0 75%;
     max-width: 75%; }
   /* line 532, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-10 {
-    flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 83.333333%;
     max-width: 83.333333%; }
   /* line 537, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-11 {
-    flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 91.666667%;
     max-width: 91.666667%; }
   /* line 542, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-md-12 {
-    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    -webkit-box-flex: 0;
+            flex: 0 0 100%;
     max-width: 100%; }
   /* line 547, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-first {
-    order: -1; }
+    -ms-flex-order: -1;
+    -webkit-box-ordinal-group: 0;
+            order: -1; }
   /* line 551, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-last {
-    order: 13; }
+    -ms-flex-order: 13;
+    -webkit-box-ordinal-group: 14;
+            order: 13; }
   /* line 555, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-0 {
-    order: 0; }
+    -ms-flex-order: 0;
+    -webkit-box-ordinal-group: 1;
+            order: 0; }
   /* line 559, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-1 {
-    order: 1; }
+    -ms-flex-order: 1;
+    -webkit-box-ordinal-group: 2;
+            order: 1; }
   /* line 563, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-2 {
-    order: 2; }
+    -ms-flex-order: 2;
+    -webkit-box-ordinal-group: 3;
+            order: 2; }
   /* line 567, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-3 {
-    order: 3; }
+    -ms-flex-order: 3;
+    -webkit-box-ordinal-group: 4;
+            order: 3; }
   /* line 571, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-4 {
-    order: 4; }
+    -ms-flex-order: 4;
+    -webkit-box-ordinal-group: 5;
+            order: 4; }
   /* line 575, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-5 {
-    order: 5; }
+    -ms-flex-order: 5;
+    -webkit-box-ordinal-group: 6;
+            order: 5; }
   /* line 579, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-6 {
-    order: 6; }
+    -ms-flex-order: 6;
+    -webkit-box-ordinal-group: 7;
+            order: 6; }
   /* line 583, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-7 {
-    order: 7; }
+    -ms-flex-order: 7;
+    -webkit-box-ordinal-group: 8;
+            order: 7; }
   /* line 587, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-8 {
-    order: 8; }
+    -ms-flex-order: 8;
+    -webkit-box-ordinal-group: 9;
+            order: 8; }
   /* line 591, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-9 {
-    order: 9; }
+    -ms-flex-order: 9;
+    -webkit-box-ordinal-group: 10;
+            order: 9; }
   /* line 595, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-10 {
-    order: 10; }
+    -ms-flex-order: 10;
+    -webkit-box-ordinal-group: 11;
+            order: 10; }
   /* line 599, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-11 {
-    order: 11; }
+    -ms-flex-order: 11;
+    -webkit-box-ordinal-group: 12;
+            order: 11; }
   /* line 603, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-md-12 {
-    order: 12; }
+    -ms-flex-order: 12;
+    -webkit-box-ordinal-group: 13;
+            order: 12; }
   /* line 607, template/assets/scss/vendor/_bootstrap-grid.scss */
   .offset-md-0 {
     margin-left: 0; }
@@ -995,107 +1180,166 @@ html {
 @media (min-width: 992px) {
   /* line 646, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg {
+    -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
     max-width: 100%; }
   /* line 653, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-auto {
-    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    -webkit-box-flex: 0;
+            flex: 0 0 auto;
     width: auto;
     max-width: none; }
   /* line 659, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-1 {
-    flex: 0 0 8.333333%;
+    -ms-flex: 0 0 8.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 8.333333%;
     max-width: 8.333333%; }
   /* line 664, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-2 {
-    flex: 0 0 16.666667%;
+    -ms-flex: 0 0 16.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 16.666667%;
     max-width: 16.666667%; }
   /* line 669, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-3 {
-    flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
     max-width: 25%; }
   /* line 674, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-4 {
-    flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 33.333333%;
     max-width: 33.333333%; }
   /* line 679, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-5 {
-    flex: 0 0 41.666667%;
+    -ms-flex: 0 0 41.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 41.666667%;
     max-width: 41.666667%; }
   /* line 684, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-6 {
-    flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
     max-width: 50%; }
   /* line 689, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-7 {
-    flex: 0 0 58.333333%;
+    -ms-flex: 0 0 58.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 58.333333%;
     max-width: 58.333333%; }
   /* line 694, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-8 {
-    flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 66.666667%;
     max-width: 66.666667%; }
   /* line 699, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-9 {
-    flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    -webkit-box-flex: 0;
+            flex: 0 0 75%;
     max-width: 75%; }
   /* line 704, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-10 {
-    flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 83.333333%;
     max-width: 83.333333%; }
   /* line 709, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-11 {
-    flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 91.666667%;
     max-width: 91.666667%; }
   /* line 714, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-lg-12 {
-    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    -webkit-box-flex: 0;
+            flex: 0 0 100%;
     max-width: 100%; }
   /* line 719, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-first {
-    order: -1; }
+    -ms-flex-order: -1;
+    -webkit-box-ordinal-group: 0;
+            order: -1; }
   /* line 723, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-last {
-    order: 13; }
+    -ms-flex-order: 13;
+    -webkit-box-ordinal-group: 14;
+            order: 13; }
   /* line 727, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-0 {
-    order: 0; }
+    -ms-flex-order: 0;
+    -webkit-box-ordinal-group: 1;
+            order: 0; }
   /* line 731, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-1 {
-    order: 1; }
+    -ms-flex-order: 1;
+    -webkit-box-ordinal-group: 2;
+            order: 1; }
   /* line 735, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-2 {
-    order: 2; }
+    -ms-flex-order: 2;
+    -webkit-box-ordinal-group: 3;
+            order: 2; }
   /* line 739, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-3 {
-    order: 3; }
+    -ms-flex-order: 3;
+    -webkit-box-ordinal-group: 4;
+            order: 3; }
   /* line 743, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-4 {
-    order: 4; }
+    -ms-flex-order: 4;
+    -webkit-box-ordinal-group: 5;
+            order: 4; }
   /* line 747, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-5 {
-    order: 5; }
+    -ms-flex-order: 5;
+    -webkit-box-ordinal-group: 6;
+            order: 5; }
   /* line 751, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-6 {
-    order: 6; }
+    -ms-flex-order: 6;
+    -webkit-box-ordinal-group: 7;
+            order: 6; }
   /* line 755, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-7 {
-    order: 7; }
+    -ms-flex-order: 7;
+    -webkit-box-ordinal-group: 8;
+            order: 7; }
   /* line 759, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-8 {
-    order: 8; }
+    -ms-flex-order: 8;
+    -webkit-box-ordinal-group: 9;
+            order: 8; }
   /* line 763, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-9 {
-    order: 9; }
+    -ms-flex-order: 9;
+    -webkit-box-ordinal-group: 10;
+            order: 9; }
   /* line 767, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-10 {
-    order: 10; }
+    -ms-flex-order: 10;
+    -webkit-box-ordinal-group: 11;
+            order: 10; }
   /* line 771, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-11 {
-    order: 11; }
+    -ms-flex-order: 11;
+    -webkit-box-ordinal-group: 12;
+            order: 11; }
   /* line 775, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-lg-12 {
-    order: 12; }
+    -ms-flex-order: 12;
+    -webkit-box-ordinal-group: 13;
+            order: 12; }
   /* line 779, template/assets/scss/vendor/_bootstrap-grid.scss */
   .offset-lg-0 {
     margin-left: 0; }
@@ -1136,107 +1380,166 @@ html {
 @media (min-width: 1200px) {
   /* line 818, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl {
+    -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
     max-width: 100%; }
   /* line 825, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-auto {
-    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    -webkit-box-flex: 0;
+            flex: 0 0 auto;
     width: auto;
     max-width: none; }
   /* line 831, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-1 {
-    flex: 0 0 8.333333%;
+    -ms-flex: 0 0 8.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 8.333333%;
     max-width: 8.333333%; }
   /* line 836, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-2 {
-    flex: 0 0 16.666667%;
+    -ms-flex: 0 0 16.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 16.666667%;
     max-width: 16.666667%; }
   /* line 841, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-3 {
-    flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
     max-width: 25%; }
   /* line 846, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-4 {
-    flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 33.333333%;
     max-width: 33.333333%; }
   /* line 851, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-5 {
-    flex: 0 0 41.666667%;
+    -ms-flex: 0 0 41.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 41.666667%;
     max-width: 41.666667%; }
   /* line 856, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-6 {
-    flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
     max-width: 50%; }
   /* line 861, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-7 {
-    flex: 0 0 58.333333%;
+    -ms-flex: 0 0 58.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 58.333333%;
     max-width: 58.333333%; }
   /* line 866, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-8 {
-    flex: 0 0 66.666667%;
+    -ms-flex: 0 0 66.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 66.666667%;
     max-width: 66.666667%; }
   /* line 871, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-9 {
-    flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    -webkit-box-flex: 0;
+            flex: 0 0 75%;
     max-width: 75%; }
   /* line 876, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-10 {
-    flex: 0 0 83.333333%;
+    -ms-flex: 0 0 83.333333%;
+    -webkit-box-flex: 0;
+            flex: 0 0 83.333333%;
     max-width: 83.333333%; }
   /* line 881, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-11 {
-    flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    -webkit-box-flex: 0;
+            flex: 0 0 91.666667%;
     max-width: 91.666667%; }
   /* line 886, template/assets/scss/vendor/_bootstrap-grid.scss */
   .col-xl-12 {
-    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    -webkit-box-flex: 0;
+            flex: 0 0 100%;
     max-width: 100%; }
   /* line 891, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-first {
-    order: -1; }
+    -ms-flex-order: -1;
+    -webkit-box-ordinal-group: 0;
+            order: -1; }
   /* line 895, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-last {
-    order: 13; }
+    -ms-flex-order: 13;
+    -webkit-box-ordinal-group: 14;
+            order: 13; }
   /* line 899, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-0 {
-    order: 0; }
+    -ms-flex-order: 0;
+    -webkit-box-ordinal-group: 1;
+            order: 0; }
   /* line 903, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-1 {
-    order: 1; }
+    -ms-flex-order: 1;
+    -webkit-box-ordinal-group: 2;
+            order: 1; }
   /* line 907, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-2 {
-    order: 2; }
+    -ms-flex-order: 2;
+    -webkit-box-ordinal-group: 3;
+            order: 2; }
   /* line 911, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-3 {
-    order: 3; }
+    -ms-flex-order: 3;
+    -webkit-box-ordinal-group: 4;
+            order: 3; }
   /* line 915, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-4 {
-    order: 4; }
+    -ms-flex-order: 4;
+    -webkit-box-ordinal-group: 5;
+            order: 4; }
   /* line 919, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-5 {
-    order: 5; }
+    -ms-flex-order: 5;
+    -webkit-box-ordinal-group: 6;
+            order: 5; }
   /* line 923, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-6 {
-    order: 6; }
+    -ms-flex-order: 6;
+    -webkit-box-ordinal-group: 7;
+            order: 6; }
   /* line 927, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-7 {
-    order: 7; }
+    -ms-flex-order: 7;
+    -webkit-box-ordinal-group: 8;
+            order: 7; }
   /* line 931, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-8 {
-    order: 8; }
+    -ms-flex-order: 8;
+    -webkit-box-ordinal-group: 9;
+            order: 8; }
   /* line 935, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-9 {
-    order: 9; }
+    -ms-flex-order: 9;
+    -webkit-box-ordinal-group: 10;
+            order: 9; }
   /* line 939, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-10 {
-    order: 10; }
+    -ms-flex-order: 10;
+    -webkit-box-ordinal-group: 11;
+            order: 10; }
   /* line 943, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-11 {
-    order: 11; }
+    -ms-flex-order: 11;
+    -webkit-box-ordinal-group: 12;
+            order: 11; }
   /* line 947, template/assets/scss/vendor/_bootstrap-grid.scss */
   .order-xl-12 {
-    order: 12; }
+    -ms-flex-order: 12;
+    -webkit-box-ordinal-group: 13;
+            order: 12; }
   /* line 951, template/assets/scss/vendor/_bootstrap-grid.scss */
   .offset-xl-0 {
     margin-left: 0; }
@@ -1304,10 +1607,14 @@ html {
 
 /* line 1017, template/assets/scss/vendor/_bootstrap-grid.scss */
 .d-flex {
+  display: -ms-flexbox !important;
+  display: -webkit-box !important;
   display: flex !important; }
 
 /* line 1022, template/assets/scss/vendor/_bootstrap-grid.scss */
 .d-inline-flex {
+  display: -ms-inline-flexbox !important;
+  display: -webkit-inline-box !important;
   display: inline-flex !important; }
 
 @media (min-width: 576px) {
@@ -1334,9 +1641,13 @@ html {
     display: table-cell !important; }
   /* line 1049, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-sm-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
     display: flex !important; }
   /* line 1053, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-sm-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
     display: inline-flex !important; } }
 
 @media (min-width: 768px) {
@@ -1363,9 +1674,13 @@ html {
     display: table-cell !important; }
   /* line 1081, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-md-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
     display: flex !important; }
   /* line 1085, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-md-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
     display: inline-flex !important; } }
 
 @media (min-width: 992px) {
@@ -1392,9 +1707,13 @@ html {
     display: table-cell !important; }
   /* line 1113, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-lg-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
     display: flex !important; }
   /* line 1117, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-lg-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
     display: inline-flex !important; } }
 
 @media (min-width: 1200px) {
@@ -1421,9 +1740,13 @@ html {
     display: table-cell !important; }
   /* line 1145, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-xl-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
     display: flex !important; }
   /* line 1149, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-xl-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
     display: inline-flex !important; } }
 
 @media print {
@@ -1450,561 +1773,835 @@ html {
     display: table-cell !important; }
   /* line 1177, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-print-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
     display: flex !important; }
   /* line 1181, template/assets/scss/vendor/_bootstrap-grid.scss */
   .d-print-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
     display: inline-flex !important; } }
 
 /* line 1187, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-row {
-  flex-direction: row !important; }
+  -ms-flex-direction: row !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+          flex-direction: row !important; }
 
 /* line 1192, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-column {
-  flex-direction: column !important; }
+  -ms-flex-direction: column !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+          flex-direction: column !important; }
 
 /* line 1197, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-row-reverse {
-  flex-direction: row-reverse !important; }
+  -ms-flex-direction: row-reverse !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: reverse !important;
+          flex-direction: row-reverse !important; }
 
 /* line 1202, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-column-reverse {
-  flex-direction: column-reverse !important; }
+  -ms-flex-direction: column-reverse !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: reverse !important;
+          flex-direction: column-reverse !important; }
 
 /* line 1207, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-wrap {
+  -ms-flex-wrap: wrap !important;
   flex-wrap: wrap !important; }
 
 /* line 1212, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-nowrap {
+  -ms-flex-wrap: nowrap !important;
   flex-wrap: nowrap !important; }
 
 /* line 1217, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse !important;
   flex-wrap: wrap-reverse !important; }
 
 /* line 1222, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-fill {
-  flex: 1 1 auto !important; }
+  -ms-flex: 1 1 auto !important;
+  -webkit-box-flex: 1 !important;
+          flex: 1 1 auto !important; }
 
 /* line 1227, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-grow-0 {
-  flex-grow: 0 !important; }
+  -ms-flex-positive: 0 !important;
+  -webkit-box-flex: 0 !important;
+          flex-grow: 0 !important; }
 
 /* line 1232, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-grow-1 {
-  flex-grow: 1 !important; }
+  -ms-flex-positive: 1 !important;
+  -webkit-box-flex: 1 !important;
+          flex-grow: 1 !important; }
 
 /* line 1237, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-shrink-0 {
+  -ms-flex-negative: 0 !important;
   flex-shrink: 0 !important; }
 
 /* line 1242, template/assets/scss/vendor/_bootstrap-grid.scss */
 .flex-shrink-1 {
+  -ms-flex-negative: 1 !important;
   flex-shrink: 1 !important; }
 
 /* line 1247, template/assets/scss/vendor/_bootstrap-grid.scss */
 .justify-content-start {
-  justify-content: flex-start !important; }
+  -ms-flex-pack: start !important;
+  -webkit-box-pack: start !important;
+          justify-content: flex-start !important; }
 
 /* line 1252, template/assets/scss/vendor/_bootstrap-grid.scss */
 .justify-content-end {
-  justify-content: flex-end !important; }
+  -ms-flex-pack: end !important;
+  -webkit-box-pack: end !important;
+          justify-content: flex-end !important; }
 
 /* line 1257, template/assets/scss/vendor/_bootstrap-grid.scss */
 .justify-content-center {
-  justify-content: center !important; }
+  -ms-flex-pack: center !important;
+  -webkit-box-pack: center !important;
+          justify-content: center !important; }
 
 /* line 1262, template/assets/scss/vendor/_bootstrap-grid.scss */
 .justify-content-between {
-  justify-content: space-between !important; }
+  -ms-flex-pack: justify !important;
+  -webkit-box-pack: justify !important;
+          justify-content: space-between !important; }
 
 /* line 1267, template/assets/scss/vendor/_bootstrap-grid.scss */
 .justify-content-around {
+  -ms-flex-pack: distribute !important;
   justify-content: space-around !important; }
 
 /* line 1272, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-items-start {
-  align-items: flex-start !important; }
+  -ms-flex-align: start !important;
+  -webkit-box-align: start !important;
+          align-items: flex-start !important; }
 
 /* line 1277, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-items-end {
-  align-items: flex-end !important; }
+  -ms-flex-align: end !important;
+  -webkit-box-align: end !important;
+          align-items: flex-end !important; }
 
 /* line 1282, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-items-center {
-  align-items: center !important; }
+  -ms-flex-align: center !important;
+  -webkit-box-align: center !important;
+          align-items: center !important; }
 
 /* line 1287, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-items-baseline {
-  align-items: baseline !important; }
+  -ms-flex-align: baseline !important;
+  -webkit-box-align: baseline !important;
+          align-items: baseline !important; }
 
 /* line 1292, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-items-stretch {
-  align-items: stretch !important; }
+  -ms-flex-align: stretch !important;
+  -webkit-box-align: stretch !important;
+          align-items: stretch !important; }
 
 /* line 1297, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-start {
+  -ms-flex-line-pack: start !important;
   align-content: flex-start !important; }
 
 /* line 1302, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-end {
+  -ms-flex-line-pack: end !important;
   align-content: flex-end !important; }
 
 /* line 1307, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-center {
+  -ms-flex-line-pack: center !important;
   align-content: center !important; }
 
 /* line 1312, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-between {
+  -ms-flex-line-pack: justify !important;
   align-content: space-between !important; }
 
 /* line 1317, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-around {
+  -ms-flex-line-pack: distribute !important;
   align-content: space-around !important; }
 
 /* line 1322, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-content-stretch {
+  -ms-flex-line-pack: stretch !important;
   align-content: stretch !important; }
 
 /* line 1327, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-auto {
+  -ms-flex-item-align: auto !important;
   align-self: auto !important; }
 
 /* line 1332, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-start {
+  -ms-flex-item-align: start !important;
   align-self: flex-start !important; }
 
 /* line 1337, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-end {
+  -ms-flex-item-align: end !important;
   align-self: flex-end !important; }
 
 /* line 1342, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-center {
+  -ms-flex-item-align: center !important;
   align-self: center !important; }
 
 /* line 1347, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-baseline {
+  -ms-flex-item-align: baseline !important;
   align-self: baseline !important; }
 
 /* line 1352, template/assets/scss/vendor/_bootstrap-grid.scss */
 .align-self-stretch {
+  -ms-flex-item-align: stretch !important;
   align-self: stretch !important; }
 
 @media (min-width: 576px) {
   /* line 1358, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-row {
-    flex-direction: row !important; }
+    -ms-flex-direction: row !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: row !important; }
   /* line 1362, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-column {
-    flex-direction: column !important; }
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: column !important; }
   /* line 1366, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-row-reverse {
-    flex-direction: row-reverse !important; }
+    -ms-flex-direction: row-reverse !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: row-reverse !important; }
   /* line 1370, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-column-reverse {
-    flex-direction: column-reverse !important; }
+    -ms-flex-direction: column-reverse !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: column-reverse !important; }
   /* line 1374, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-wrap {
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important; }
   /* line 1378, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-nowrap {
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important; }
   /* line 1382, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important; }
   /* line 1386, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-fill {
-    flex: 1 1 auto !important; }
+    -ms-flex: 1 1 auto !important;
+    -webkit-box-flex: 1 !important;
+            flex: 1 1 auto !important; }
   /* line 1390, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-grow-0 {
-    flex-grow: 0 !important; }
+    -ms-flex-positive: 0 !important;
+    -webkit-box-flex: 0 !important;
+            flex-grow: 0 !important; }
   /* line 1394, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-grow-1 {
-    flex-grow: 1 !important; }
+    -ms-flex-positive: 1 !important;
+    -webkit-box-flex: 1 !important;
+            flex-grow: 1 !important; }
   /* line 1398, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-shrink-0 {
+    -ms-flex-negative: 0 !important;
     flex-shrink: 0 !important; }
   /* line 1402, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-sm-shrink-1 {
+    -ms-flex-negative: 1 !important;
     flex-shrink: 1 !important; }
   /* line 1406, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-sm-start {
-    justify-content: flex-start !important; }
+    -ms-flex-pack: start !important;
+    -webkit-box-pack: start !important;
+            justify-content: flex-start !important; }
   /* line 1410, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-sm-end {
-    justify-content: flex-end !important; }
+    -ms-flex-pack: end !important;
+    -webkit-box-pack: end !important;
+            justify-content: flex-end !important; }
   /* line 1414, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-sm-center {
-    justify-content: center !important; }
+    -ms-flex-pack: center !important;
+    -webkit-box-pack: center !important;
+            justify-content: center !important; }
   /* line 1418, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-sm-between {
-    justify-content: space-between !important; }
+    -ms-flex-pack: justify !important;
+    -webkit-box-pack: justify !important;
+            justify-content: space-between !important; }
   /* line 1422, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-sm-around {
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important; }
   /* line 1426, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-sm-start {
-    align-items: flex-start !important; }
+    -ms-flex-align: start !important;
+    -webkit-box-align: start !important;
+            align-items: flex-start !important; }
   /* line 1430, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-sm-end {
-    align-items: flex-end !important; }
+    -ms-flex-align: end !important;
+    -webkit-box-align: end !important;
+            align-items: flex-end !important; }
   /* line 1434, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-sm-center {
-    align-items: center !important; }
+    -ms-flex-align: center !important;
+    -webkit-box-align: center !important;
+            align-items: center !important; }
   /* line 1438, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-sm-baseline {
-    align-items: baseline !important; }
+    -ms-flex-align: baseline !important;
+    -webkit-box-align: baseline !important;
+            align-items: baseline !important; }
   /* line 1442, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-sm-stretch {
-    align-items: stretch !important; }
+    -ms-flex-align: stretch !important;
+    -webkit-box-align: stretch !important;
+            align-items: stretch !important; }
   /* line 1446, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-start {
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important; }
   /* line 1450, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-end {
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important; }
   /* line 1454, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-center {
+    -ms-flex-line-pack: center !important;
     align-content: center !important; }
   /* line 1458, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-between {
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important; }
   /* line 1462, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-around {
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important; }
   /* line 1466, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-sm-stretch {
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important; }
   /* line 1470, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-auto {
+    -ms-flex-item-align: auto !important;
     align-self: auto !important; }
   /* line 1474, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-start {
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important; }
   /* line 1478, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-end {
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important; }
   /* line 1482, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-center {
+    -ms-flex-item-align: center !important;
     align-self: center !important; }
   /* line 1486, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-baseline {
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important; }
   /* line 1490, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-sm-stretch {
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important; } }
 
 @media (min-width: 768px) {
   /* line 1497, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-row {
-    flex-direction: row !important; }
+    -ms-flex-direction: row !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: row !important; }
   /* line 1501, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-column {
-    flex-direction: column !important; }
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: column !important; }
   /* line 1505, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-row-reverse {
-    flex-direction: row-reverse !important; }
+    -ms-flex-direction: row-reverse !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: row-reverse !important; }
   /* line 1509, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-column-reverse {
-    flex-direction: column-reverse !important; }
+    -ms-flex-direction: column-reverse !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: column-reverse !important; }
   /* line 1513, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-wrap {
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important; }
   /* line 1517, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-nowrap {
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important; }
   /* line 1521, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important; }
   /* line 1525, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-fill {
-    flex: 1 1 auto !important; }
+    -ms-flex: 1 1 auto !important;
+    -webkit-box-flex: 1 !important;
+            flex: 1 1 auto !important; }
   /* line 1529, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-grow-0 {
-    flex-grow: 0 !important; }
+    -ms-flex-positive: 0 !important;
+    -webkit-box-flex: 0 !important;
+            flex-grow: 0 !important; }
   /* line 1533, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-grow-1 {
-    flex-grow: 1 !important; }
+    -ms-flex-positive: 1 !important;
+    -webkit-box-flex: 1 !important;
+            flex-grow: 1 !important; }
   /* line 1537, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-shrink-0 {
+    -ms-flex-negative: 0 !important;
     flex-shrink: 0 !important; }
   /* line 1541, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-md-shrink-1 {
+    -ms-flex-negative: 1 !important;
     flex-shrink: 1 !important; }
   /* line 1545, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-md-start {
-    justify-content: flex-start !important; }
+    -ms-flex-pack: start !important;
+    -webkit-box-pack: start !important;
+            justify-content: flex-start !important; }
   /* line 1549, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-md-end {
-    justify-content: flex-end !important; }
+    -ms-flex-pack: end !important;
+    -webkit-box-pack: end !important;
+            justify-content: flex-end !important; }
   /* line 1553, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-md-center {
-    justify-content: center !important; }
+    -ms-flex-pack: center !important;
+    -webkit-box-pack: center !important;
+            justify-content: center !important; }
   /* line 1557, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-md-between {
-    justify-content: space-between !important; }
+    -ms-flex-pack: justify !important;
+    -webkit-box-pack: justify !important;
+            justify-content: space-between !important; }
   /* line 1561, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-md-around {
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important; }
   /* line 1565, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-md-start {
-    align-items: flex-start !important; }
+    -ms-flex-align: start !important;
+    -webkit-box-align: start !important;
+            align-items: flex-start !important; }
   /* line 1569, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-md-end {
-    align-items: flex-end !important; }
+    -ms-flex-align: end !important;
+    -webkit-box-align: end !important;
+            align-items: flex-end !important; }
   /* line 1573, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-md-center {
-    align-items: center !important; }
+    -ms-flex-align: center !important;
+    -webkit-box-align: center !important;
+            align-items: center !important; }
   /* line 1577, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-md-baseline {
-    align-items: baseline !important; }
+    -ms-flex-align: baseline !important;
+    -webkit-box-align: baseline !important;
+            align-items: baseline !important; }
   /* line 1581, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-md-stretch {
-    align-items: stretch !important; }
+    -ms-flex-align: stretch !important;
+    -webkit-box-align: stretch !important;
+            align-items: stretch !important; }
   /* line 1585, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-start {
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important; }
   /* line 1589, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-end {
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important; }
   /* line 1593, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-center {
+    -ms-flex-line-pack: center !important;
     align-content: center !important; }
   /* line 1597, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-between {
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important; }
   /* line 1601, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-around {
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important; }
   /* line 1605, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-md-stretch {
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important; }
   /* line 1609, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-auto {
+    -ms-flex-item-align: auto !important;
     align-self: auto !important; }
   /* line 1613, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-start {
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important; }
   /* line 1617, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-end {
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important; }
   /* line 1621, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-center {
+    -ms-flex-item-align: center !important;
     align-self: center !important; }
   /* line 1625, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-baseline {
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important; }
   /* line 1629, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-md-stretch {
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important; } }
 
 @media (min-width: 992px) {
   /* line 1636, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-row {
-    flex-direction: row !important; }
+    -ms-flex-direction: row !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: row !important; }
   /* line 1640, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-column {
-    flex-direction: column !important; }
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: column !important; }
   /* line 1644, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-row-reverse {
-    flex-direction: row-reverse !important; }
+    -ms-flex-direction: row-reverse !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: row-reverse !important; }
   /* line 1648, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-column-reverse {
-    flex-direction: column-reverse !important; }
+    -ms-flex-direction: column-reverse !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: column-reverse !important; }
   /* line 1652, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-wrap {
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important; }
   /* line 1656, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-nowrap {
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important; }
   /* line 1660, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important; }
   /* line 1664, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-fill {
-    flex: 1 1 auto !important; }
+    -ms-flex: 1 1 auto !important;
+    -webkit-box-flex: 1 !important;
+            flex: 1 1 auto !important; }
   /* line 1668, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-grow-0 {
-    flex-grow: 0 !important; }
+    -ms-flex-positive: 0 !important;
+    -webkit-box-flex: 0 !important;
+            flex-grow: 0 !important; }
   /* line 1672, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-grow-1 {
-    flex-grow: 1 !important; }
+    -ms-flex-positive: 1 !important;
+    -webkit-box-flex: 1 !important;
+            flex-grow: 1 !important; }
   /* line 1676, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-shrink-0 {
+    -ms-flex-negative: 0 !important;
     flex-shrink: 0 !important; }
   /* line 1680, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-lg-shrink-1 {
+    -ms-flex-negative: 1 !important;
     flex-shrink: 1 !important; }
   /* line 1684, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-lg-start {
-    justify-content: flex-start !important; }
+    -ms-flex-pack: start !important;
+    -webkit-box-pack: start !important;
+            justify-content: flex-start !important; }
   /* line 1688, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-lg-end {
-    justify-content: flex-end !important; }
+    -ms-flex-pack: end !important;
+    -webkit-box-pack: end !important;
+            justify-content: flex-end !important; }
   /* line 1692, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-lg-center {
-    justify-content: center !important; }
+    -ms-flex-pack: center !important;
+    -webkit-box-pack: center !important;
+            justify-content: center !important; }
   /* line 1696, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-lg-between {
-    justify-content: space-between !important; }
+    -ms-flex-pack: justify !important;
+    -webkit-box-pack: justify !important;
+            justify-content: space-between !important; }
   /* line 1700, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-lg-around {
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important; }
   /* line 1704, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-lg-start {
-    align-items: flex-start !important; }
+    -ms-flex-align: start !important;
+    -webkit-box-align: start !important;
+            align-items: flex-start !important; }
   /* line 1708, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-lg-end {
-    align-items: flex-end !important; }
+    -ms-flex-align: end !important;
+    -webkit-box-align: end !important;
+            align-items: flex-end !important; }
   /* line 1712, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-lg-center {
-    align-items: center !important; }
+    -ms-flex-align: center !important;
+    -webkit-box-align: center !important;
+            align-items: center !important; }
   /* line 1716, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-lg-baseline {
-    align-items: baseline !important; }
+    -ms-flex-align: baseline !important;
+    -webkit-box-align: baseline !important;
+            align-items: baseline !important; }
   /* line 1720, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-lg-stretch {
-    align-items: stretch !important; }
+    -ms-flex-align: stretch !important;
+    -webkit-box-align: stretch !important;
+            align-items: stretch !important; }
   /* line 1724, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-start {
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important; }
   /* line 1728, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-end {
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important; }
   /* line 1732, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-center {
+    -ms-flex-line-pack: center !important;
     align-content: center !important; }
   /* line 1736, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-between {
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important; }
   /* line 1740, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-around {
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important; }
   /* line 1744, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-lg-stretch {
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important; }
   /* line 1748, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-auto {
+    -ms-flex-item-align: auto !important;
     align-self: auto !important; }
   /* line 1752, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-start {
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important; }
   /* line 1756, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-end {
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important; }
   /* line 1760, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-center {
+    -ms-flex-item-align: center !important;
     align-self: center !important; }
   /* line 1764, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-baseline {
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important; }
   /* line 1768, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-lg-stretch {
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important; } }
 
 @media (min-width: 1200px) {
   /* line 1775, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-row {
-    flex-direction: row !important; }
+    -ms-flex-direction: row !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: row !important; }
   /* line 1779, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-column {
-    flex-direction: column !important; }
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+            flex-direction: column !important; }
   /* line 1783, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-row-reverse {
-    flex-direction: row-reverse !important; }
+    -ms-flex-direction: row-reverse !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: row-reverse !important; }
   /* line 1787, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-column-reverse {
-    flex-direction: column-reverse !important; }
+    -ms-flex-direction: column-reverse !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: column-reverse !important; }
   /* line 1791, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-wrap {
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important; }
   /* line 1795, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-nowrap {
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important; }
   /* line 1799, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important; }
   /* line 1803, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-fill {
-    flex: 1 1 auto !important; }
+    -ms-flex: 1 1 auto !important;
+    -webkit-box-flex: 1 !important;
+            flex: 1 1 auto !important; }
   /* line 1807, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-grow-0 {
-    flex-grow: 0 !important; }
+    -ms-flex-positive: 0 !important;
+    -webkit-box-flex: 0 !important;
+            flex-grow: 0 !important; }
   /* line 1811, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-grow-1 {
-    flex-grow: 1 !important; }
+    -ms-flex-positive: 1 !important;
+    -webkit-box-flex: 1 !important;
+            flex-grow: 1 !important; }
   /* line 1815, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-shrink-0 {
+    -ms-flex-negative: 0 !important;
     flex-shrink: 0 !important; }
   /* line 1819, template/assets/scss/vendor/_bootstrap-grid.scss */
   .flex-xl-shrink-1 {
+    -ms-flex-negative: 1 !important;
     flex-shrink: 1 !important; }
   /* line 1823, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-xl-start {
-    justify-content: flex-start !important; }
+    -ms-flex-pack: start !important;
+    -webkit-box-pack: start !important;
+            justify-content: flex-start !important; }
   /* line 1827, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-xl-end {
-    justify-content: flex-end !important; }
+    -ms-flex-pack: end !important;
+    -webkit-box-pack: end !important;
+            justify-content: flex-end !important; }
   /* line 1831, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-xl-center {
-    justify-content: center !important; }
+    -ms-flex-pack: center !important;
+    -webkit-box-pack: center !important;
+            justify-content: center !important; }
   /* line 1835, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-xl-between {
-    justify-content: space-between !important; }
+    -ms-flex-pack: justify !important;
+    -webkit-box-pack: justify !important;
+            justify-content: space-between !important; }
   /* line 1839, template/assets/scss/vendor/_bootstrap-grid.scss */
   .justify-content-xl-around {
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important; }
   /* line 1843, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-xl-start {
-    align-items: flex-start !important; }
+    -ms-flex-align: start !important;
+    -webkit-box-align: start !important;
+            align-items: flex-start !important; }
   /* line 1847, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-xl-end {
-    align-items: flex-end !important; }
+    -ms-flex-align: end !important;
+    -webkit-box-align: end !important;
+            align-items: flex-end !important; }
   /* line 1851, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-xl-center {
-    align-items: center !important; }
+    -ms-flex-align: center !important;
+    -webkit-box-align: center !important;
+            align-items: center !important; }
   /* line 1855, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-xl-baseline {
-    align-items: baseline !important; }
+    -ms-flex-align: baseline !important;
+    -webkit-box-align: baseline !important;
+            align-items: baseline !important; }
   /* line 1859, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-items-xl-stretch {
-    align-items: stretch !important; }
+    -ms-flex-align: stretch !important;
+    -webkit-box-align: stretch !important;
+            align-items: stretch !important; }
   /* line 1863, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-start {
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important; }
   /* line 1867, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-end {
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important; }
   /* line 1871, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-center {
+    -ms-flex-line-pack: center !important;
     align-content: center !important; }
   /* line 1875, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-between {
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important; }
   /* line 1879, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-around {
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important; }
   /* line 1883, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-content-xl-stretch {
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important; }
   /* line 1887, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-auto {
+    -ms-flex-item-align: auto !important;
     align-self: auto !important; }
   /* line 1891, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-start {
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important; }
   /* line 1895, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-end {
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important; }
   /* line 1899, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-center {
+    -ms-flex-item-align: center !important;
     align-self: center !important; }
   /* line 1903, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-baseline {
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important; }
   /* line 1907, template/assets/scss/vendor/_bootstrap-grid.scss */
   .align-self-xl-stretch {
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important; } }
 
 /**
@@ -2012,7 +2609,8 @@ html {
  */
 /* line 8, template/assets/scss/base/_base.scss */
 html {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
@@ -2024,7 +2622,8 @@ html {
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
 /**
  * Basic styles for links
@@ -2097,6 +2696,7 @@ body {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+  -webkit-transition: all .2s;
   transition: all .2s; }
 
 /* line 8, template/assets/scss/components/_button.scss */
@@ -2140,7 +2740,10 @@ a.close.disabled {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
   /* line 14, template/assets/scss/components/_form.scss */
   .form-control::-ms-expand {
     background-color: transparent;
@@ -2151,7 +2754,8 @@ a.close.disabled {
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
   /* line 27, template/assets/scss/components/_form.scss */
   .form-control::-webkit-input-placeholder {
     color: #6c757d;
@@ -2196,6 +2800,7 @@ a.close.disabled {
 @media screen and (prefers-reduced-motion: reduce) {
   /* line 64, template/assets/scss/components/_form.scss */
   .form-control {
+    -webkit-transition: none;
     transition: none; } }
 
 /* line 69, template/assets/scss/components/_form.scss */
