@@ -1,3 +1,9 @@
+/*
+Theme Name: WP Blank
+Description: WP Blank
+Author: Roman Egorov
+Author URI: https://romeg.ru/
+*/
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -2687,6 +2693,10 @@ body {
   padding: 0;
   position: absolute;
   width: 1px; }
+
+/* line 4, template/assets/scss/layout/_footer.scss */
+.footer {
+  padding: 50px 0; }
 
 /* line 4, template/assets/scss/components/_button.scss */
 .btn {

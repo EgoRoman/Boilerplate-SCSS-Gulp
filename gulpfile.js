@@ -57,9 +57,6 @@ gulp.task('styles', () => {
       sourceComments: true
     })
       .on('error', sass.logError))
-    // .on('error', console.error.bind(console))
-    // .pipe(sourcemaps.write({includeContent: false}))
-    // .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(sourcemaps.write('./'))
     .pipe(lineec()) // Consistent Line Endings for non UNIX systems.
@@ -68,9 +65,7 @@ gulp.task('styles', () => {
     .pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
 
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss({
-      maxLineLen: 10
-    }))
+    .pipe(minifycss())
     .pipe(lineec()) // Consistent Line Endings for non UNIX systems.
     .pipe(gulp.dest(paths.styles.output))
 });
@@ -81,9 +76,12 @@ gulp.task('scripts', () => {
     .pipe(rigger())
     .pipe(sourcemaps.init())
     // .pipe(rollup({}, `iife`))
-    .pipe(uglify())
-    .pipe(rename('app.min.js'))
+    .pipe(rename('app.js'))
     .pipe(sourcemaps.write(''))
+    .pipe(gulp.dest(paths.scripts.output))
+    .pipe(filter('**/*.js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.output));
 });
 
@@ -114,6 +112,7 @@ gulp.task('watch', ['assemble'], () => {
 gulp.task('assemble', ['clean'], () => {
   // gulp.start('copy', 'style');
   gulp.start('styles');
+  gulp.start('scripts');
 });
 
 gulp.task('clean', () => {
