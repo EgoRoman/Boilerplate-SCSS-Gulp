@@ -1,3 +1,4 @@
 # Blank-project-Scss-Gulp
 
-Including Swiper https://github.com/nolimits4web/swiper
+Includes:
+1. Swiper https://github.com/nolimits4web/swiper
