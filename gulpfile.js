@@ -41,7 +41,7 @@ const gulp = require('gulp'),
 
   rigger = require('gulp-rigger'),
   rollup = require('gulp-better-rollup'),
-  uglify = require('gulp-uglify'),
+  uglify = require('gulp-uglify-es').default,
 
   del = require('del');
 
