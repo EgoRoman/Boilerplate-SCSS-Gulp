@@ -1,4 +1,5 @@
 # Blank-project-Scss-Gulp
 
 Includes:
-1. Swiper https://github.com/nolimits4web/swiper
+* Fancybox 3.5.7 https://github.com/fancyapps/fancybox
+* Swiper https://github.com/nolimits4web/swiper
