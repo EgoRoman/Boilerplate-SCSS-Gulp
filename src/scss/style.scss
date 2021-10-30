@@ -1,30 +1,30 @@
 @charset 'UTF-8';
 
 // 1. Configuration and helpers
-@import 'abstracts/variables';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
+@import '_abstracts/variables';
+@import '_abstracts/functions';
+@import '_abstracts/mixins';
 
 // 2. Vendors
-@import 'vendor/reset';
-@import 'vendor/bootstrap-grid';
+@import '_vendor/reset';
+@import '_vendor/bootstrap-grid';
 
 // 3. Base stuff
-@import 'base/base';
-@import 'base/fonts';
-@import 'base/typography';
-@import 'base/helpers';
+@import '_base/base';
+@import '_base/fonts';
+@import '_base/typography';
+@import '_base/helpers';
 
 // 4. Layout-related sections
-@import 'layout/header';
-@import 'layout/footer';
+@import '_layout/header';
+@import '_layout/footer';
 
 // 5. Components
-@import 'components/button';
-@import 'components/form';
+@import '_components/button';
+@import '_components/form';
 
 // 6. Page-specific styles
-@import 'pages/home';
+@import '_pages/home';
 
 // 7. Themes
-@import 'themes/default';
+@import '_themes/default';
