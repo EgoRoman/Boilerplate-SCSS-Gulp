@@ -1,19 +1,15 @@
 @charset 'UTF-8';
 
-// 1. Configuration and helpers
-@import '_abstracts/variables';
-@import '_abstracts/functions';
-@import '_abstracts/mixins';
+// 0. Vendors
+@import '_vendor/normalize';
+@import '_vendor/grid';
 
-// 2. Vendors
-@import '_vendor/reset';
-@import '_vendor/bootstrap-grid';
-
-// 3. Base stuff
+// 1. Base stuff
 @import '_base/base';
 @import '_base/fonts';
-@import '_base/typography';
 @import '_base/helpers';
+@import '_base/variables';
+
 
 // 4. Layout-related sections
 @import '_layout/header';

@@ -1,94 +1,149 @@
+// TODO image optimize task
+const appUrl = 'App-domain';
+
+const {dest, series, parallel, src, watch} = require('gulp'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer'),
+  cssnano = require('cssnano'),
+  sass = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
+  browserSync = require('browser-sync'),
+  concat = require('gulp-concat'),
+  include = require('gulp-include'),
+  uglify = require('gulp-uglify-es').default;
+
+const server = browserSync.create();
+
+/**
+ * Settings
+ * Turn on/off build features
+ */
+
+const settings = {
+  // clean: true,
+  // scripts: true,
+  // polyfills: true,
+  // styles: true,
+  // svgs: true,
+  // copy: true,
+  // reload: true
+};
+
 /**
  * Paths to project folders
  */
-var themePath = './templates/osnova-med/';
-// var projectURL = 'test.r98712ol.beget.tech';
 
-var paths = {
+const paths = {
   styles: {
-    input: themePath + 'assets/scss/style.scss',
-    output: themePath + '/css/',
-    watch: themePath + 'assets/scss/**/*.scss'
-  }
+    input: 'src/scss/**/*.scss',
+    output: 'dist/css/'
+  },
+  scripts: {
+    vendorDir: 'src/js/vendor/',
+    input: 'src/js/app.js',
+    output: 'dist/js/'
+  },
+  fonts: {
+    input: 'src/fonts/*.{woff,woff2}',
+    output: 'dist/fonts/'
+  },
+
+  //
+  // svgs: {
+  //   input: 'build/svg/*.svg',
+  //   output: 'dist/svg/'
+  // },
+  // copy: {
+  //   input: 'build/copy/**/*',
+  //   output: 'dist/'
+  // },
+  // reload: './dist/'
 };
-
-// Browsers you care about for autoprefixing.
-// Browserlist https        ://github.com/ai/browserslist
-var AUTOPREFIXER_BROWSERS = [
-  'last 2 version',
-  '> 1%',
-  'ie >= 9',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4',
-  'bb >= 10'
-];
-
-/**
- * Gulp Packages
- */
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create(); // Reloads browser and injects CSS. Time-saving synchronised browser testing.
-var sourcemaps = require('gulp-sourcemaps'); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css)
-var sass = require('gulp-sass'); // Gulp pluign for Sass compilation.
-var autoprefixer = require('gulp-autoprefixer'); // Autoprefixing magic.
-var lineec = require('gulp-line-ending-corrector'); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)
-var rename = require('gulp-rename'); // Renames files E.g. style.css -> style.min.css
-var minifycss = require('gulp-uglifycss'); // Minifies CSS files.
-var filter = require('gulp-filter'); // Enables you to work on a subset of the original files by filtering them using globbing.
 
 /**
  * Gulp Tasks
  */
-gulp.task('browser-sync', function () {
-  browserSync.init({
-    // Project URL.
-    proxy: projectURL,
-    host: projectURL,
-    open: 'external',
-    // Inject CSS changes.
-    // Commnet it to reload browser for every CSS change.
-    injectChanges: true,
-  });
-});
 
-/**
- * Compiles Sass, Autoprefixes it and Minifies CSS.
- */
-gulp.task('styles', function () {
-  return gulp.src(paths.styles.input)
+function buildStyles() {
+  return src(paths.styles.input)
+
+    // initialize sourcemaps first
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      errLogToConsole: true,
-      precision: 10
-    }))
-    .on('error', console.error.bind(console))
-    // .pipe(sourcemaps.write({includeContent: false}))
-    // .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(sourcemaps.write('./'))
-    .pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-    .pipe(gulp.dest(paths.styles.output))
-    .pipe(filter('**/*.css')) // Filtering stream to only css files
-    .pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
+    // compile SCSS to CSS
+    .pipe(sass())
+    // PostCSS plugins
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    // write sourcemaps file in current directory
+    .pipe(sourcemaps.write('.'))
+    // put final CSS in dist folder
+    .pipe(dest(paths.styles.output));
+}
 
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss({
-      maxLineLen: 10
-    }))
-    .pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-    .pipe(gulp.dest(paths.styles.output))
-});
+function buildScripts() {
+  return src(
+    // paths.scripts.vendorDir + 'jquery.js',
+    // paths.scripts.vendorDir + 'jquery.fancybox.js',
+    // paths.scripts.vendorDir + 'scrollreveal.js',
+    paths.scripts.input
+  )
+    .pipe(include())
+    // .pipe(concat('app.js'))
+    .pipe(uglify())
+    .pipe(dest(paths.scripts.output));
+}
+
+const copyTask = () => {
+  return src([
+    paths.fonts.input,
+  ])
+    .pipe(dest([
+      paths.fonts.output
+    ]));
+}
+
+function serve(done) {
+  server.init({
+    proxy: appUrl
+  });
+  done();
+}
+
+function reloadBrowser(done) {
+  server.reload();
+  done();
+}
+
+function watchTask() {
+  watch(paths.styles.input, series(buildStyles, reloadBrowser));
+  watch(paths.scripts.input, series(buildScripts, reloadBrowser));
+  watch('index.php', series(reloadBrowser));
+}
 
 /**
- * Watch Tasks.
- *
- * Watches for file changes and runs specific tasks.
+ * Export Tasks
  */
-gulp.task('default', ['styles'], function () {
-  gulp.watch(paths.styles.watch, ['styles']); // Reload on SCSS file changes.
-});
+
+// Watch and reload
+// gulp watch
+exports.dev = series(
+  copyTask,
+  buildStyles,
+  buildScripts,
+  serve,
+  watchTask
+);
+
+// Default task
+// gulp
+exports.default = series(
+  // cleanDist,
+  parallel(
+    buildStyles,
+    buildScripts,
+
+
+    // lintScripts,
+    // buildSVGs,
+    // copyFiles
+  )
+);
