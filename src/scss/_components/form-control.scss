@@ -1,0 +1,83 @@
+/* Based on Bootstrap v5.1.0 */
+.form-group {
+  margin-bottom: 12px;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 24px;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #fff;
+  background-clip: padding-box;
+  font-size: 13px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  // theme
+  color: var(--c-text);
+  border: 1px solid #D3D8E2;
+  border-radius: var(--border-radius, 1px);
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
+
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: var(--c-gray_dark);
+    outline: 0;
+  }
+
+  &::-moz-placeholder {
+    color: var(--c-gray_dark);
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: var(--c-gray_dark);
+    opacity: 1;
+  }
+
+  // Add some height to date inputs on iOS
+  // https://github.com/twbs/bootstrap/issues/23307
+  // TODO: we can remove this workaround once https://bugs.webkit.org/show_bug.cgi?id=198959 is resolved
+  &::-webkit-date-and-time-value {
+    height: 1.5em;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+
+  // TODO: File input buttons theming
+}
+
+// TODO: Readonly controls as plain text
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .form-control {
+    transition: none;
+  }
+}
+
+// TODO: Form control sizing
+
+// TODO:
+// Make sure textareas don't shrink too much when resized
+// https://github.com/twbs/bootstrap/pull/29124
+// stylelint-disable selector-no-qualifying-type
+
+// TODO: Form color picker
+
+// TODO: ?
+select.form-control:focus::-ms-value {
+  color: #495057;
+  background-color: #fff;
+}
