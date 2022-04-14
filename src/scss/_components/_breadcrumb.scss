@@ -1,0 +1,30 @@
+/* Based on Bootstrap v5.1.0 */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+
+  // *** Theme
+}
+
+.breadcrumb-item {
+  & + .breadcrumb-item {
+    padding-left: 4px;
+
+    // The separator between breadcrumbs (by default, a forward-slash: "/")
+    &:before {
+      float: left;
+      padding-right: 4px;
+      color: var(--breadcrumb-color, #6c757d);
+      content: var(--breadcrumb-divider, "/");
+    }
+  }
+
+  &.active {
+     color: var(--breadcrumb-color, #6c757d);
+  }
+}
+
+
