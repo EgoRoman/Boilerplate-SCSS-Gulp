@@ -1,0 +1,77 @@
+/* Based on Bootstrap v5.1.0 */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  color: var(--c-black);
+  transition: box-shadow .3s ease;
+
+  &:hover {
+    box-shadow: var(--card-box-shadow);
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  height: 100%;
+  padding: var(--card-paddings);
+
+  &--center {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: var(--card-title-mb);
+  font-size: var(--card-title-fz);
+  line-height: var(--card-title-lh);
+  font-weight: var(--card-title-fw);
+}
+
+.card-subtitle {
+  margin: 0;
+}
+
+.card-text {
+  margin-top: 0;
+  font-size: var(--card-fz);
+  line-height: var(--card-lh);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card-link + .card-link {
+  margin-left: 1rem;
+}
+
+.card-img {
+  //TODO test different image sizes
+  display: block;
+  width: 100%;
+
+  &--top,
+  &--bottom {
+
+  }
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// TODO: add card-header, card-footer
