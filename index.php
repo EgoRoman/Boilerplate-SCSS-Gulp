@@ -1,14 +1,20 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="">
-</head>
-<body>
-<h1>Blank project with Scss and Gulp</h1>
-</body>
-</html>
+<?php
+// Require PHP 7.3!
+const DIR_BASE = __DIR__ . '/';
+const DIR_TEMPLATES = __DIR__ . '/template-parts/';
+
+$request = $_SERVER['REQUEST_URI'];
+
+switch ($request) {
+  case '/' :
+    require DIR_BASE . '/pages/home.php';
+    break;
+  case '/ui' :
+    require DIR_BASE . '/pages/ui.php';
+    break;
+  default:
+    /*TODO 404 page*/
+    // http_response_code(404);
+    require DIR_BASE . '/pages/404.php';
+    break;
+}
