@@ -12,6 +12,11 @@
 @import '_base/helpers';
 @import '_base/variables';
 
+// 5. Components
+@import '_components/accordion';
+@import '_components/button';
+@import '_components/form';
+
 // Utilities
 @import '_utilities/display';
 
@@ -19,9 +24,7 @@
 @import '_layout/header';
 @import '_layout/footer';
 
-// 5. Components
-@import '_components/button';
-@import '_components/form';
+
 
 // 6. Page-specific styles
 @import '_pages/home';

@@ -1,0 +1,105 @@
+// TODO verify with bootstrap https://getbootstrap.com/docs/5.2/components/accordion/
+// TODO add bootstrap js
+.accordion {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.accordion-item {
+  background-color: #fff;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #D5DAE3;
+  }
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  overflow-anchor: none;
+
+  // Theme
+  padding: 1rem 1.5rem;
+  color: var(--c-black);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.875rem;
+
+  &:hover {
+    color: var(--c-primary);
+    z-index: 2;
+  }
+
+  &:focus {
+    z-index: 3;
+    outline: 0;
+  }
+
+  .icon {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-left: auto;
+    margin-right: -5px;
+    transition: transform 0.3s ease;
+  }
+
+  &:not(.collapsed) {
+    color: var(--c-primary);
+    background-color: var(--c-gray-white);
+
+    .icon {
+      transform: rotate(-225deg);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding: 2rem 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.accordion-button__text {
+  margin-right: 15px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-button {
+    transition: none;
+  }
+
+  .accordion-button .icon {
+    transition: none;
+  }
+}
+
+.accordion-body {
+  background-color: var(--c-gray-white);
+  padding: 0 1.5rem 2.5rem;
+
+  p {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 2rem 2.5rem;
+  }
+}
