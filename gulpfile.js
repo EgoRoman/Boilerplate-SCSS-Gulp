@@ -1,5 +1,6 @@
 // TODO image optimize task
-const appUrl = 'App-domain';
+const appUrl = 'App-domain',
+  themePath = './';
 
 const {dest, series, parallel, src, watch} = require('gulp'),
   postcss = require('gulp-postcss'),
@@ -35,13 +36,14 @@ const settings = {
 
 const paths = {
   styles: {
-    input: 'src/scss/**/*.scss',
-    output: 'dist/css/'
+    input: themePath + 'src/scss/app.scss',
+    output: themePath + 'dist/css/',
+    watch: themePath + 'src/scss/**/*.scss'
   },
   scripts: {
-    vendorDir: 'src/js/vendor/',
-    input: 'src/js/app.js',
-    output: 'dist/js/'
+    input: themePath + 'assets/js/app.js',
+    output: themePath + 'dist/js/',
+    watch: themePath + 'assets/js/**/*.js'
   },
   fonts: {
     input: 'src/fonts/*.{woff,woff2}',

@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+// TODO verify folder's order
+
 // 0. Vendors
 @import '_vendor/normalize';
 @import '_vendor/bootstrap-grid';
@@ -10,6 +12,8 @@
 @import '_base/helpers';
 @import '_base/variables';
 
+// Utilities
+@import '_utilities/display';
 
 // 4. Layout-related sections
 @import '_layout/header';
