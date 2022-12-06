@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+// TODO
 .btn {
   @include button-reset;
 }
@@ -13,13 +14,13 @@
   color: #000;
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
-  
+
   &:hover {
     color: #000;
     text-decoration: none;
   }
 
-  &:not(:disabled):not(.disabled):hover, 
+  &:not(:disabled):not(.disabled):hover,
   &:not(:disabled):not(.disabled):focus {
     opacity: .75;
   }

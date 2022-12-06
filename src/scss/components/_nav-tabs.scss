@@ -1,0 +1,50 @@
+.nav-tabs {
+  // Theme
+  border-bottom: 1px solid #dee2e6;
+
+  .nav-link {
+    // Theme
+    margin-bottom: -1px;
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+
+    &:hover,
+    &:focus {
+      // Theme
+      border-color: #e9ecef #e9ecef #dee2e6;
+    }
+
+    &.disabled {
+      // Theme
+      color: #6c757d;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    // Theme
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+  }
+
+  /*.dropdown-menu {
+    // Theme
+    margin-top: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }*/
+}
+
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}

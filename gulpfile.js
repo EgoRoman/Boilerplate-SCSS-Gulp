@@ -1,6 +1,7 @@
 // TODO image optimize task
 const appUrl = 'App-domain',
-  themePath = './';
+  themePath = './',
+  uiPath = '';
 
 const {dest, series, parallel, src, watch} = require('gulp'),
   postcss = require('gulp-postcss'),
@@ -62,13 +63,9 @@ const paths = {
   // reload: './dist/'
 };
 
-/**
- * Gulp Tasks
- */
-
-function buildStyles() {
+// Styles
+function styles() {
   return src(paths.styles.input)
-
     // initialize sourcemaps first
     .pipe(sourcemaps.init())
     // compile SCSS to CSS

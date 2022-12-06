@@ -3,32 +3,32 @@
 // TODO verify folder's order
 
 // 0. Vendors
-@import '_vendor/normalize';
-@import '_vendor/bootstrap-grid';
+@import 'vendor/normalize';
+@import 'vendor/bootstrap-grid';
 
 // 1. Base stuff
-@import '_base/base';
-@import '_base/fonts';
-@import '_base/helpers';
-@import '_base/variables';
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/helpers';
+@import 'base/variables';
 
 // 5. Components
-@import '_components/accordion';
-@import '_components/button';
-@import '_components/collapse';
-@import '_components/form';
+@import 'components/accordion';
+@import 'components/button';
+@import 'components/collapse';
+@import 'components/form';
 
 // Utilities
-@import '_utilities/display';
+@import 'utilities/display';
 
 // 4. Layout-related sections
-@import '_layout/header';
-@import '_layout/footer';
+@import 'layout/header';
+@import 'layout/footer';
 
 
 
 // 6. Page-specific styles
-@import '_pages/home';
+@import 'pages/home';
 
 // 7. Themes
-@import '_themes/default';
+@import 'themes/default';
