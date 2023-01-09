@@ -2,6 +2,7 @@
 .idea
 *.ai
 *.log
-build/
-node_modules/
 Thumbs.db
+
+dist/
+node_modules/

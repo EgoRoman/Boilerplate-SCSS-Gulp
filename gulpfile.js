@@ -1,15 +1,19 @@
-// TODO image optimize task
-const appUrl = 'App-domain',
+const appUrl = 'boilerplate-scss-gulp',
   themePath = './',
   uiPath = '';
 
 const {dest, series, parallel, src, watch} = require('gulp'),
-  postcss = require('gulp-postcss'),
+  // Common plugins
+  browserSync = require('browser-sync'),
+  plumber = require('gulp-plumber'), // Prevent pipe breaking caused by errors from gulp plugins
+  rename = require('gulp-rename'); // Renames files
+  // Scss plugins
   autoprefixer = require('autoprefixer'),
-  cssnano = require('cssnano'),
+  csso = require('gulp-csso'),
+  postcss = require('gulp-postcss'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
-  browserSync = require('browser-sync'),
+
   concat = require('gulp-concat'),
   include = require('gulp-include'),
   uglify = require('gulp-uglify-es').default;
@@ -20,7 +24,6 @@ const server = browserSync.create();
  * Settings
  * Turn on/off build features
  */
-
 const settings = {
   // clean: true,
   // scripts: true,
@@ -34,10 +37,9 @@ const settings = {
 /**
  * Paths to project folders
  */
-
 const paths = {
   styles: {
-    input: themePath + 'src/scss/app.scss',
+    input: themePath + 'src/scss/style.scss',
     output: themePath + 'dist/css/',
     watch: themePath + 'src/scss/**/*.scss'
   },
@@ -63,21 +65,36 @@ const paths = {
   // reload: './dist/'
 };
 
-// Styles
+/**
+ * Build styles task
+ */
 function styles() {
   return src(paths.styles.input)
-    // initialize sourcemaps first
+    .pipe(plumber())
     .pipe(sourcemaps.init())
-    // compile SCSS to CSS
-    .pipe(sass())
-    // PostCSS plugins
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    // write sourcemaps file in current directory
-    .pipe(sourcemaps.write('.'))
-    // put final CSS in dist folder
-    .pipe(dest(paths.styles.output));
+    .pipe(sass().on('error', sass.logError))
+    // .on("error", notify.onError("Error: <%= error.message %>"))
+    .pipe(postcss([
+      autoprefixer(),
+    ]))
+    //.pipe(groupmedia()) // todo add task?
+    .pipe(sourcemaps.write('./'))
+    .pipe(dest(paths.styles.output))
+    .pipe(csso({
+      sourceMap: false,
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(dest(paths.styles.output))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 }
 
+/**
+ * Build scripts task
+ */
 function buildScripts() {
   return src(
     // paths.scripts.vendorDir + 'jquery.js',
@@ -91,18 +108,12 @@ function buildScripts() {
     .pipe(dest(paths.scripts.output));
 }
 
-const copyTask = () => {
-  return src([
-    paths.fonts.input,
-  ])
-    .pipe(dest([
-      paths.fonts.output
-    ]));
-}
-
-function serve(done) {
+/**
+ * BrowserSync tasks
+ */
+function startServer(done) {
   server.init({
-    proxy: appUrl
+    proxy: appUrl, // domain name from OpenServer
   });
   done();
 }
@@ -113,23 +124,35 @@ function reloadBrowser(done) {
 }
 
 function watchTask() {
-  watch(paths.styles.input, series(buildStyles, reloadBrowser));
-  watch(paths.scripts.input, series(buildScripts, reloadBrowser));
+  watch(paths.styles.watch, series(styles, reloadBrowser));
+  watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
   watch('index.php', series(reloadBrowser));
 }
+
+const copyTask = () => {
+  return src([
+    paths.fonts.input,
+  ])
+    .pipe(dest([
+      paths.fonts.output
+    ]));
+}
+
+// TODO image optimize task
+
+
+
+
 
 /**
  * Export Tasks
  */
-
-// Watch and reload
-// gulp watch
 exports.dev = series(
-  copyTask,
-  buildStyles,
-  buildScripts,
-  serve,
-  watchTask
+  // copyTask,
+  styles,
+  // buildScripts,
+  startServer,
+  watchTask,
 );
 
 // Default task
@@ -137,7 +160,7 @@ exports.dev = series(
 exports.default = series(
   // cleanDist,
   parallel(
-    buildStyles,
+    styles,
     buildScripts,
 
 
