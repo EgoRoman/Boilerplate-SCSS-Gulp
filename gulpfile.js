@@ -22,7 +22,6 @@ const server = browserSync.create();
 
 /**
  * Settings
- * Turn on/off build features
  */
 const settings = {
   // clean: true,
@@ -87,9 +86,7 @@ function styles() {
       suffix: '.min'
     }))
     .pipe(dest(paths.styles.output))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(server.stream());
 }
 
 /**
