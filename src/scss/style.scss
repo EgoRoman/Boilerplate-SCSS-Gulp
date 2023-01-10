@@ -4,13 +4,18 @@
 
 // 0. Vendors
 @import 'vendor/normalize';
-@import 'vendor/bootstrap-grid';
+//@import 'vendor/bootstrap-grid';
 
 // 1. Base stuff
 @import 'base/base';
 @import 'base/fonts';
 @import 'base/helpers';
 @import 'base/variables';
+
+/**
+2. Mixins
+ */
+@import 'mixins/breakpoints';
 
 // 5. Components
 @import 'components/accordion';
@@ -20,6 +25,8 @@
 
 // Utilities
 @import 'utilities/display';
+@import 'utilities/flex';
+@import 'utilities/text';
 
 // 4. Layout-related sections
 @import 'layout/header';
