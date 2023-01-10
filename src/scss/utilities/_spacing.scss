@@ -1,0 +1,57 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $key, $size in $spacers {
+        .#{$abbrev}#{$infix}-#{$key} {
+          #{$prop}: #{$size};
+        }
+
+        .#{$abbrev}t#{$infix}-#{$key},
+        .#{$abbrev}y#{$infix}-#{$key} {
+          #{$prop}-top: #{$size};
+        }
+
+        .#{$abbrev}r#{$infix}-#{$key},
+        .#{$abbrev}x#{$infix}-#{$key} {
+          #{$prop}-right: #{$size};
+        }
+
+        .#{$abbrev}b#{$infix}-#{$key},
+        .#{$abbrev}y#{$infix}-#{$key} {
+          #{$prop}-bottom: #{$size};
+        }
+
+        .#{$abbrev}l#{$infix}-#{$key},
+        .#{$abbrev}x#{$infix}-#{$key} {
+          #{$prop}-left: #{$size};
+        }
+      }
+    }
+
+    .m#{$infix}-a {
+      margin: auto;
+    }
+
+    .mt#{$infix}-a,
+    .my#{$infix}-a {
+      margin-top: auto;
+    }
+
+    .mr#{$infix}-a,
+    .mx#{$infix}-a {
+      margin-right: auto;
+    }
+
+    .mb#{$infix}-a,
+    .my#{$infix}-a {
+      margin-bottom: auto;
+    }
+
+    .ml#{$infix}-a,
+    .mx#{$infix}-a {
+      margin-left: auto;
+    }
+  }
+}

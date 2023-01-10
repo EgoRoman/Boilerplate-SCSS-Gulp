@@ -12,6 +12,11 @@
 @import 'base/helpers';
 @import 'base/variables';
 
+/**
+2. Mixins
+ */
+@import 'mixins/breakpoints';
+
 // 5. Components
 @import 'components/accordion';
 @import 'components/button';
@@ -21,6 +26,7 @@
 // Utilities
 @import 'utilities/display';
 @import 'utilities/flex';
+@import 'utilities/text';
 
 // 4. Layout-related sections
 @import 'layout/header';
