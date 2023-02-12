@@ -228,32 +228,3 @@ END Directions
   color: var(--dropdown-header-color);
   white-space: nowrap; // as with > li > a
 }
-
-/**
-Theme styles
- */
-.dropdown-menu--default {
-  //@media (min-width: 1200px) {
-  //  --dropdown-font-size: 15px;
-  //  --dropdown-header-padding-y: 1.375rem;
-  //}
-}
-
-.dropdown-menu--header-menu {
-  --dropdown-min-width: 290px;
-  --dropdown-bg: #F3F3F6;
-  --dropdown-border-radius: 12px;
-  --dropdown-padding-x: 20px;
-  --dropdown-padding-y: 20px;
-}
-
-//.dropdown-backdrop {
-//  position: fixed;
-//  top: 0;
-//  left: 0;
-//  width: 100vw;
-//  height: 100vh;
-//  background: rgba(0, 0, 0, .3);
-//  opacity: 0;
-//  z-index: -1;
-//}
