@@ -1,3 +1,30 @@
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem !default;
+$spacers: (
+  '0': 0,
+  '025': $spacer * .25,
+  '05': $spacer * .5,
+  '075': $spacer * .75,
+  '1': $spacer,
+  '125': $spacer * 1.25,
+  '15': $spacer * 1.5,
+  '2': $spacer * 2,
+  '25': $spacer * 2.5,
+  '275': $spacer * 2.75,
+  '3': $spacer * 3,
+  '4': $spacer * 4,
+  '5': $spacer * 5,
+  '6': $spacer * 6,
+) !default;
+// scss-docs-end spacer-variables-maps
+
+
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -5,53 +32,53 @@
     @each $prop, $abbrev in (margin: m, padding: p) {
       @each $key, $size in $spacers {
         .#{$abbrev}#{$infix}-#{$key} {
-          #{$prop}: #{$size};
+          #{$prop}: #{$size} !important;
         }
 
         .#{$abbrev}t#{$infix}-#{$key},
         .#{$abbrev}y#{$infix}-#{$key} {
-          #{$prop}-top: #{$size};
+          #{$prop}-top: #{$size} !important;
         }
 
         .#{$abbrev}r#{$infix}-#{$key},
         .#{$abbrev}x#{$infix}-#{$key} {
-          #{$prop}-right: #{$size};
+          #{$prop}-right: #{$size} !important;
         }
 
         .#{$abbrev}b#{$infix}-#{$key},
         .#{$abbrev}y#{$infix}-#{$key} {
-          #{$prop}-bottom: #{$size};
+          #{$prop}-bottom: #{$size} !important;
         }
 
         .#{$abbrev}l#{$infix}-#{$key},
         .#{$abbrev}x#{$infix}-#{$key} {
-          #{$prop}-left: #{$size};
+          #{$prop}-left: #{$size} !important;
         }
       }
     }
 
     .m#{$infix}-a {
-      margin: auto;
+      margin: auto !important;
     }
 
     .mt#{$infix}-a,
     .my#{$infix}-a {
-      margin-top: auto;
+      margin-top: auto !important;
     }
 
     .mr#{$infix}-a,
     .mx#{$infix}-a {
-      margin-right: auto;
+      margin-right: auto !important;
     }
 
     .mb#{$infix}-a,
     .my#{$infix}-a {
-      margin-bottom: auto;
+      margin-bottom: auto !important;
     }
 
     .ml#{$infix}-a,
     .mx#{$infix}-a {
-      margin-left: auto;
+      margin-left: auto !important;
     }
   }
 }

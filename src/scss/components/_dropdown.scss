@@ -1,1 +1,230 @@
 // TODO
+// Menu alignment
+// Responsive alignment
+// Alignment options
+
+// The dropdown wrapper (`<div>`)
+.dropup,
+.dropend,
+.dropdown,
+.dropstart,
+.dropup-center,
+.dropdown-center {
+  position: relative;
+}
+
+.dropdown-toggle {
+  white-space: nowrap;
+
+  // Generate the caret automatically
+  //@include caret();
+}
+
+// The dropdown menu
+.dropdown-menu {
+  // scss-docs-start dropdown-css-vars
+  --dropdown-zindex: var(--zi-dropdown, 1000);
+  --dropdown-min-width: 10rem;
+  --dropdown-padding-x: 0;
+  --dropdown-padding-y: .5rem;
+  --dropdown-spacer: 0.125rem;
+  --dropdown-font-size: 1rem;
+  --dropdown-color: var(--body-color, #000);
+  --dropdown-bg: var(--body-bg, #fff);
+  --dropdown-border-color: transparent;
+  --dropdown-border-radius: .375rem;
+  --dropdown-border-width: 1px;
+  --dropdown-divider-bg: var(--dropdown-border-color);
+  --dropdown-divider-margin-y: 0.5rem;
+  --dropdown-box-shadow: 0 0.5rem 1rem rgba(var(--body-color-rgb), 0.15);
+  // dropdown-item
+  --dropdown-item-padding-x: 1rem;
+  --dropdown-item-padding-y: 0.25rem;
+  // dropdown-link
+  --dropdown-link-color: var(--body-color, #000);
+  --dropdown-link-hover-color: var(--body-color, #000);
+  --dropdown-link-hover-bg: ;
+  --dropdown-link-active-color: ;
+  --dropdown-link-active-bg: ;
+  --dropdown-link-disabled-color: ;
+  // dropdown-header
+  --dropdown-header-color: #6c757d;
+  --dropdown-header-padding-x: 1rem;
+  --dropdown-header-padding-y: .5rem;
+  // scss-docs-end dropdown-css-vars
+
+  position: absolute;
+  z-index: var(--dropdown-zindex);
+  display: none;
+  min-width: var(--dropdown-min-width);
+  padding: var(--dropdown-padding-y) var(--dropdown-padding-x);
+  margin: 0;
+  background-color: var(--dropdown-bg);
+  background-clip: padding-box;
+  color: var(--dropdown-color);
+  font-size: var(--dropdown-font-size);
+  text-align: left;
+  list-style: none;
+  border: var(--dropdown-border-width) solid var(--dropdown-border-color);
+  border-radius: var(--dropdown-border-radius);
+  box-shadow: var(--dropdown-box-shadow);
+
+  &.show {
+    display: block;
+  }
+
+  &[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top: var(--dropdown-spacer);
+  }
+}
+
+// scss-docs-start responsive-breakpoints
+// We deliberately hardcode the `bs-` prefix because we check
+// this custom property in JS to determine Popper's positioning
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .dropdown-menu#{$infix}-start {
+      --bs-position: start;
+
+      &[data-bs-popper] {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    .dropdown-menu#{$infix}-end {
+      --bs-position: end;
+
+      &[data-bs-popper] {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+// scss-docs-end responsive-breakpoints
+
+/**
+Directions
+ */
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+  .dropdown-menu[data-bs-popper] {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: var(--dropdown-spacer);
+  }
+
+  .dropdown-toggle {
+    //@include caret(up);
+  }
+}
+
+.dropend {
+  .dropdown-menu[data-bs-popper] {
+    top: 0;
+    right: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: var(--dropdown-spacer);
+  }
+
+  .dropdown-toggle {
+    //@include caret(end);
+
+    &::after {
+      vertical-align: 0;
+    }
+  }
+}
+
+.dropstart {
+  .dropdown-menu[data-bs-popper] {
+    top: 0;
+    right: 100%;
+    left: auto;
+    margin-top: 0;
+    margin-right: var(--dropdown-spacer);
+  }
+
+  .dropdown-toggle {
+    //@include caret(start);
+
+    &::before {
+      vertical-align: 0;
+    }
+  }
+}
+/**
+END Directions
+ */
+
+// Dividers (basically an `<hr>`) within the dropdown
+.dropdown-divider {
+  height: 0;
+  margin: var(--dropdown-divider-margin-y) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--dropdown-divider-bg);
+  opacity: 1; // Revisit in v6 to de-dupe styles that conflict with <hr> element
+}
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdown-item {
+  display: block;
+  width: 100%; // For `<button>`s
+  padding: var(--dropdown-item-padding-y) var(--dropdown-item-padding-x);
+  clear: both;
+  color: var(--dropdown-link-color);
+  text-align: inherit; // For `<button>`s
+  text-decoration: none;
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background-color: transparent; // For `<button>`s
+  border: 0; // For `<button>`s
+  border-radius: var(--dropdown-item-border-radius, 0);
+
+  &:hover,
+  &:focus {
+    color: var(--dropdown-link-hover-color);
+    text-decoration: none;
+    background-color: var(--dropdown-link-hover-bg);
+  }
+
+  &.active,
+  &:active {
+    color: var(--dropdown-link-active-color);
+    text-decoration: none;
+    background-color: var(--dropdown-link-active-bg);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: var(--dropdown-link-disabled-color);
+    pointer-events: none;
+    background-color: transparent;
+    // Remove CSS gradients if they're
+  }
+}
+
+// Dropdown text
+.dropdown-item-text {
+  display: block;
+  padding: var(--dropdown-item-padding-y) var(--dropdown-item-padding-x);
+  color: var(--dropdown-link-color);
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: var(--dropdown-header-padding-y) var(--dropdown-header-padding-x);
+  margin-bottom: 0; // for use with heading elements
+  color: var(--dropdown-header-color);
+  white-space: nowrap; // as with > li > a
+}
