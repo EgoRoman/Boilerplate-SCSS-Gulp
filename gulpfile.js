@@ -6,7 +6,9 @@ const {dest, series, parallel, src, watch} = require('gulp'),
   // Common plugins
   browserSync = require('browser-sync'),
   plumber = require('gulp-plumber'), // Prevent pipe breaking caused by errors from gulp plugins
-  rename = require('gulp-rename'); // Renames files
+  rename = require('gulp-rename'), // Renames files
+  replace = require('gulp-replace'),
+
   // Scss plugins
   autoprefixer = require('autoprefixer'),
   csso = require('gulp-csso'),
@@ -14,6 +16,10 @@ const {dest, series, parallel, src, watch} = require('gulp'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
 
+  //SVG
+  svgSprite = require('gulp-svg-sprite'),
+
+  //
   concat = require('gulp-concat'),
   include = require('gulp-include'),
   uglify = require('gulp-uglify-es').default;
@@ -43,9 +49,14 @@ const paths = {
     watch: themePath + 'src/scss/**/*.scss'
   },
   scripts: {
-    input: themePath + 'assets/js/app.js',
+    input: themePath + 'src/js/app.js',
     output: themePath + 'dist/js/',
-    watch: themePath + 'assets/js/**/*.js'
+    watch: themePath + 'src/js/**/*.js'
+  },
+  svg: {
+    source: themePath + 'src/img/icons/svg/source/**/*.svg',
+    outputSymbol: themePath + 'src/img/icons/svg/symbol/',
+    output: themePath + 'dist/img/icons/svg-sprite/'
   },
   fonts: {
     input: 'src/fonts/*.{woff,woff2}',
@@ -53,10 +64,7 @@ const paths = {
   },
 
   //
-  // svgs: {
-  //   input: 'build/svg/*.svg',
-  //   output: 'dist/svg/'
-  // },
+
   // copy: {
   //   input: 'build/copy/**/*',
   //   output: 'dist/'
@@ -69,6 +77,7 @@ const paths = {
  */
 function styles() {
   return src(paths.styles.input)
+    // todo add group media queries
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -106,6 +115,55 @@ function buildScripts() {
 }
 
 /**
+ * Build SVG Sprite
+ */
+function cheerio() {
+  return src(paths.svg.source)
+    .pipe(cheerio({
+      run: function ($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+        $('[class]').removeAttr('class');
+      },
+      parserOptions: {xmlMode: true}
+    }))
+    .pipe(replace('&gt;', '>'))
+    .pipe(dest(paths.svg.outputSymbol))
+}
+
+function buildSvgSprite() {
+  return src(paths.svg.outputSymbol)
+    .pipe(svgSprite({
+      shape: {
+        dimension: {
+          maxWidth: 128,
+          maxHeight: 128
+        }
+      },
+      mode: {
+        symbol: {
+          dest: ".",
+          sprite: "sprite.svg",
+          example: true
+        }
+      }
+    }))
+    .pipe(dest(paths.svg.output))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+    .on('end', browserSync.reload);
+}
+
+/*todo*/
+
+/*gulp.task('svg-clean', function () {
+  return gulp.src('app/img/icons/sprite/svg/symbol/flat', { read: false, allowEmpty: true })
+    .pipe(clean());
+});*/
+
+/**
  * BrowserSync tasks
  */
 function startServer(done) {
@@ -123,6 +181,8 @@ function reloadBrowser(done) {
 function watchTask() {
   watch(paths.styles.watch, series(styles, reloadBrowser));
   watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
+  watch(paths.svg.source, series(cheerio));
+  watch(paths.svg.outputSymbol, series(buildSvgSprite));
   watch('index.php', series(reloadBrowser));
 }
 
@@ -138,15 +198,16 @@ const copyTask = () => {
 // TODO image optimize task
 
 
-
-
-
 /**
  * Export Tasks
  */
+exports.buildSvgSprite = buildSvgSprite;
+
 exports.dev = series(
   // copyTask,
   styles,
+  cheerio,
+  buildSvgSprite,
   // buildScripts,
   startServer,
   watchTask,
@@ -158,9 +219,9 @@ exports.default = series(
   // cleanDist,
   parallel(
     styles,
-    buildScripts,
-
-
+    cheerio,
+    buildSvgSprite,
+    //buildScripts,
     // lintScripts,
     // buildSVGs,
     // copyFiles
