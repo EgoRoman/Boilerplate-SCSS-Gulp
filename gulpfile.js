@@ -75,9 +75,8 @@ const paths = {
 /**
  * Build styles task
  */
-function styles() {
+function buildStyles() {
   return src(paths.styles.input)
-    // todo add group media queries
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
