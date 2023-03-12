@@ -1,13 +1,16 @@
-const appUrl = 'boilerplate-scss-gulp',
+const appUrl = 'picture-plus',
   themePath = './',
   uiPath = '';
 
 const {dest, series, parallel, src, watch} = require('gulp'),
   // Common plugins
   browserSync = require('browser-sync'),
-  plumber = require('gulp-plumber'), // Prevent pipe breaking caused by errors from gulp plugins
-  rename = require('gulp-rename'), // Renames files
+  clean = require('gulp-clean'),
+  plumber = require('gulp-plumber'),
+  newer = require('gulp-newer'),
+  rename = require('gulp-rename'),
   replace = require('gulp-replace'),
+  cheerio = require('gulp-cheerio'),
 
   // Scss plugins
   autoprefixer = require('autoprefixer'),
@@ -49,21 +52,21 @@ const paths = {
     watch: themePath + 'src/scss/**/*.scss'
   },
   scripts: {
-    input: themePath + 'src/js/app.js',
+    input: themePath + 'assets/js/app.js',
     output: themePath + 'dist/js/',
-    watch: themePath + 'src/js/**/*.js'
+    watch: themePath + 'assets/js/**/*.js'
   },
   svg: {
     source: themePath + 'src/img/icons/svg/source/**/*.svg',
     outputSymbol: themePath + 'src/img/icons/svg/symbol/',
-    output: themePath + 'dist/img/icons/svg-sprite/'
+    output: themePath + 'dist/img/icons/svg-sprite/',
+    watchSource: themePath + 'src/img/icons/svg/source/**/*.svg',
+    watchSymbol: themePath + 'src/img/icons/svg/symbol/**/*.svg',
   },
   fonts: {
-    input: 'src/fonts/*.{woff,woff2}',
-    output: 'dist/fonts/'
+    input: themePath + 'src/fonts/**/*.*',
+    output: themePath + 'dist/fonts/'
   },
-
-  //
 
   // copy: {
   //   input: 'build/copy/**/*',
@@ -84,7 +87,6 @@ function buildStyles() {
     .pipe(postcss([
       autoprefixer(),
     ]))
-    //.pipe(groupmedia()) // todo add task?
     .pipe(sourcemaps.write('./'))
     .pipe(dest(paths.styles.output))
     .pipe(csso({
@@ -98,7 +100,7 @@ function buildStyles() {
 }
 
 /**
- * Build scripts task
+ * Build scripts
  */
 function buildScripts() {
   return src(
@@ -116,7 +118,7 @@ function buildScripts() {
 /**
  * Build SVG Sprite
  */
-function cheerio() {
+function cheerioTask() {
   return src(paths.svg.source)
     .pipe(cheerio({
       run: function ($) {
@@ -132,7 +134,7 @@ function cheerio() {
 }
 
 function buildSvgSprite() {
-  return src(paths.svg.outputSymbol)
+  return src(paths.svg.outputSymbol + '*.svg')
     .pipe(svgSprite({
       shape: {
         dimension: {
@@ -155,12 +157,28 @@ function buildSvgSprite() {
     .on('end', browserSync.reload);
 }
 
-/*todo*/
-
-/*gulp.task('svg-clean', function () {
-  return gulp.src('app/img/icons/sprite/svg/symbol/flat', { read: false, allowEmpty: true })
+function svgClean() {
+  return src(paths.svg.outputSymbol, {read: false, allowEmpty: true})
     .pipe(clean());
-});*/
+}
+
+/**
+ * Fonts
+ */
+function fonts() {
+  return src(paths.fonts.input)
+    .pipe(newer(paths.fonts.output))
+    .pipe(dest(paths.fonts.output));
+}
+
+/**
+ * Images
+ */
+function img() {
+  return src(['src/img/**/*', '!src/img/icons/svg/**/*'])
+    .pipe(newer('dist/img'))
+    .pipe(dest('dist/img'))
+}
 
 /**
  * BrowserSync tasks
@@ -178,36 +196,30 @@ function reloadBrowser(done) {
 }
 
 function watchTask() {
-  watch(paths.styles.watch, series(styles, reloadBrowser));
+  watch(paths.styles.watch, series(buildStyles, reloadBrowser));
   watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
-  watch(paths.svg.source, series(cheerio));
-  watch(paths.svg.outputSymbol, series(buildSvgSprite));
+  watch(paths.svg.watchSource, series(cheerioTask));
+  watch(paths.svg.watchSymbol, series(buildSvgSprite));
+  // watch php files
   watch('index.php', series(reloadBrowser));
+  watch('pages/**/*.php', series(reloadBrowser));
+  watch('page-parts/**/*.php', series(reloadBrowser));
 }
-
-const copyTask = () => {
-  return src([
-    paths.fonts.input,
-  ])
-    .pipe(dest([
-      paths.fonts.output
-    ]));
-}
-
-// TODO image optimize task
-
 
 /**
  * Export Tasks
  */
-exports.buildSvgSprite = buildSvgSprite;
+exports.buildSvgSprite = series(svgClean, cheerioTask, buildSvgSprite);
+exports.fonts = fonts;
+exports.img = img;
 
 exports.dev = series(
   // copyTask,
-  styles,
-  cheerio,
-  buildSvgSprite,
+  buildStyles,
+  svgClean, cheerioTask, buildSvgSprite,
   // buildScripts,
+  fonts,
+  img,
   startServer,
   watchTask,
 );
@@ -217,12 +229,24 @@ exports.dev = series(
 exports.default = series(
   // cleanDist,
   parallel(
-    styles,
-    cheerio,
-    buildSvgSprite,
-    //buildScripts,
+    buildStyles,
+    cheerioTask,
+    svgClean, cheerioTask, buildSvgSprite,
+    fonts,
+    img,
+    // buildScripts,
     // lintScripts,
     // buildSVGs,
-    // copyFiles
   )
 );
+
+///////// TODO
+const copyTask = () => {
+  return src([
+    paths.fonts.input,
+  ])
+    .pipe(dest([
+      paths.fonts.output
+    ]));
+}
+// TODO image optimize task
