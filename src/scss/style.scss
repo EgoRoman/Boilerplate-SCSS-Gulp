@@ -8,6 +8,7 @@
 
 // 1. Base stuff
 @import 'base/base';
+@import 'base/grid';
 @import 'base/fonts';
 @import 'base/helpers';
 @import 'base/variables';
@@ -15,14 +16,17 @@
 /**
 2. Mixins
  */
+@import 'mixins/backdrop';
 @import 'mixins/breakpoints';
 
 // 5. Components
 @import 'components/accordion';
 @import 'components/button';
 @import 'components/collapse';
+@import 'components/dropdown';
 @import 'components/form';
 @import 'components/nav';
+@import 'components/offcanvas';
 
 // Utilities
 @import 'utilities/display';

@@ -1,7 +1,7 @@
 <?php
 // Require PHP 7.3!
 const DIR_BASE = __DIR__ . '/';
-const DIR_TEMPLATES = __DIR__ . '/template-parts/';
+const DIR_TEMPLATES = __DIR__ . '/page-parts/';
 
 $request = $_SERVER['REQUEST_URI'];
 
