@@ -1,1 +1,50 @@
-// TODO
+// TODO Bootstrap
+.nav {
+  // THEME vars
+  --nav-link-padding-x: 1rem;
+  --nav-link-padding-y: 0.5rem;
+  --nav-link-font-weight: normal;
+  --nav-link-color: var(--c-black);
+  --nav-link-active-color: var(--c-3);
+  --nav-link-hover-color: var(--c-3);
+  //--nav-link-disabled-color: var(--bs-secondary-color);
+  --nav-link-font-size: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: var(--nav-link-padding-y) var(--nav-link-padding-x);
+  font-size: var(--nav-link-font-size);
+  font-weight: var(--nav-link-font-weight);
+  color: var(--nav-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover-color);
+    text-decoration: none;
+  }
+
+  &.active {
+    color: var(--nav-link-active-color);
+  }
+
+  &.disabled {
+    color: var(--nav-link-disabled-color);
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: none;
+  }
+}
