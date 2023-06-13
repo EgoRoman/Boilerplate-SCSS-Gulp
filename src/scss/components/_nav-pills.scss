@@ -1,0 +1,28 @@
+/** https://getbootstrap.com/docs/5.3/components/navs-tabs/#pills */
+
+//
+// Pills
+//
+.nav-pills {
+  // scss-docs-start nav-pills-css-vars
+  --nav-pills-border-radius: ;
+  --nav-pills-link-active-color: ;
+  --nav-pills-link-active-bg: ;
+  // scss-docs-end nav-pills-css-vars
+
+  .nav-link {
+    border-radius: var(--nav-pills-border-radius);
+
+    &:disabled {
+      color: var(--nav-link-disabled-color);
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    color: var(--nav-pills-link-active-color);
+    background-color: var(--nav-pills-link-active-bg);
+  }
+}

@@ -1,24 +1,37 @@
+/** https://getbootstrap.com/docs/5.3/components/navs-tabs/#tabs */
+
+//
+// Tabs
+//
 .nav-tabs {
-  // Theme
-  border-bottom: 1px solid #dee2e6;
+  // scss-docs-start nav-tabs-css-vars
+  --nav-tabs-border-width: ;
+  --nav-tabs-border-color: ;
+  --nav-tabs-border-radius: ;
+  --nav-tabs-link-hover-border-color: ;
+  --nav-tabs-link-active-color: ;
+  --nav-tabs-link-active-bg: ;
+  --nav-tabs-link-active-border-color: ;
+  // scss-docs-end nav-tabs-css-vars
+
+  border-bottom: var(--nav-tabs-border-width) solid var(--nav-tabs-border-color);
 
   .nav-link {
-    // Theme
-    margin-bottom: -1px;
-    background: none;
-    border: 1px solid transparent;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+    margin-bottom: calc(-1 * var(--nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
+    border: var(--nav-tabs-border-width) solid transparent;
+    border-top-left-radius: var(--bs-nav-tabs-border-radius);
+    border-top-right-radius: var(--bs-nav-tabs-border-radius);
 
     &:hover,
     &:focus {
-      // Theme
-      border-color: #e9ecef #e9ecef #dee2e6;
+      // Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
+      isolation: isolate;
+      border-color: var(--nav-tabs-link-hover-border-color);
     }
 
-    &.disabled {
-      // Theme
-      color: #6c757d;
+    &.disabled,
+    &:disabled {
+      color: var(--nav-link-disabled-color);
       background-color: transparent;
       border-color: transparent;
     }
@@ -26,20 +39,23 @@
 
   .nav-link.active,
   .nav-item.show .nav-link {
-    // Theme
-    color: #495057;
-    background-color: #fff;
-    border-color: #dee2e6 #dee2e6 #fff;
+    color: var(--nav-tabs-link-active-color);
+    background-color: var(--nav-tabs-link-active-bg);
+    border-color: var(--nav-tabs-link-active-border-color);
   }
 
-  /*.dropdown-menu {
-    // Theme
-    margin-top: -1px;
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: calc(-1 * var(--nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
+    // Remove the top rounded corners here since there is a hard edge above the menu
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-  }*/
+  }
 }
 
+// Tabbable tabs
+//
+// Hide tabbable panes to start, show them when `.active`
 .tab-content {
   > .tab-pane {
     display: none;
@@ -48,3 +64,7 @@
     display: block;
   }
 }
+
+/**
+Theme styles
+ */

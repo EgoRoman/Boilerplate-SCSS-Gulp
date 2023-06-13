@@ -1,31 +1,48 @@
-/* Based on Bootstrap v5.1.0 */
-// TODO
+/** https://getbootstrap.com/docs/5.3/components/breadcrumb/ */
+
 .breadcrumb {
+  // scss-docs-start breadcrumb-css-vars
+  --breadcrumb-padding-x: 0;
+  --breadcrumb-padding-y: 0;
+  --breadcrumb-margin-bottom: 1rem;
+  --breadcrumb-color: ;
+  --breadcrumb-font-size: ;
+  --breadcrumb-bg: ;
+  --breadcrumb-border-radius: ;
+  --breadcrumb-divider-color: ;
+  --breadcrumb-item-padding-x: .5rem;
+  --breadcrumb-item-active-color: ;
+  // scss-docs-end breadcrumb-css-vars
+
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
-  margin-bottom: 1rem;
+  padding: var(--breadcrumb-padding-y) var(--breadcrumb-padding-x);
+  margin-bottom: var(--breadcrumb-margin-bottom);
+  font-size: var(--breadcrumb-font-size);
   list-style: none;
-
-  // *** Theme
+  background-color: var(--breadcrumb-bg);
+  border-radius: var(--breadcrumb-border-radius);
 }
 
 .breadcrumb-item {
-  & + .breadcrumb-item {
-    padding-left: 4px;
+  color: var(--breadcrumb-color);
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    padding-left: var(--breadcrumb-item-padding-x);
 
-    // The separator between breadcrumbs (by default, a forward-slash: "/")
-    &:before {
-      float: left;
-      padding-right: 4px;
-      color: var(--breadcrumb-color, #6c757d);
+    &::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      padding-right: var(--breadcrumb-item-padding-x);
+      color: var(--breadcrumb-color);
       content: var(--breadcrumb-divider, "/");
     }
   }
 
   &.active {
-     color: var(--breadcrumb-color, #6c757d);
+    color: var(--breadcrumb-item-active-color);
   }
 }
 
-
+/**
+Theme styles
+ */

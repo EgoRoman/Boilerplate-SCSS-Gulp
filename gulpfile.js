@@ -19,6 +19,9 @@ const {dest, series, parallel, src, watch} = require('gulp'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
 
+  // Images
+  imagemin = require('gulp-imagemin'),
+
   //SVG
   svgSprite = require('gulp-svg-sprite'),
 
@@ -56,10 +59,15 @@ const paths = {
     output: themePath + 'dist/js/',
     watch: themePath + 'assets/js/**/*.js'
   },
+  images: {
+    input: ['src/img/**/*', '!src/img/icons/svg/**/*'],
+    output: themePath + 'dist/img',
+    watch: ['src/img/**/*', '!src/img/icons/svg/**/*'],
+  },
   svg: {
     source: themePath + 'src/img/icons/svg/source/**/*.svg',
     outputSymbol: themePath + 'src/img/icons/svg/symbol/',
-    output: themePath + 'dist/img/icons/svg-sprite/',
+    output: themePath + 'dist/img/icons/svg/',
     watchSource: themePath + 'src/img/icons/svg/source/**/*.svg',
     watchSymbol: themePath + 'src/img/icons/svg/symbol/**/*.svg',
   },
@@ -116,9 +124,48 @@ function buildScripts() {
 }
 
 /**
+ * Fonts
+ */
+function fonts() {
+  return src(paths.fonts.input)
+    .pipe(newer(paths.fonts.output))
+    .pipe(dest(paths.fonts.output));
+}
+
+/**
+ * Build Images
+ */
+function imgBuild() {
+  // TODO optimize images
+  return src(paths.images.input)
+    .pipe(newer('dist/img'))
+    .pipe(imagemin([
+      /*pngquant({
+        speed: 1,
+        quality: [0.8, 0.87]
+      }),*/
+      // imagemin.jpegtran({ progressive: true }),
+      /*imageminMozjpeg({
+        progressive: true,
+        quality: 87
+      }),*/
+      imagemin.svgo(),
+    ]))
+    .pipe(dest(paths.images.output))
+}
+
+/*function imgClean() {
+  return src(['dist/img/', '!dist/img/icons/svg/'], { read: false })
+    .pipe(clean())
+}*/
+/**
+ * END Build Images
+ */
+
+/**
  * Build SVG Sprite
  */
-function cheerioTask() {
+function cleanSvgSymbol() {
   return src(paths.svg.source)
     .pipe(cheerio({
       run: function ($) {
@@ -157,28 +204,13 @@ function buildSvgSprite() {
     .on('end', browserSync.reload);
 }
 
-function svgClean() {
+function svgClear() {
   return src(paths.svg.outputSymbol, {read: false, allowEmpty: true})
     .pipe(clean());
 }
-
 /**
- * Fonts
+ * END Build SVG Sprite
  */
-function fonts() {
-  return src(paths.fonts.input)
-    .pipe(newer(paths.fonts.output))
-    .pipe(dest(paths.fonts.output));
-}
-
-/**
- * Images
- */
-function img() {
-  return src(['src/img/**/*', '!src/img/icons/svg/**/*'])
-    .pipe(newer('dist/img'))
-    .pipe(dest('dist/img'))
-}
 
 /**
  * BrowserSync tasks
@@ -209,17 +241,19 @@ function watchTask() {
 /**
  * Export Tasks
  */
-exports.buildSvgSprite = series(svgClean, cheerioTask, buildSvgSprite);
-exports.fonts = fonts;
-exports.img = img;
+// exports.buildSvgSprite = series(svgClear, cheerioTask, buildSvgSprite);
+// exports.fonts = fonts;
+exports.img = series(imgBuild);
+exports.svg = series(svgClear, cleanSvgSymbol, buildSvgSprite);
 
 exports.dev = series(
+  // clean,
   // copyTask,
   buildStyles,
-  svgClean, cheerioTask, buildSvgSprite,
+  series(imgBuild),
+  svgClear, cleanSvgSymbol, buildSvgSprite,
   // buildScripts,
-  fonts,
-  img,
+  // fonts,
   startServer,
   watchTask,
 );
@@ -230,10 +264,10 @@ exports.default = series(
   // cleanDist,
   parallel(
     buildStyles,
-    cheerioTask,
-    svgClean, cheerioTask, buildSvgSprite,
-    fonts,
-    img,
+    // cheerioTask,
+    svgClear, cleanSvgSymbol, buildSvgSprite,
+    // fonts,
+    // img,
     // buildScripts,
     // lintScripts,
     // buildSVGs,
