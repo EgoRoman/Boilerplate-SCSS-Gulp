@@ -5,6 +5,11 @@ Include vendors:
 - Bootstrap Grid (v4.6.0)
 
 ## Based on Bootstrap 5.3
+
+...
+
 ### Content
 - Reboot (todo varibales, mixins)
 - Typography (todo)
+
+...
