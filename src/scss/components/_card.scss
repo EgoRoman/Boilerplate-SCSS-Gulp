@@ -1,78 +1,167 @@
-/* Based on Bootstrap v5.1.0 */
 // TODO
+//
+// Base styles
+//
+
 .card {
+  // scss-docs-start card-css-vars
+  --card-spacer-y: 1rem;
+  --card-spacer-x: 1rem;
+  --card-border-width: 0;
+  --card-border-color: transparent;
+  --card-border-radius: 0;
+  --card-box-shadow: ;
+  --card-inner-border-radius: var(--card-border-radius, 0);
+  //--card-cap-padding-y: #{$card-cap-padding-y};
+  //--card-cap-padding-x: #{$card-cap-padding-x};
+  //--card-cap-bg: #{$card-cap-bg};
+  //--card-cap-color: #{$card-cap-color};
+  --card-height: 100%;
+  --card-bg: var(--c-white);
+  --card-color: var(--c-text);
+  --card-font-size: 1rem;
+  --card-line-height: ;
+  --card-title-spacer-y: .5rem;
+  //--card-title-color: #{$card-title-color};
+  --card-subtitle-color: ;
+  //--card-title-mt: 0;
+  --card-title-mb: ;
+  --card-title-font-size: ;
+  --card-title-line-height: ;
+  --card-title-font-weight: ;
+  --card-img-overlay-padding: 1rem;
+  //--card-group-margin: #{$card-group-margin};
+  // scss-docs-end card-css-vars
+
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: #fff;
-  border: var(--card-border);
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  width: 100%;
+  height: var(--card-height); // todo
+  color: var(--card-color);
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: var(--card-border-width) solid var(--card-border-color);
   border-radius: var(--card-border-radius);
-  color: var(--c-black);
-  transition: box-shadow .3s ease;
+  box-shadow: var(--card-box-shadow);
 
   &:hover {
-    box-shadow: var(--card-box-shadow);
+    box-shadow: var(--card-hover-box-shadow);
+  }
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+
+    &:first-child {
+      border-top-width: 0;
+      border-top-left-radius: var(--card-inner-border-radius);
+      border-top-right-radius: var(--card-inner-border-radius);
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+      border-bottom-right-radius: var(--card-inner-border-radius);
+      border-bottom-left-radius: var(--card-inner-border-radius);
+    }
+  }
+
+  // Due to specificity of the above selector (`.card > .list-group`), we must
+  // use a child selector here to prevent double borders.
+  > .card-header + .list-group,
+  > .list-group + .card-footer {
+    border-top: 0;
   }
 }
 
 .card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-  height: 100%;
-  padding: var(--card-paddings);
-
-  &--center {
-    align-items: center;
-    text-align: center;
-  }
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: var(--card-spacer-y) var(--card-spacer-x);
+  color: var(--card-color);
 }
 
 .card-title {
-  margin-top: 0;
-  margin-bottom: var(--card-title-mb);
-  font-size: var(--card-title-fz);
-  line-height: var(--card-title-lh);
-  font-weight: var(--card-title-fw);
+  //margin-top: var(--card-title-mt);
+  margin-bottom: var(--card-title-spacer-y);
+  font-size: var(--card-title-font-size);
+  line-height: var(--card-title-line-height);
+  font-weight: var(--card-title-font-weight);
+  transition: color .3s;
+
+  a {
+    font-size: inherit;
+  }
 }
 
 .card-subtitle {
-  margin: 0;
+  margin-top: calc(-.5 * var(--card-title-spacer-y)); // stylelint-disable-line function-disallowed-list
+  margin-bottom: 0;
+  color: var(--card-subtitle-color);
 }
 
 .card-text {
   margin-top: 0;
-  font-size: var(--card-fz);
-  line-height: var(--card-lh);
+  margin-bottom: var(--card-text-margin-bottom);
+  font-size: var(--card-font-size);
+  line-height: var(--card-line-height);
 
   &:last-child {
     margin-bottom: 0;
   }
 }
 
-.card-link + .card-link {
-  margin-left: 1rem;
-}
-
-.card-img {
-  //TODO test different image sizes
-  display: block;
-  width: 100%;
-
-  &--top,
-  &--bottom {
-
+.card-link {
+  + .card-link {
+    margin-left: var(--card-spacer-x);
   }
 }
 
+// Card image
 .card-img-overlay {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  padding: var(--card-img-overlay-padding);
+  border-radius: var(--card-inner-border-radius);
 }
 
-// TODO: add card-header, card-footer
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+}
+
+.card-img,
+.card-img-top {
+  border-top-left-radius: var(--card-inner-border-radius);
+  border-top-right-radius: var(--card-inner-border-radius);
+}
+
+.card-img,
+.card-img-bottom {
+  border-bottom-right-radius: var(--card-inner-border-radius);
+  border-bottom-left-radius: var(--card-inner-border-radius);
+}
+
+/**
+TODO
+- https://getbootstrap.com/docs/5.3/components/card/#images
+- https://getbootstrap.com/docs/5.3/components/card/#header-and-footer
+- https://getbootstrap.com/docs/5.3/components/card/#images-1
+- https://getbootstrap.com/docs/5.3/components/card/#horizontal
+ */
+
+/**
+Theme styles
+ */
