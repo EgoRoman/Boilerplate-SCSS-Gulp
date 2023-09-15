@@ -1,4 +1,4 @@
-const appUrl = 'picture-plus',
+const appUrl = '',
   themePath = './',
   uiPath = '';
 

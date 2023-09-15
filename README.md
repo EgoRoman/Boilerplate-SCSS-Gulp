@@ -13,3 +13,29 @@ Include vendors:
 - Typography (todo)
 
 ...
+
+### Components
+- [ ] Accordion
+- [ ] Alerts
+- [ ] Badge
+- [x] ~~Breadcrumb~~
+- [ ] Buttons
+- [ ] Button group
+- [ ] Card
+- [ ] Carousel
+- [ ] Close button
+- [ ] Collapse
+- [ ] Dropdowns
+- [ ] List group
+- [ ] Modal
+- [ ] Navbar
+- [ ] Navs & tabs
+- [ ] Offcanvas
+- [ ] Pagination
+- [ ] Placeholders
+- [ ] Popovers
+- [ ] Progress
+- [ ] Scrollspy
+- [ ] Spinners
+- [ ] Toasts
+- [ ] Tooltips
