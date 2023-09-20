@@ -4,42 +4,44 @@
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
-$font-family-base:            var(--font-sans-serif) !default;
-$font-family-code:            var(--font-monospace) !default;
+$font-family-base: var(--font-sans-serif) !default;
+$font-family-code: var(--font-monospace) !default;
 
 // $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
 // $font-size-base affects the font size of the body text
-$font-size-root:              null !default;
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-sm:                $font-size-base * .875 !default;
-$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-root: null !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * .875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
 
-$font-weight-lighter:         lighter !default;
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-medium:          500 !default;
-$font-weight-semibold:        600 !default;
-$font-weight-bold:            700 !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
 //$font-weight-bolder:          bolder !default; // TODO
 
-$font-weight-base:            $font-weight-normal !default;
+$font-weight-base: $font-weight-normal !default;
 
-$line-height-base:            1.5 !default;
-$line-height-sm:              1.25 !default;
-$line-height-lg:              2 !default;
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+// Default heading font-size
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
+// TODO check usage
 //$font-sizes: (
 //  1: $h1-font-size,
 //  2: $h2-font-size,
@@ -52,22 +54,30 @@ $h6-font-size:                $font-size-base !default;
 
 // Theme headings font-sizes
 :root {
-  //--h1-font-size: ;
-  //--h2-font-size: ;
-  //--h3-font-size: ;
-  //--h4-font-size: ;
-  //--h5-font-size: ;
-  //--h6-font-size: ;
+  --h1-font-size: #{$h1-font-size};
+  --h2-font-size: #{$h2-font-size};
+  --h3-font-size: #{$h3-font-size};
+  --h4-font-size: #{$h4-font-size};
+  --h5-font-size: #{$h5-font-size};
+  --h6-font-size: #{$h6-font-size};
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1400px) {
+
+  }
 }
 // END Theme headings font-sizes
 
 // scss-docs-start headings-variables
-$headings-margin-bottom:      $spacer * .5 !default;
-$headings-font-family:        null !default;
-$headings-font-style:         null !default;
-$headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
-$headings-color:              inherit !default;
+$headings-margin-bottom: $spacer * .5 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: inherit !default;
 // scss-docs-end headings-variables
 
 // scss-docs-start display-headings
@@ -81,21 +91,21 @@ $display-font-sizes: (
 ) !default;
 
 $display-font-family: null !default;
-$display-font-style:  null !default;
+$display-font-style: null !default;
 $display-font-weight: 300 !default;
 $display-line-height: $headings-line-height !default;
 // scss-docs-end display-headings
 
 // scss-docs-start type-variables
-$lead-font-size:              $font-size-base * 1.25 !default;
-$lead-font-weight:            300 !default;
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
 
-$small-font-size:             .875em !default;
+$small-font-size: .875em !default;
 
 //$sub-sup-font-size:           .75em !default; // TODO
 
 // fusv-disable
-$text-muted:                  var(--secondary-color) !default; // Deprecated in 5.3.0
+$text-muted: var(--secondary-color) !default; // Deprecated in 5.3.0
 // fusv-enable
 
 //$initialism-font-size:        $small-font-size !default; // TODO
@@ -113,16 +123,16 @@ $text-muted:                  var(--secondary-color) !default; // Deprecated in 
 //$hr-opacity:                  .25 !default;
 
 // scss-docs-start vr-variables
-$vr-border-width:             var(--border-width) !default;
+$vr-border-width: var(--border-width) !default;
 // scss-docs-end vr-variables
 
-$legend-margin-bottom:        .5rem !default;
-$legend-font-size:            1.5rem !default;
-$legend-font-weight:          null !default;
+$legend-margin-bottom: .5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
 
 //$dt-font-weight:              $font-weight-bold !default; // TODO
 
-$list-inline-padding:         .5rem !default;
+$list-inline-padding: .5rem !default;
 
 //$mark-padding:                .1875em !default; // TODO
 //$mark-color:                  $body-color !default; // TODO
@@ -130,14 +140,14 @@ $list-inline-padding:         .5rem !default;
 // scss-docs-end type-variables
 
 // Code
-$code-font-size:                    $small-font-size !default;
+$code-font-size: $small-font-size !default;
 //$code-color:                        $pink !default; // TODO
 
-$kbd-padding-y:                     .1875rem !default;
-$kbd-padding-x:                     .375rem !default;
-$kbd-font-size:                     $code-font-size !default;
-$kbd-color:                         var(--body-bg) !default;
-$kbd-bg:                            var(--body-color) !default;
-$nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, removing in v6
+$kbd-padding-y: .1875rem !default;
+$kbd-padding-x: .375rem !default;
+$kbd-font-size: $code-font-size !default;
+$kbd-color: var(--body-bg) !default;
+$kbd-bg: var(--body-color) !default;
+$nested-kbd-font-weight: null !default; // Deprecated in v5.2.0, removing in v6
 
-$pre-color:                         null !default;
+$pre-color: null !default;

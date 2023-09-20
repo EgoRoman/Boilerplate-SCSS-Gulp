@@ -19,6 +19,7 @@ Include vendors:
   - [ ] Text utilities 
   - [ ] Abbreviations 
   - [ ] Blockquotes
+  - [ ] Lists
 - [ ] Images
 - [ ] Tables
 - [ ] Figures
