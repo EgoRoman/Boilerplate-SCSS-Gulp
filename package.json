@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.7.4",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.3",
     "cheerio": "^1.0.0-rc.12",
     "clean": "^4.0.2",
     "cssnano": "^4.1.10",
@@ -29,7 +29,7 @@
     "gulp-replace": "^1.1.4",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-svg-sprite": "^2.0.1",
+    "gulp-svg-sprite": "^2.0.3",
     "gulp-uglify-es": "^2.0.0",
     "newer": "^0.1.5"
   }

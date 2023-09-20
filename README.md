@@ -9,8 +9,11 @@ Include vendors:
 ...
 
 ### Content
-- Reboot (todo varibales, mixins)
-- Typography (todo)
+- [x] Reboot
+- [ ] Typography (todo)
+- [ ] Images
+- [ ] Tables
+- [ ] Figures
 
 ...
 
@@ -18,7 +21,7 @@ Include vendors:
 - [ ] Accordion
 - [ ] Alerts
 - [ ] Badge
-- [x] ~~Breadcrumb~~
+- [x] Breadcrumb
 - [ ] Buttons
 - [ ] Button group
 - [ ] Card

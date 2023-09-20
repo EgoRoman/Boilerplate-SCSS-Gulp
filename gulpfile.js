@@ -1,4 +1,4 @@
-const appUrl = '',
+const appUrl = 'boilerplate-scss-gulp',
   themePath = './',
   uiPath = '';
 
@@ -31,6 +31,10 @@ const {dest, series, parallel, src, watch} = require('gulp'),
   uglify = require('gulp-uglify-es').default;
 
 const server = browserSync.create();
+/**
+ * TODO
+ * - find-unused-sass-variables https://www.npmjs.com/package/find-unused-sass-variables
+ */
 
 /**
  * Settings
@@ -230,7 +234,7 @@ function reloadBrowser(done) {
 function watchTask() {
   watch(paths.styles.watch, series(buildStyles, reloadBrowser));
   watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
-  watch(paths.svg.watchSource, series(cheerioTask));
+  // watch(paths.svg.watchSource, series(cheerioTask));
   watch(paths.svg.watchSymbol, series(buildSvgSprite));
   // watch php files
   watch('index.php', series(reloadBrowser));

@@ -1,15 +1,13 @@
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  color: var(--c-text);
-  font-family: Gilroy, sans-serif;
-  font-size: 14px;
-
-  @media (min-width: 1024px) {
-    font-size: 18px;
-  }
+  // TODO
+  // 2. As a best practice, apply a default `background-color`.
+  color: var(--body-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  text-align: var(--body-text-align);
+  background-color: var(--body-bg); // 2
 }
 
 img,
@@ -30,4 +28,17 @@ svg {
 a:hover,
 a:focus {
   color: var(--c-blue);
+}
+
+/**
+TODO
+ */
+// Typography
+%heading {
+  //margin-bottom: $headings-margin-bottom;
+  //font-family: $headings-font-family;
+  //font-style: $headings-font-style;
+  //font-weight: $headings-font-weight;
+  //line-height: $headings-line-height;
+  //color: var(--heading-color);
 }

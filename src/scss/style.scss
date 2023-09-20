@@ -1,15 +1,8 @@
-@charset 'UTF-8';
 // TODO verify folder's order
 
-/**
-0. Vendors
- */
-//@import 'vendor/normalize';
-@import 'vendor/reboot';
+// 0. Vendors
 
-/**
-1. Abstracts
- */
+// 1. Abstracts
 @import 'abstracts/variables';
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
@@ -17,6 +10,7 @@
 /**
 2. Base stuff
  */
+@import 'base/reboot';
 @import 'base/base';
 @import 'base/grid';
 @import 'base/fonts';
