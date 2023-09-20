@@ -11,6 +11,14 @@ Include vendors:
 ### Content
 - [x] Reboot
 - [ ] Typography (todo)
+  - [ ] Global settings
+  - [x] Headings 
+  - [x] ~~Display headings _REMOVED_~~ 
+  - [ ] Lead 
+  - [ ] Inline text elements 
+  - [ ] Text utilities 
+  - [ ] Abbreviations 
+  - [ ] Blockquotes
 - [ ] Images
 - [ ] Tables
 - [ ] Figures
