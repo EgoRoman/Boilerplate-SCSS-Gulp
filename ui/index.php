@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>UI</title>
 
+  <link rel="stylesheet" href="../dist/css/style.css">
   <link rel="stylesheet" href="src/style-ui.css">
 </head>
 <body>
@@ -20,8 +21,17 @@
   </aside>
   <main class="bd-main">
 
+    <h1>Content</h1>
+    <h2>Typography</h2>
     <div class="component-block">
-      <h2 class="component-block__title">Accordion</h2>
+      <h3 class="component-block__title">Headings</h3>
+      <div class="example">
+        <?php require 'components/headings.php'; ?>
+      </div>
+    </div>
+
+    <div class="component-block">
+      <h3 class="component-block__title">Accordion</h3>
       <div class="example">
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
@@ -129,7 +139,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Breadcrumb</h2>
+      <h3 class="component-block__title">Breadcrumb</h3>
       <div class="example">
         <nav aria-label="breadcrumb">
           <ul class="breadcrumb">
@@ -146,7 +156,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Buttons</h2>
+      <h3 class="component-block__title">Buttons</h3>
       <div class="example">
         <button type="button" class="btn btn--primary">
           <span class="btn__inner">Primary</span>
@@ -187,7 +197,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Cards</h2>
+      <h3 class="component-block__title">Cards</h3>
 
       <div class="example">
         <h3>Article card</h3>
@@ -354,7 +364,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Form</h2>
+      <h3 class="component-block__title">Form</h3>
       <div class="example">
         <div class="form-group col-12 col-xl-6">
           <label for="floatingInput">Ваше имя</label>
@@ -374,17 +384,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Headings</h2>
-      <div class="example">
-        <h1 class="h1">H1 heading</h1>
-        <h2 class="h2">H2 heading</h2>
-        <h3 class="h3">H3 heading</h3>
-        <h3 class="h4">H4 heading</h3>
-      </div>
-    </div>
-
-    <div class="component-block">
-      <h2 class="component-block__title">Icons</h2>
+      <h3 class="component-block__title">Icons</h3>
       <div class="example">
         <ul>
           <li>
@@ -397,7 +397,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Nav</h2>
+      <h3 class="component-block__title">Nav</h3>
       <div class="example">
         <ul class="nav">
           <li class="nav-item">
@@ -471,7 +471,7 @@
     </div>
 
     <div class="component-block">
-      <h2 class="component-block__title">Pagination</h2>
+      <h3 class="component-block__title">Pagination</h3>
       <div class="example">
         <nav class="d-flex justify-content-center" aria-label="Page navigation example">
           <ul class="pagination">

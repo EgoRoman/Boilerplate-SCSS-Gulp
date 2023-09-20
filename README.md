@@ -1,8 +1,8 @@
 # Blank-project-Scss-Gulp
 
+- Based on Bootstrap 5.3 (2023.09)
+
 Include vendors:
-- Resets css (Based on normalize.css v8.0.1, excluded utility helper classes)
-- Bootstrap Grid (v4.6.0)
 
 ## Based on Bootstrap 5.3
 
@@ -14,8 +14,6 @@ Include vendors:
 - [ ] Images
 - [ ] Tables
 - [ ] Figures
-
-...
 
 ### Components
 - [ ] Accordion
@@ -42,3 +40,6 @@ Include vendors:
 - [ ] Spinners
 - [ ] Toasts
 - [ ] Tooltips
+
+###Forms
+- [ ] 
