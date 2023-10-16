@@ -5,14 +5,14 @@
 
 // Color system
 /**
-USED variables/_colors.scss
+MOVED TO variables/_colors.scss
  */
 
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
 /**
-USED variables/_options.scss
+MOVED TO variables/_options.scss
  */
 
 // Gradient
@@ -71,7 +71,7 @@ $body-emphasis-color:       $black !default;
 
 // Links
 /**
-USED variables/_links.scss
+MOVED TO variables/_links.scss
  */
 
 // Paragraphs
@@ -205,12 +205,12 @@ $aspect-ratios: (
 
 // Typography
 /**
-USED variables/_typography.scss
+MOVED TO variables/_typography.scss
  */
 
 // Tables
 /**
-USED variables/_tables.scss
+MOVED TO variables/_tables.scss
  */
 
 // Buttons + Forms
@@ -500,17 +500,9 @@ $form-file-button-hover-bg:       var(--#{$prefix}secondary-bg) !default;
 // scss-docs-end form-file-variables
 
 // scss-docs-start form-floating-variables
-$form-floating-height:                  add(3.5rem, $input-height-border) !default;
-$form-floating-line-height:             1.25 !default;
-$form-floating-padding-x:               $input-padding-x !default;
-$form-floating-padding-y:               1rem !default;
-$form-floating-input-padding-t:         1.625rem !default;
-$form-floating-input-padding-b:         .625rem !default;
-$form-floating-label-height:            1.5em !default;
-$form-floating-label-opacity:           .65 !default;
-$form-floating-label-transform:         scale(.85) translateY(-.5rem) translateX(.15rem) !default;
-$form-floating-label-disabled-color:    $gray-600 !default;
-$form-floating-transition:              opacity .1s ease-in-out, transform .1s ease-in-out !default;
+/**
+MOVED TO variables/_forms.scss
+ */
 // scss-docs-end form-floating-variables
 
 // Form validation
@@ -1158,5 +1150,5 @@ $offcanvas-backdrop-opacity:        $modal-backdrop-opacity !default;
 
 // Code
 /**
-USED variables/_typography.scss
+MOVED TO variables/_typography.scss
  */

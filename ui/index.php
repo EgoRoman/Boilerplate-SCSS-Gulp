@@ -31,6 +31,15 @@
       </div>
     </div>
 
+    <h1>Components</h1>
+    <h2>Forms</h2>
+    <div class="component-block">
+      <h3 class="component-block__title">Floating labels</h3>
+      <div class="example">
+        <?php require 'components/forms/floating-labels.php'; ?>
+      </div>
+    </div>
+
     <div class="component-block">
       <h3 class="component-block__title">Accordion</h3>
       <div class="example">
