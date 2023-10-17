@@ -32,6 +32,15 @@
     </div>
 
     <h1>Components</h1>
+
+    <h2>Buttons</h2>
+    <div class="component-block">
+      <h3 class="component-block__title">_</h3>
+      <div class="example">
+        <?php require 'components/buttons.php'; ?>
+      </div>
+    </div>
+
     <h2>Forms</h2>
     <div class="component-block">
       <h3 class="component-block__title">Floating labels</h3>

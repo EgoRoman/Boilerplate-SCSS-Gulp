@@ -29,7 +29,7 @@ Include vendors:
 - [ ] Alerts
 - [ ] Badge
 - [x] Breadcrumb
-- [ ] Buttons
+- [x] Buttons
 - [ ] Button group
 - [ ] Card
 - [ ] Carousel

@@ -1,6 +1,4 @@
-/**
-https://getbootstrap.com/docs/5.3/components/buttons/
- */
+/** https://getbootstrap.com/docs/5.3/components/buttons/ */
 
 //
 // Base styles
@@ -17,14 +15,24 @@ https://getbootstrap.com/docs/5.3/components/buttons/
   --btn-bg: transparent;
   --btn-border-width: 1px;
   --btn-border-color: transparent;
-  --btn-border-radius: .375rem;
-  --btn-hover-border-color: transparent;
+  --btn-border-radius: 0;
   --btn-box-shadow: ;
+  // states
+  --btn-hover-bg: ;
+  --btn-hover-border-color: transparent;
+  --btn-hover-color: ;
+  --btn-focus-bg: var(--btn-hover-bg);
+  --btn-focus-color: var(--btn-hover-color);
+  --btn-focus-border-color: var(--btn-hover-border-color);
+  --btn-focus-box-shadow: 0 0 0 .25rem rgba(var(--btn-focus-shadow-rgb), .5);
+  --btn-active-color: ;
+  --btn-active-bg: ;
+  --btn-active-border-color: ;
+  --btn-active-shadow: ;
+  --btn-disabled-color: ;
+  --btn-disabled-bg: ;
+  --btn-disabled-border-color: ;
   --btn-disabled-opacity: 0.65;
-  --btn-focus-box-shadow: ;
-  --btn-transition-property: background-color, color, border-color, box-shadow;
-  --btn-transition-duration: .15s;
-  --btn-transition-timing-function: cubic-bezier(0.52, 0.27, 0.34, 1);
   // scss-docs-end btn-css-vars
 
   display: inline-block;
@@ -36,38 +44,38 @@ https://getbootstrap.com/docs/5.3/components/buttons/
   color: var(--btn-color);
   text-align: center;
   text-decoration: none;
+  white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   border: var(--btn-border-width) solid var(--btn-border-color);
   border-radius: var(--btn-border-radius);
   background-color: var(--btn-bg);
   box-shadow: var(--btn-box-shadow);
-  transition-duration: var(--btn-transition-duration);
-  transition-property: var(--btn-transition-property);
-  transition-timing-function: var(--btn-transition-timing-function);
+  transition: color .15s ease-in-out,
+  background-color .15s ease-in-out,
+  border-color .15s ease-in-out,
+  box-shadow .15s ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 
-  &:hover {
+  &:hover,
+  &.hover {
     color: var(--btn-hover-color);
     text-decoration: none;
     background-color: var(--btn-hover-bg);
     border-color: var(--btn-hover-border-color);
   }
 
-  &:focus {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-bg);
-    border-color: var(--btn-hover-border-color);
+  &:focus-visible,
+  &.focus {
+    color: var(--btn-focus-color);
+    background-color: var(--btn-focus-bg);
+    border-color: var(--btn-focus-border-color);
     outline: 0;
-    // Avoid using mixin so we can pass custom focus shadow properly
-    // Avoid using mixin so we can pass custom focus shadow properly
-    box-shadow: var(--btn-focus-box-shadow, var(--btn-box-shadow));
+    box-shadow: var(--btn-focus-box-shadow);
   }
 
   .btn-check:checked + &,
@@ -77,14 +85,32 @@ https://getbootstrap.com/docs/5.3/components/buttons/
   &.show {
     color: var(--btn-active-color);
     background-color: var(--btn-active-bg);
-    border-color: var(--btn-active-border-color, var(--btn-border-color));
+    border-color: var(--btn-active-border-color);
     box-shadow: var(--btn-active-shadow);
 
     &:focus-visible {
       // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: var(--btn-active-shadow, var(--btn-focus-box-shadow));
+      box-shadow: var(--btn-active-shadow), var(--btn-focus-box-shadow);
     }
   }
+
+  //.btn-check + &:hover {
+  //  // override for the checkbox/radio buttons
+  //  color: var(--btn-color);
+  //  background-color: var(--btn-bg);
+  //  border-color: var(--btn-border-color);
+  //}
+
+  //.btn-check:focus-visible + & {
+  //  border-color: var(--btn-hover-border-color);
+  //  outline: 0;
+  //  // Avoid using mixin so we can pass custom focus shadow properly
+  //  @if $enable-shadows {
+  //    box-shadow: var(--btn-box-shadow), var(--btn-focus-box-shadow);
+  //  } @else {
+  //    box-shadow: var(--btn-focus-box-shadow);
+  //  }
+  //}
 
   &:disabled,
   &.disabled,
@@ -92,7 +118,7 @@ https://getbootstrap.com/docs/5.3/components/buttons/
     color: var(--btn-disabled-color);
     pointer-events: none;
     background-color: var(--btn-disabled-bg);
-    border-color: var(--btn-disabled-border-color, var(--btn-border-color));
+    border-color: var(--btn-disabled-border-color);
     opacity: var(--btn-disabled-opacity);
     box-shadow: none;
   }
@@ -101,3 +127,9 @@ https://getbootstrap.com/docs/5.3/components/buttons/
 /**
 Theme styles
  */
+/*
+TODO
+Variants
+Outline buttons
+Sizes
+*/
