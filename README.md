@@ -24,6 +24,17 @@ Include vendors:
 - [ ] Tables
 - [ ] Figures
 
+### Forms
+- [ ] Overview
+- [ ] Form control
+- [ ] Select
+- [ ] Checks & radios
+- [ ] Range
+- [ ] Input group
+- [ ] Floating labels
+- [ ] Layout
+- [ ] Validation
+
 ### Components
 - [ ] Accordion
 - [ ] Alerts
