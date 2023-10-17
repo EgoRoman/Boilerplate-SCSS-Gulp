@@ -6,6 +6,7 @@
   min-height: var(--form-check-min-height);
   padding-left: var(--form-check-padding-start);
   margin-bottom: var(--form-check-margin-bottom);
+  cursor: pointer;
 
   .form-check-input {
     float: left;
@@ -30,6 +31,7 @@
   border: var(--form-check-input-border-width) solid var(--form-check-input-border-color);
   print-color-adjust: exact; // Keep themed appearance for print
   transition: var(--form-check-transition);
+  cursor: pointer;
 
   &[type="checkbox"] {
     border-radius: var(--form-check-checkbox-border-radius);
@@ -45,7 +47,7 @@
   }
 
   &:focus {
-    border-color: var(--form-check-input-focus-border-color);
+    --form-check-input-focus-border-color: var(--form-check-input-border-color);
     outline: 0;
     box-shadow: var(--form-check-input-focus-box-shadow);
   }
@@ -100,6 +102,18 @@
   color: var(--form-check-label-color);
   line-height: var(--form-check-line-height);
   cursor: var(--form-check-label-cursor);
+  transition: color .3s;
+
+  &:hover,
+  .form-check:hover & {
+    color: var(--form-check-label-hover-color);
+  }
+
+  .form-check-input:checked + & {
+    color: var(--form-check-label-hover-color);
+  }
+
+  // TODO disabled hover and checked color
 }
 
 .form-check-inline {

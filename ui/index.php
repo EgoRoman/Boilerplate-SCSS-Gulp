@@ -43,7 +43,6 @@
 
     <!--FORMS-->
     <h2>Forms</h2>
-
     <div class="component-block">
       <h3 class="component-block__title">Checkbox</h3>
       <div class="example">
