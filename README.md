@@ -28,7 +28,7 @@ Include vendors:
 - [ ] Overview
 - [ ] Form control
 - [ ] Select
-- [ ] Checks & radios
+- [x] Checks & radios
 - [ ] Range
 - [ ] Input group
 - [ ] Floating labels

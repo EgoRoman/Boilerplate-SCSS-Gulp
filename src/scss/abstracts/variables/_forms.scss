@@ -1,13 +1,64 @@
-// scss-docs-start form-floating-variables
-/*$form-floating-height:                  add(3.5rem, $input-height-border) !default;
-$form-floating-line-height:             1.25 !default;
-$form-floating-padding-x:               $input-padding-x !default;
-$form-floating-padding-y:               1rem !default;
-$form-floating-input-padding-t:         1.625rem !default;
-$form-floating-input-padding-b:         .625rem !default;
-$form-floating-label-height:            1.5em !default;
-$form-floating-label-opacity:           .65 !default;
-$form-floating-label-transform:         scale(.85) translateY(-.5rem) translateX(.15rem) !default;
-$form-floating-label-disabled-color:    $gray-600 !default;
-$form-floating-transition:              opacity .1s ease-in-out, transform .1s ease-in-out !default;*/
+// scss-docs-start form-check-variables
+$form-check-checkbox-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>") !default;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#ffffff'/></svg>") !default;
+
+:root {
+  --form-check-input-width: 1em;
+  --form-check-min-height: 1.5rem;
+  --form-check-line-height: var(--body-line-height, 1.5);
+  --form-check-padding-start: 1.5em;
+  //--form-check-margin-top: calc((var(--form-check-line-height) - var(--form-check-input-width)) * .5); // TODO line-height minus check height
+  --form-check-margin-top: .25rem; // TODO
+  --form-check-margin-bottom: .125rem;
+  --form-check-input-bg: var(--c-white);
+  --form-check-input-border-width: 1px;
+  --form-check-input-border-color: var(--c-primary);
+  --form-check-transition: ;
+  --form-check-label-color: ;
+  --form-check-label-cursor: ;
+  --form-check-inline-margin-end: 1rem;
+
+  // checkbox
+  --form-check-checkbox-border-radius: .25em;
+
+  // radio
+  --form-check-radio-border-radius: 50%;
+
+  // states
+  --form-check-input-focus-border-color: transparent;
+  --form-check-input-focus-box-shadow: ;
+  --form-check-input-disabled-opacity: .5;
+  //--form-check-label-disabled-opacity: $form-check-input-disabled-opacity !default; // TODO
+  //--form-check-btn-check-disabled-opacity: $btn-disabled-opacity !default; // TODO
+  --form-check-input-checked-color: #fff;
+  --form-check-input-checked-bg-color: var(--c-primary);
+  --form-check-input-checked-border-color: var(--form-check-input-checked-bg-color);
+  --form-check-checkbox-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+  --form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#ffffff'/></svg>");
+}
+
+
+// TODO
+//$form-check-input-active-filter: brightness(90%) !default;
+
+// TODO
+//$form-check-input-indeterminate-color: $component-active-color !default;
+//$form-check-input-indeterminate-bg-color: $component-active-bg !default;
+//$form-check-input-indeterminate-border-color: $form-check-input-indeterminate-bg-color !default;
+//$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+
+//scss-docs-end form-check-variables
+
+//scss-docs-start form-floating-variables
+//$form-floating-height: add(3.5rem, $input-height-border) !default;
+//$form-floating-line-height: 1.25 !default;
+//$form-floating-padding-x: $input-padding-x !default;
+//$form-floating-padding-y: 1rem !default;
+//$form-floating-input-padding-t: 1.625rem !default;
+//$form-floating-input-padding-b: .625rem !default;
+//$form-floating-label-height: 1.5em !default;
+//$form-floating-label-opacity: .65 !default;
+//$form-floating-label-transform: scale(.85) translateY(-.5rem) translateX(.15rem) !default;
+//$form-floating-label-disabled-color: $gray-600 !default;
+//$form-floating-transition: opacity .1s ease-in-out, transform .1s ease-in-out !default;
 // scss-docs-end form-floating-variables

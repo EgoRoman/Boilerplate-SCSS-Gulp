@@ -41,13 +41,30 @@
       </div>
     </div>
 
+    <!--FORMS-->
     <h2>Forms</h2>
+
+    <div class="component-block">
+      <h3 class="component-block__title">Checkbox</h3>
+      <div class="example">
+        <?php require 'components/forms/checkbox.php'; ?>
+      </div>
+    </div>
+
+    <div class="component-block">
+      <h3 class="component-block__title">Radio</h3>
+      <div class="example">
+        <?php require 'components/forms/radio.php'; ?>
+      </div>
+    </div>
+
     <div class="component-block">
       <h3 class="component-block__title">Floating labels</h3>
       <div class="example">
         <?php require 'components/forms/floating-labels.php'; ?>
       </div>
     </div>
+    <!--END FORMS-->
 
     <div class="component-block">
       <h3 class="component-block__title">Accordion</h3>
