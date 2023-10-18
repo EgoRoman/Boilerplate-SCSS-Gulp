@@ -52,7 +52,7 @@ Include vendors:
 - [ ] Navbar
 - [ ] Navs & tabs
 - [ ] Offcanvas
-- [ ] Pagination
+- [x] Pagination
 - [ ] Placeholders
 - [ ] Popovers
 - [ ] Progress
