@@ -65,6 +65,15 @@
     </div>
     <!--END FORMS-->
 
+    <h2>Pagination</h2>
+    <div class="component-block">
+      <h3 class="component-block__title">Pagination</h3>
+      <div class="example">
+        <?php require 'components/pagination.php'; ?>
+      </div>
+    </div>
+
+
     <div class="component-block">
       <h3 class="component-block__title">Accordion</h3>
       <div class="example">
@@ -502,36 +511,6 @@
           <li class="nav-item"><a href="#" class="nav-link">Решения</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Техподдержка</a></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="component-block">
-      <h3 class="component-block__title">Pagination</h3>
-      <div class="example">
-        <nav class="d-flex justify-content-center" aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" aria-label="Previous">
-                <svg class="icon" style="transform: rotate(180deg);">
-                  <use href="#icon-arrow-right"/>
-                </svg>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-            <li class="page-item"><a class="page-link" href="#">6</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <svg class="icon">
-                  <use href="#icon-arrow-right"/>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   </main>

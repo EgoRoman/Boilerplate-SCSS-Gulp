@@ -4,6 +4,7 @@
 @import 'variables/links';
 @import 'variables/spacing';
 @import 'variables/options';
+@import 'variables/pagination';
 @import 'variables/tables';
 @import 'variables/typography';
 
@@ -16,6 +17,17 @@
   --c-grey-95: #F4F4F4;
   --c-grey-f4: #F4F4F4;
   --c-grey-f5: #f5f5f5;
+  --c-gray: #6c757d;
+  --c-gray-dark: #343a40;
+  --c-gray-100: #f8f9fa;
+  --c-gray-200: #e9ecef;
+  --c-gray-300: #dee2e6;
+  --c-gray-400: #ced4da;
+  --c-gray-500: #adb5bd;
+  --c-gray-600: #6c757d;
+  --c-gray-700: #495057;
+  --c-gray-800: #343a40;
+  --c-gray-900: #212529;
 
   // theme colors
   --body-color: #000;
