@@ -93,6 +93,29 @@ blockquote {
   }
 }
 
+// List Style Position
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-outside {
+  list-style-position: outside;
+}
+
+// List Style Type
+.list-none {
+  list-style-type: none;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.list-decimal {
+  list-style-type: decimal;
+}
+
+/*TODO*/
 .blockquote--card {
   background-color: transparent;
   padding: 0;
