@@ -16,30 +16,14 @@ MOVED TO variables/_options.scss
  */
 
 // Gradient
-//
-// The gradient which is added to components if `$enable-gradients` is `true`
-// This gradient is also added to elements with `.bg-gradient`
 /**
 REMOVED
  */
 
 // Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the $spacers map, should you need more variation.
-
-// scss-docs-start spacer-variables-maps
-$spacer: 1rem !default;
-$spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-) !default;
-// scss-docs-end spacer-variables-maps
+/**
+MOVED TO variables/_spacing.scss
+ */
 
 // Position
 //

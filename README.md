@@ -63,3 +63,25 @@ Include vendors:
 
 ###Forms
 - [ ] 
+
+### Utilities
+- [ ] API
+- [ ] Background
+- [ ] Borders
+- [ ] Colors
+- [ ] Display
+- [ ] Flex
+- [ ] Float
+- [ ] Interactions
+- [ ] Link
+- [ ] Object fit
+- [ ] Opacity
+- [ ] Overflow
+- [ ] Position
+- [ ] Shadows
+- [ ] Sizing
+- [x] Spacing
+- [ ] Text
+- [ ] Vertical align
+- [ ] Visibility
+- [ ] Z-index
