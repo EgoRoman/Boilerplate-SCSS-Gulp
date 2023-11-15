@@ -8,22 +8,22 @@
 $spacer: 1rem !default;
 $spacers: (
   '0': 0,
-  '1': $spacer * .25,
-  '2': $spacer * .5,
-  '3': $spacer * .75,
-  '4': $spacer,
-  '5': $spacer * 1.25,
-  '6': $spacer * 1.5,
-  '8': $spacer * 2,
-  '9': $spacer * 2.25,
-  '10': $spacer * 2.5,
-  '11': $spacer * 2.75,
-  '12': $spacer * 3,
-  '14': $spacer * 3.5,
-  '16': $spacer * 4,
-  '20': $spacer * 5,
-  '24': $spacer * 6,
-  '28': $spacer * 7,
-  '32': $spacer * 8,
+  '1': $spacer * .25, // 0.25rem = 4px
+  '2': $spacer * .5, // 0.5rem = 8px
+  '3': $spacer * .75, // 0.75rem = 12px
+  '4': $spacer * 1, // 1rem = 16px
+  '5': $spacer * 1.25, // 1.25rem = 20px
+  '6': $spacer * 1.5, // 1.5rem = 24px
+  '8': $spacer * 2, // 2rem = 32px
+  '9': $spacer * 2.25, // 2.25rem = 36px
+  '10': $spacer * 2.5, // 2.5rem = 40px
+  '11': $spacer * 2.75, // 2.75rem = 44px
+  '12': $spacer * 3, // 3rem = 48px
+  '14': $spacer * 3.5, // 3.5rem = 56px
+  '16': $spacer * 4, // 4rem = 64px
+  '20': $spacer * 5, // 5rem = 80px
+  '24': $spacer * 6, // 6rem = 96px
+  '28': $spacer * 7, // 7rem = 112px
+  '32': $spacer * 8, // 8rem = 128px
 ) !default;
 // scss-docs-end spacer-variables-maps
