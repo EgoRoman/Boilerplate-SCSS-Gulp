@@ -1,10 +1,8 @@
 # Blank-project-Scss-Gulp
 
-- Based on Bootstrap 5.3 (2023.09)
-
-Include vendors:
-
-## Based on Bootstrap 5.3
+Used:
+- Bootstrap 5.3 (2023.09)
+- Tailwind CSS v3.3.5 (2023.11) https://tailwindcss.com/docs/
 
 ...
 
@@ -71,7 +69,7 @@ Include vendors:
 - [ ] Float
 - [ ] Interactions
 - [ ] Link
-- [ ] Object fit
+- [x] Object-fit and object-position (tailwindcss)
 - [ ] Opacity
 - [ ] Overflow
 - [ ] Position
