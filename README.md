@@ -17,7 +17,7 @@ Used:
   - [ ] Text utilities 
   - [ ] Abbreviations 
   - [ ] Blockquotes
-  - [ ] Lists
+  - [x] Lists
 - [ ] Images
 - [ ] Tables
 - [ ] Figures
