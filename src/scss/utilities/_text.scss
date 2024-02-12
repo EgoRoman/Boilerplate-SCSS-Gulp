@@ -5,10 +5,15 @@ Bootstrap text utilities
 + Word break
 + Text transform
 - Font size
++ Line height
 - Monospace ( // todo ? )
 + Reset color
 + Text decoration
  */
+
+@import "text/line-height";
+
+
 // Font size
 .fs-125, .fs-20 {
   font-size: 1.25em; //  font-size: 20px;
