@@ -1,3 +1,4 @@
+// Gulp for WordPress
 import { src, dest, watch, series, parallel } from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
