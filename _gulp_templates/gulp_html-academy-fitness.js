@@ -17,19 +17,19 @@ const gcmq = require('gulp-group-css-media-queries');
 
 const css = () => {
   return gulp.src('source/sass/style.scss')
-      .pipe(plumber())
-      .pipe(sourcemap.init())
-      .pipe(sass())
-      .pipe(postcss([autoprefixer({
-        grid: true,
-      })]))
-      .pipe(gcmq()) // выключите, если в проект импортятся шрифты через ссылку на внешний источник
-      .pipe(gulp.dest('build/css'))
-      .pipe(csso())
-      .pipe(rename('style.min.css'))
-      .pipe(sourcemap.write('.'))
-      .pipe(gulp.dest('build/css'))
-      .pipe(server.stream());
+      // .pipe(plumber())
+      // .pipe(sourcemap.init())
+      // .pipe(sass())
+      // .pipe(postcss([autoprefixer({
+      //   grid: true,
+      // })]))
+      // .pipe(gcmq()) // выключите, если в проект импортятся шрифты через ссылку на внешний источник
+      // .pipe(gulp.dest('build/css'))
+      // .pipe(csso())
+      // .pipe(rename('style.min.css'))
+      // .pipe(sourcemap.write('.'))
+      // .pipe(gulp.dest('build/css'))
+      // .pipe(server.stream());
 };
 
 const js = () => {

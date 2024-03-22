@@ -8,6 +8,7 @@
   <title><?= SITE_TITLE; ?></title>
 
   <!--Styles-->
+  <!--TODO DEV / PROD link-->
   <link rel="stylesheet" href="/dist/css/style.css?v=<?= filemtime('dist/css/style.css'); ?>">
   <!--END STYLES-->
 </head>
