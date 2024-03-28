@@ -2,19 +2,24 @@
 // Base styles (https://getbootstrap.com/docs/5.3/components/buttons/)
 //
 .btn {
+  // Base styles
   // scss-docs-start btn-css-vars
-  --btn-padding-y: 0.375rem;
-  --btn-padding-x: 0.75rem;
-  --btn-font-family: ; // todo body font-family var
+  --btn-padding-y: .375rem;
+  --btn-padding-x: .75rem;
+  --btn-font-family: var(--bod-font-family, inherit); // TODO base var
   --btn-font-size: 1rem;
-  --btn-font-weight: 400;
+  --btn-font-weight: 500;
   --btn-line-height: 1.5;
-  --btn-color: var(--body-color, #000);
+  --btn-color: var(--body-color, #000);  // TODO base color
   --btn-bg: transparent;
   --btn-border-width: 1px;
   --btn-border-color: transparent;
-  --btn-border-radius: 0;
-  --btn-box-shadow: ;
+  --btn-border-radius: .375rem;
+  --btn-box-shadow: none;
+  --btn-transition: color .15s ease-in-out,
+  background-color .15s ease-in-out,
+  border-color .15s ease-in-out,
+  box-shadow .15s ease-in-out;
   // states
   --btn-hover-bg: ;
   --btn-hover-border-color: transparent;
@@ -46,14 +51,11 @@
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
+  background-color: var(--btn-bg, transparent);
   border: var(--btn-border-width) solid var(--btn-border-color);
-  border-radius: var(--btn-border-radius);
-  background-color: var(--btn-bg);
-  box-shadow: var(--btn-box-shadow);
-  transition: color .15s ease-in-out,
-  background-color .15s ease-in-out,
-  border-color .15s ease-in-out,
-  box-shadow .15s ease-in-out;
+  border-radius: var(--btn-border-radius, .375rem);
+  box-shadow: var(--btn-box-shadow, none);
+  transition: var(--btn-transition);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
