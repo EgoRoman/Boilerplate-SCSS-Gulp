@@ -9,13 +9,12 @@
   --btn-font-family: var(--bod-font-family, inherit); // TODO base var
   --btn-font-size: 1rem;
   --btn-font-weight: 500;
-  --btn-line-height: 1.25;
-  --btn-white-space: nowrap;
-  --btn-color: var(--body-color, #000); // TODO base color
+  --btn-line-height: 1.5;
+  --btn-color: var(--body-color, #000);  // TODO base color
   --btn-bg: transparent;
   --btn-border-width: 1px;
   --btn-border-color: transparent;
-  --btn-border-radius: 2rem;
+  --btn-border-radius: .375rem;
   --btn-box-shadow: none;
   --btn-transition: color .15s ease-in-out,
   background-color .15s ease-in-out,
