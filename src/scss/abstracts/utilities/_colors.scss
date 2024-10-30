@@ -1,0 +1,49 @@
+/**
+Text colors
+ */
+/*TODO*/
+.text-primary {
+  --text-opacity: 1;
+  //color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: var(--c-primary) !important;
+}
+
+.text-white {
+  --text-opacity: 1;
+  color: rgba(255, 255, 255, var(--text-opacity)) !important;
+}
+
+.text-black {
+  --text-opacity: 1;
+  color: var(--c-black) !important;
+}
+
+.text-grey {
+  --text-opacity: 1;
+  color: var(--c-grey) !important;
+}
+
+.text-dark-blue {
+  --text-opacity: 1;
+  color: var(--c-dark-blue) !important;
+}
+
+.bg-black {
+  --bg-opacity: 1;
+  background-color: var(--c-black) !important;
+}
+
+.bg-white {
+  --bg-opacity: 1;
+  background-color: white !important;
+}
+
+.bg-transparent {
+  --bg-opacity: 1;
+  background-color: transparent !important;
+}
+
+.bg-red {
+  --cz-bg-opacity: 1;
+  background-color: var(--c-red) !important;
+}

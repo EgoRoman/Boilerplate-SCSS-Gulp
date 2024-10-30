@@ -1,0 +1,177 @@
+/*Dropdown transition*/
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: all .3s;
+  visibility: hidden;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: visible;
+  }
+}
+
+/**
+ Collection of animation utility classes
+ */
+
+// Pulse
+
+.animate-pulse {
+  &:hover,
+  &:focus-visible {
+    .animate-target {
+      animation: pulse .9s;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.25);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.25);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+
+// Rotate
+
+.animate-rotate {
+  &:hover,
+  &:focus-visible {
+    .animate-target {
+      animation: rotate .6s ease-in-out;
+    }
+  }
+}
+
+@keyframes rotate  {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+// Scale
+
+.animate-scale {
+  &:hover,
+  &:focus-visible {
+    .animate-target {
+      animation: scale .35s ease-in-out;
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+// Shake
+
+.animate-shake {
+  &:hover,
+  &:focus-visible {
+    .animate-target {
+      animation: shake .8s;
+    }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -5deg);
+  }
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 5deg);
+  }
+  60%,
+  80% {
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+// Underline
+
+@mixin underline(
+  $border-width: var(--underline-thickness),
+  $element: after
+) {
+  position: relative;
+
+  &::#{$element} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $border-width;
+    content: "";
+    background-color: currentcolor;
+    transition: transform .3s ease-out;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+}
+
+@mixin underline-action($element: after) {
+  &::#{$element} {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+.animate-underline {
+  --underline-thickness: 1px;
+
+  &.animate-target,
+  .animate-target {
+    text-decoration: none;
+    @include underline();
+  }
+
+  &:hover,
+  &.show,
+  &.active,
+  &:focus-visible {
+    &.animate-target,
+    .animate-target {
+      @include underline-action();
+    }
+  }
+}

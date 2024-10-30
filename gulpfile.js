@@ -1,4 +1,4 @@
-const appUrl = 'boilerplate-scss-gulp',
+const appUrl = '###',
   themePath = './',
   uiPath = '';
 
@@ -7,28 +7,29 @@ const {dest, series, parallel, src, watch} = require('gulp'),
   browserSync = require('browser-sync'),
   clean = require('gulp-clean'),
   plumber = require('gulp-plumber'),
-  newer = require('gulp-newer'),
+  // newer = require('gulp-newer'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
   cheerio = require('gulp-cheerio'),
+  sourcemaps = require('gulp-sourcemaps'),
 
   // Scss plugins
   autoprefixer = require('autoprefixer'),
   csso = require('gulp-csso'),
   postcss = require('gulp-postcss'),
-  sass = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
+  sass = require('gulp-sass')(require('sass')),
 
   // Images
-  imagemin = require('gulp-imagemin'),
+  // imagemin = require('gulp-imagemin'),
 
   //SVG
-  svgSprite = require('gulp-svg-sprite'),
+  svgSprite = require('gulp-svg-sprite')
 
   //
-  concat = require('gulp-concat'),
-  include = require('gulp-include'),
-  uglify = require('gulp-uglify-es').default;
+  // concat = require('gulp-concat'),
+  // include = require('gulp-include'),
+  // uglify = require('gulp-uglify-es').default
+;
 
 const server = browserSync.create();
 /**
@@ -90,7 +91,7 @@ const paths = {
 /**
  * Build styles task
  */
-function buildStyles() {
+function css() {
   return src(paths.styles.input)
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -110,11 +111,14 @@ function buildStyles() {
     .pipe(dest(paths.styles.output))
     .pipe(server.stream());
 }
+/**
+ * END Build styles task
+ */
 
 /**
  * Build scripts
  */
-function buildScripts() {
+/*function buildScripts() {
   return src(
     // paths.scripts.vendorDir + 'jquery.js',
     // paths.scripts.vendorDir + 'jquery.fancybox.js',
@@ -125,38 +129,38 @@ function buildScripts() {
     // .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(dest(paths.scripts.output));
-}
+}*/
 
 /**
  * Fonts
  */
-function fonts() {
+/*function fonts() {
   return src(paths.fonts.input)
     .pipe(newer(paths.fonts.output))
     .pipe(dest(paths.fonts.output));
-}
+}*/
 
 /**
  * Build Images
  */
-function imgBuild() {
+/*function imgBuild() {
   // TODO optimize images
   return src(paths.images.input)
     .pipe(newer('dist/img'))
     .pipe(imagemin([
-      /*pngquant({
+      /!*pngquant({
         speed: 1,
         quality: [0.8, 0.87]
-      }),*/
+      }),*!/
       // imagemin.jpegtran({ progressive: true }),
-      /*imageminMozjpeg({
+      /!*imageminMozjpeg({
         progressive: true,
         quality: 87
-      }),*/
+      }),*!/
       imagemin.svgo(),
     ]))
     .pipe(dest(paths.images.output))
-}
+}*/
 
 /*function imgClean() {
   return src(['dist/img/', '!dist/img/icons/svg/'], { read: false })
@@ -169,7 +173,7 @@ function imgBuild() {
 /**
  * Build SVG Sprite
  */
-function cleanSvgSymbol() {
+function createSvgSymbol() {
   return src(paths.svg.source)
     .pipe(cheerio({
       run: function ($) {
@@ -232,51 +236,15 @@ function reloadBrowser(done) {
 }
 
 function watchTask() {
-  watch(paths.styles.watch, series(buildStyles, reloadBrowser));
-  watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
-  // watch(paths.svg.watchSource, series(cheerioTask));
+  watch(paths.styles.watch, series(css, reloadBrowser));
+  // watch(paths.scripts.watch, series(buildScripts, reloadBrowser));
+  watch(paths.svg.watchSource, series(createSvgSymbol));
   watch(paths.svg.watchSymbol, series(buildSvgSprite));
   // watch php files
   watch('index.php', series(reloadBrowser));
   watch('pages/**/*.php', series(reloadBrowser));
   watch('page-parts/**/*.php', series(reloadBrowser));
 }
-
-/**
- * Export Tasks
- */
-// exports.buildSvgSprite = series(svgClear, cheerioTask, buildSvgSprite);
-// exports.fonts = fonts;
-exports.img = series(imgBuild);
-exports.svg = series(svgClear, cleanSvgSymbol, buildSvgSprite);
-
-exports.dev = series(
-  // clean,
-  // copyTask,
-  buildStyles,
-  series(imgBuild),
-  svgClear, cleanSvgSymbol, buildSvgSprite,
-  // buildScripts,
-  // fonts,
-  startServer,
-  watchTask,
-);
-
-// Default task
-// gulp
-exports.default = series(
-  // cleanDist,
-  parallel(
-    buildStyles,
-    // cheerioTask,
-    svgClear, cleanSvgSymbol, buildSvgSprite,
-    // fonts,
-    // img,
-    // buildScripts,
-    // lintScripts,
-    // buildSVGs,
-  )
-);
 
 ///////// TODO
 const copyTask = () => {
@@ -288,3 +256,40 @@ const copyTask = () => {
     ]));
 }
 // TODO image optimize task
+
+
+/**
+ * Export Tasks
+ */
+// exports.buildSvgSprite = series(svgClear, cheerioTask, buildSvgSprite);
+// exports.fonts = fonts;
+// exports.img = series(imgBuild);
+exports.svg = series(svgClear, createSvgSymbol, buildSvgSprite);
+
+exports.dev = series(
+  // clean,
+  // copyTask,
+  css,
+  // series(imgBuild),
+  series(svgClear, createSvgSymbol, buildSvgSprite),
+  // buildScripts,
+  // fonts,
+  startServer,
+  watchTask,
+);
+
+// Default task
+// gulp
+exports.default = series(
+  // cleanDist,
+  parallel(
+    css,
+    // cheerioTask,
+    series(svgClear, createSvgSymbol, buildSvgSprite),
+    // fonts,
+    // img,
+    // buildScripts,
+    // lintScripts,
+    // buildSVGs,
+  )
+);

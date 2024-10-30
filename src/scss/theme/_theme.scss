@@ -1,0 +1,39 @@
+.content-wrapper {
+  //TODO temp
+  padding-top: 60px;
+
+  @media (min-width: 576px) {
+    padding-top: 100px;
+  }
+}
+
+.content-wrapper--home {
+  padding-top: 0;
+}
+
+.filter-select {
+  --btn-padding-x: 1rem;
+}
+
+.input-group--price {
+  --input-group-addon-padding-y: .25rem;
+  --input-group-addon-padding-x: .75rem;
+  --input-group-addon-color: var(--c-grey2);
+}
+
+.cart-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--c-white);
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  background-color: var(--c-primary);
+  border-radius: 50%;
+}

@@ -1,3 +1,150 @@
-// -----------------------------------------------------------------------------
-// This file contains styles that are specific to the home page.
-// -----------------------------------------------------------------------------
+.home-h2 {
+  @include font-size(3.75rem);
+  line-height: 1;
+}
+
+/**
+Home Slider Section
+ */
+.home-slider-section {
+  --swiper-pagination-bullet-horizontal-gap: 10px;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bottom: 20px;
+  --swiper-pagination-color: var(--c-white);
+  --swiper-pagination-bullet-inactive-color: var(--c-white);
+  --swiper-pagination-bullet-inactive-opacity: .4;
+
+  @media (min-width: 992px) {
+    --swiper-pagination-bullet-horizontal-gap: 15px;
+    --swiper-pagination-bullet-size: 12px;
+    --swiper-pagination-bottom: 30px;
+  }
+
+  .swiper-pagination-bullet {
+    outline: 6px solid transparent;
+  }
+
+  .swiper-pagination-bullet-active {
+    outline-color: rgba(255, 255, 255, .4);
+  }
+
+  position: relative;
+  height: 100vh;
+  //max-height: 500px;
+  padding: 0;
+}
+
+.home-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.home-slider__content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(97, 79, 62, .35);
+  color: var(--c-white);
+}
+
+.home-slider__heading {
+  @include font-size(6.25rem);
+}
+/**
+END Home Slider Section
+ */
+
+/**
+Home Catalog Section
+ */
+.home-catalog-section {
+  background: linear-gradient(white 500px, var(--c-black) 500px, var(--c-black));
+}
+
+.home-catalog-grid {
+  .row {
+    --gutter-y: 30px;
+    --gutter-x: 30px;
+  }
+}
+
+.home-category-card {
+  --card-color: var(--c-white);
+
+  .card-img-overlay {
+    background-color: rgba(97, 79, 62, .35);
+    transition: background-color .5s;
+  }
+
+  .card-title {
+    @include font-size(2.5rem);
+    line-height: 1.275;
+  }
+
+  &:hover {
+    .card-img-overlay {
+      background-color: transparent;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    // TODO
+    --card-padding-y: 40px;
+    --card-padding-x: 40px;
+    height: 30rem;
+  }
+}
+/**
+Home Catalog Section
+ */
+
+/**
+Home Specials Section
+ */
+.specials-slide {
+  width: 250px;
+
+  @media (min-width: 1400px) {
+    width: 410px;
+  }
+}
+
+.special-card {
+  --card-bg: transparent;
+  --card-color: var(--c-white);
+}
+/**
+END Home Specials Section
+ */
+
+/**
+Home About Section
+ */
+.home-about-section {
+  @media (min-width: 1400px) {
+    margin-bottom: 220px;
+
+    .section-title {
+      font-size: 40px;
+    }
+  }
+}
+
+.home-about-image {
+
+
+  @media (min-width: 1400px) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: unset;
+    width: 930px;
+  }
+}
+
+

@@ -1,0 +1,11 @@
+.subcategories-slide {
+  width: 140px;
+
+  @media (min-width: 992px) {
+    width: 180px;
+  }
+}
+
+.viewed-products-slide {
+  width: 210px;
+}

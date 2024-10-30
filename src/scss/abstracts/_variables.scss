@@ -1,68 +1,101 @@
-@import 'variables/aspect-ratios';
-@import 'variables/colors';
-@import 'variables/forms';
-@import 'variables/grid';
-@import 'variables/links';
-@import 'variables/spacing';
-@import 'variables/options';
-@import 'variables/pagination';
-@import 'variables/tables';
-@import 'variables/typography';
+@import "variables/colors";
+
+$prefix: ''; // TODO
+$spacer: 1rem !default;
+// Define common padding and border radius sizes and more.
+
+// scss-docs-start border-variables
+$border-width: 1px !default;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+) !default;
+$border-style: solid !default;
+//$border-color:                $gray-300 !default;
+//$border-color-translucent:    rgba($black, .175) !default;
+// scss-docs-end border-variables
+
+//// scss-docs-start border-radius-variables
+//$border-radius:               .375rem !default;
+//$border-radius-sm:            .25rem !default;
+//$border-radius-lg:            .5rem !default;
+//$border-radius-xl:            1rem !default;
+//$border-radius-xxl:           2rem !default;
+//$border-radius-pill:          50rem !default;
+//// scss-docs-end border-radius-variables
+//// fusv-disable
+//$border-radius-2xl:           $border-radius-xxl !default; // Deprecated in v5.3.0
+//// fusv-enable
+
+// scss-docs-start box-shadow-variables
+$box-shadow: 0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-sm: 0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
+// scss-docs-end box-shadow-variables
+
+$component-active-color: $white !default;
+$component-active-bg: $primary !default;
+
+// scss-docs-start focus-ring-variables
+$focus-ring-width: .25rem !default;
+$focus-ring-opacity: .25 !default;
+$focus-ring-color: rgba($primary, $focus-ring-opacity) !default;
+$focus-ring-blur: 0 !default;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color !default;
+// scss-docs-end focus-ring-variables
+
+// scss-docs-start caret-variables
+$caret-width: .3em !default;
+$caret-vertical-align: $caret-width * .85 !default;
+$caret-spacing: $caret-width * .85 !default;
+// scss-docs-end caret-variables
 
 :root {
-  /** Colors */
-  // base colors
-  --c-black: #000;
-  --c-white: #FFFFFF;
-  --c-grey-94: #F0F0F0;
-  --c-grey-95: #F4F4F4;
-  --c-grey-f4: #F4F4F4;
-  --c-grey-f5: #f5f5f5;
-  --c-gray: #6c757d;
-  --c-gray-dark: #343a40;
-  --c-gray-100: #f8f9fa;
-  --c-gray-200: #e9ecef;
-  --c-gray-300: #dee2e6;
-  --c-gray-400: #ced4da;
-  --c-gray-500: #adb5bd;
-  --c-gray-600: #6c757d;
-  --c-gray-700: #495057;
-  --c-gray-800: #343a40;
-  --c-gray-900: #212529;
+  /*TODO*/
+  --body-color: #514B4C;
+  --body-font-family: "Onest", sans-serif;
+  --body-font-size: 1rem;
+  --body-line-height: 1.4;
 
-  // theme colors
-  --body-color: #000;
-  --c-text: #000;
-  --c-primary: #E84232;
-  --c-red: #E84232;
-  --c-secondary: #1F2348;
-  --c-blue: #1F2348;
-  --c-grey: #868686;
-  /** END Colors */
+  --c-black: #1E1C1C;
+  --c-white: #fff;
+  --c-text: #514B4C;
+  --c-red: #EC454F;
+  --c-gld: #B59578;
+  --c-primary: #B59578;
+  --c-dark-blue: #0B1D32;
+  //--c-grey: #fff;
 
-  // Box-shadow default
-  --box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .09);
+  --link-hover-color: var(--c-primary); // TODO
+  --link-hover-color-rgb: rgba(181, 149, 120);
 
-  // Horizontal rules
-  --hr-border-width: 1px;
-  --hr-border-color: var(--c-blue);
-  --hr-opacity: 1;
-
-  // Transition
-  --transition-duration: .25s;
-  --transition-timing-function: cubic-bezier(0.45, 0.13, 0.31, 1);
-
-  /** Z-index variables */
-  --zi-dropdown: 200;
-  --zi-dropdown-backdrop: 199;
-  --zi-header: 500;
-  --zi-modal: 600;
-  --zi-modal-backdrop: 599;
-  --zi-mobile-menu: 400;
-  --zi-offcanvas: 400;
-  --zi-offcanvas-backdrop: 399;
-
-  @media (min-width: 1200px) {
-    //--grid-gutter-x: 24px;
+  @media (min-width: 992px) {
+    --body-font-size: 17px; // TODO 17 or 18
   }
 }
+
+@import "variables/typography";
+@import "variables/z-index";
+
+@import "variables/aspect-ratios";
+@import "variables/badge";
+@import "variables/borders";
+@import "variables/breadcrumb";
+@import "variables/dropdown";
+@import "variables/forms";
+@import "variables/grid";
+@import "variables/links";
+@import "variables/modal";
+@import "variables/navbar";
+@import "variables/navs";
+@import "variables/offcanvas";
+@import "variables/options";
+@import "variables/position";
+@import "variables/spacing";
+
+
+

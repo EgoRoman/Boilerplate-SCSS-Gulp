@@ -32,5 +32,8 @@
     "gulp-svg-sprite": "^2.0.3",
     "gulp-uglify-es": "^2.0.0",
     "newer": "^0.1.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
   }
 }

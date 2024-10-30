@@ -1,18 +1,21 @@
-// TODO move to transitions.scss
-// TODO move to utilities/transitions?
-
-.collapse:not(.show) {
-  display: none;
+// scss-docs-start collapse-classes
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
 }
 
 .collapsing {
   height: 0;
   overflow: hidden;
-  transition: height 0.35s ease;
-}
+  //@include transition($transition-collapse);
+  transition: height .35s ease;
 
-@media (prefers-reduced-motion: reduce) {
-  .collapsing {
-    transition: none;
+  &.collapse-horizontal {
+    width: 0;
+    height: auto;
+    //@include transition($transition-collapse-width);
+    transition: width .35s ease;
   }
 }
+// scss-docs-end collapse-classes

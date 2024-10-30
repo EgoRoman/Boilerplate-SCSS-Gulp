@@ -1,0 +1,30 @@
+.section {
+  // TODO home section paddings
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media (min-width: 1400px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.section--dark {
+  --color: var(--c-white);
+  background-color: var(--c-black);
+  color: var(--c-white);
+
+  .section-title {
+    color: var(--c-white);
+  }
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}

@@ -2,7 +2,7 @@
 // Color system
 
 // scss-docs-start gray-color-variables
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -12,7 +12,7 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black: #000 !default;
 // scss-docs-end gray-color-variables
 
 // fusv-disable
@@ -32,7 +32,7 @@ $grays: (
 // fusv-enable
 
 // scss-docs-start color-variables
-$blue:    #0d6efd !default;
+$blue: #0d6efd !default;
 //$indigo:  #6610f2 !default;
 //$purple:  #6f42c1 !default;
 //$pink:    #d63384 !default;
@@ -56,34 +56,34 @@ $colors: (
   //"green":      $green,
   //"teal":       $teal,
   //"cyan":       $cyan,
-  "black":      $black,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
+  "black": $black,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800
 ) !default;
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
+$primary: $blue !default;
 //$secondary:     $gray-600 !default;
 //$success:       $green !default;
 //$info:          $cyan !default;
 //$warning:       $yellow !default;
 //$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$light: $gray-100 !default;
+$dark: $gray-900 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary":    $primary,
+  "primary": $primary,
   //"secondary":  $secondary,
   //"success":    $success,
   //"info":       $info,
   //"warning":    $warning,
   //"danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+  "light": $light,
+  "dark": $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -91,19 +91,36 @@ $theme-colors: (
 Colors
  */
 :root {
+  --body-bg: var(--c-white);
   // base colors
-  //--c-black: #000;
-  //--c-white: #FFFFFF;
-  //--c-grey-94: #F0F0F0;
-  //--c-grey-95: #F4F4F4;
-  //--c-grey-f4: #F4F4F4;
-  //--c-grey-f5: #f5f5f5;
+  --c-black: #1c1c1c;
+  --c-white: #FFFFFF;
+  --c-grey-94: #F0F0F0;
+  --c-grey-95: #F4F4F4;
+  --c-grey-f4: #F4F4F4;
+  --c-grey-f5: #f5f5f5;
+  --c-gray: #6c757d;
+  --c-gray-dark: #343a40;
+  --c-gray-100: #f8f9fa;
+  --c-gray-200: #e9ecef;
+  --c-gray-300: #dee2e6;
+  --c-gray-400: #ced4da;
+  --c-gray-500: #adb5bd;
+  --c-gray-600: #6c757d;
+  --c-gray-700: #495057;
+  --c-gray-800: #343a40;
+  --c-gray-900: #212529;
 
   // theme colors
-  //--body-color: #000;
-  //--c-black: #191919;
-  //--c-grey: #b7b7b7;
-  //--c-text: ;
-  --c-primary: $primary;
+  --body-color: #000;
+  --c-text: #101014; // TODO global base color ?
+  //--c-black: #101014;
+  //--c-white: #FFFFFF;
+  --c-white-70: rgba(255, 255, 255, .7);
+  --c-grey: #86919B;
+  --c-grey2: #BCC3CB;
+  --c-grey3: #D6DBE0;
+  //--c-grey-dark: #1D1F24;
+  //--c-primary: $primary;
   //--c-secondary: ;
 }

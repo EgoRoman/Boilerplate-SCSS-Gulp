@@ -5,7 +5,7 @@
 $link-color:                              $primary !default;
 $link-decoration:                         underline !default;
 $link-shade-percentage:                   20% !default;
-//$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default; // TODO
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default; // TODO
 $link-hover-decoration:                   null !default;
 
 $stretched-link-pseudo-element:           after !default;

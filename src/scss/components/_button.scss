@@ -1,0 +1,300 @@
+//
+// Base styles
+//
+.btn {
+  // Base styles
+  // scss-docs-start btn-css-vars
+  --btn-padding-y: .375rem;
+  --btn-padding-x: .75rem;
+  --btn-font-family: var(--bod-font-family, inherit); // TODO base var
+  --btn-font-size: 1rem;
+  --btn-font-weight: 500;
+  --btn-line-height: 1.25;
+  --btn-white-space: nowrap;
+  --btn-color: var(--body-color, #000); // TODO base color
+  --btn-bg: transparent;
+  --btn-border-width: 1px;
+  --btn-border-color: transparent;
+  --btn-border-radius: ;
+  --btn-box-shadow: none;
+  --btn-transition: color .15s ease-in-out,
+  background-color .15s ease-in-out,
+  border-color .15s ease-in-out,
+  box-shadow .15s ease-in-out;
+  // states
+  --btn-hover-bg: ;
+  --btn-hover-border-color: transparent;
+  --btn-hover-color: ;
+  --btn-focus-bg: var(--btn-hover-bg);
+  --btn-focus-color: var(--btn-hover-color);
+  --btn-focus-border-color: var(--btn-hover-border-color);
+  --btn-focus-box-shadow: 0 0 0 .25rem rgba(var(--btn-focus-shadow-rgb), .5);
+  --btn-active-color: ;
+  --btn-active-bg: ;
+  --btn-active-border-color: var(--btn-border-color);
+  --btn-active-shadow: ;
+  --btn-disabled-color: ;
+  --btn-disabled-bg: ;
+  --btn-disabled-border-color: ;
+  --btn-disabled-opacity: 0.35;
+  // scss-docs-end btn-css-vars
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  line-height: var(--btn-line-height);
+  color: var(--btn-color);
+  text-align: center;
+  text-decoration: none;
+  white-space: var(--btn-white-space);
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--btn-bg, transparent);
+  border: var(--btn-border-width) solid var(--btn-border-color);
+  border-radius: var(--btn-border-radius, .375rem);
+  box-shadow: var(--btn-box-shadow, none);
+  transition: var(--btn-transition);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover,
+  &.hover {
+    color: var(--btn-hover-color);
+    text-decoration: none;
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border-color);
+  }
+
+  &:focus-visible,
+  &:focus,
+  &.focus {
+    color: var(--btn-focus-color);
+    background-color: var(--btn-focus-bg);
+    border-color: var(--btn-focus-border-color);
+    outline: 0;
+    box-shadow: var(--btn-focus-box-shadow);
+  }
+
+  .btn-check:checked + &,
+  :not(.btn-check) + &:active,
+  &:first-child:active,
+  &.active,
+  &.show {
+    color: var(--btn-active-color);
+    background-color: var(--btn-active-bg);
+    border-color: var(--btn-active-border-color);
+    box-shadow: var(--btn-active-shadow);
+
+    &:focus-visible {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: var(--btn-active-shadow), var(--btn-focus-box-shadow);
+    }
+  }
+
+  .btn-check + &:hover {
+    // override for the checkbox/radio buttons
+    color: var(--btn-color);
+    background-color: var(--btn-bg);
+    border-color: var(--btn-border-hover-color);
+  }
+
+  .btn-check:focus-visible + & {
+    border-color: var(--btn-hover-border-color);
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: var(--btn-box-shadow), var(--btn-focus-box-shadow);
+    } @else {
+      box-shadow: var(--btn-focus-box-shadow);
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    color: var(--btn-disabled-color);
+    pointer-events: none;
+    background-color: var(--btn-disabled-bg);
+    border-color: var(--btn-disabled-border-color);
+    opacity: var(--btn-disabled-opacity);
+    box-shadow: none;
+  }
+}
+
+/**
+Theme styles
+ */
+// Variants
+.btn {
+  --btn-padding-y: 14px;
+  --btn-padding-x: 1.5rem;
+  --btn-font-size: .875rem;
+  --btn-font-weight: 500;
+  --btn-line-height: 1;
+  position: relative;
+  background-color: var(--btn-bg);
+  overflow: hidden;
+
+  .icon {
+    height: var(--btn-font-size); // FIX: correct button height
+  }
+
+  @media (min-width: 996px) {
+    --btn-font-size: 1rem;
+  }
+
+  @media (min-width: 1400px) {
+    --btn-padding-y: 13px;
+  }
+}
+
+/*Common styles*/
+.btn-primary {
+  --btn-bg: var(--c-black);
+  --btn-color: var(--c-white);
+  --btn-hover-bg: var(--c-primary);
+  --btn-hover-color: var(--c-white);
+}
+
+.btn-light {
+  --btn-bg: var(--c-white);
+  --btn-color: var(--c-black);
+  --btn-hover-bg: var(--c-grey3);
+  --btn-hover-color: var(--c-black);
+}
+
+.btn-outline-secondary {
+  --btn-bg: var(--c-white);
+  --btn-border-color: var(--c-grey);
+  --btn-color: var(--c-grey);
+  --btn-hover-bg: var(--c-black);
+  --btn-hover-color: var(--c-white);
+}
+
+.btn-outline-light {
+  --btn-border-color: var(--c-grey);
+  --btn-color: var(--c-white);
+  --btn-hover-bg: var(--c-primary);
+  --btn-hover-color: var(--c-white);
+}
+
+.btn-outline-dark {
+  --btn-bg: var(--c-white);
+  --btn-color: var(--c-black);
+  --btn-border-width: 1px;
+  --btn-border-color: var(--c-black);
+  --btn-hover-bg: var(--c-black);
+  --btn-hover-color: var(--c-white);
+}
+
+.btn-icon {
+  --btn-icon-size: 22px;
+  --btn-padding-y: 10px;
+  --btn-padding-x: 10px;
+  flex-shrink: 0;
+  //padding: 0;
+  //width: var(--btn-size);
+  //height: var(--btn-size);
+
+  .icon {
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+  }
+}
+
+.btn-prev,
+.btn-next {
+  //--btn-size: 16px;
+  --btn-padding-y: 10px;
+  --btn-padding-x: 10px;
+  //--btn-color: var(--c-white);
+  //--btn-border-width: 1px;
+  //--btn-border-radius: 6px;
+  //--btn-border-color: #D6DBE0;
+  //--btn-hover-bg: var(--c-primary);
+  //--btn-hover-color: var(--c-white);
+  //--btn-hover-border-color: var(--c-primary);
+
+  @media (min-width: 992px) {
+    //--btn-size: 20px;
+    --btn-padding-y: 1rem;
+    --btn-padding-x: 1rem;
+  }
+}
+
+/*Sizes*/
+
+
+
+
+
+.slider-nav--light {
+  .btn-prev,
+  .btn-next {
+    --btn-color: var(--c-grey);
+  }
+}
+
+// Color button
+
+.btn-color {
+  --btn-active-border-color: var(--c-primary);
+
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  padding: .125rem;
+
+  &::before {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    content: "";
+    //background-color: currentcolor;
+  }
+}
+
+// Image button
+.btn-image {
+  --btn-border-width: 1px;
+  --btn-border-hover-color: var(--c-primary);
+  --btn-active-border-color: var(--c-primary);
+  position: relative;
+
+  &:before {
+    //TODO absolute mixin
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: rgba(30, 28, 28, .04);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: 4px solid white;
+  }
+}
+
+// Sizes
+.btn-lg {
+
+  @media (min-width: 992px) {
+    --btn-padding-y: 1rem;
+    --btn-padding-x: 2.5rem;
+    --btn-font-size: 1rem;
+  }
+}
+
+
+
+
+
+

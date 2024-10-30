@@ -39,11 +39,11 @@
   //}
 
   // TODO
-  @if $enable-smooth-scroll {
-    @media (prefers-reduced-motion: no-preference) {
-      scroll-behavior: smooth;
-    }
-  }
+  //@if $enable-smooth-scroll {
+  //  @media (prefers-reduced-motion: no-preference) {
+  //    scroll-behavior: smooth;
+  //  }
+  //}
 }
 
 /*  ==========================================================================
@@ -57,7 +57,8 @@
 body {
   margin: 0; // 1
   -webkit-text-size-adjust: 100%; // 3
-  -webkit-tap-highlight-color: rgba($black, 0); // 4
+  //-webkit-tap-highlight-color: rgba($black, 0); // 4
+  -webkit-tap-highlight-color: rgba(#000, 0); // 4 // TODO
 }
 
 // scss-docs-end reboot-body-rules
@@ -123,7 +124,7 @@ mark {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  //margin-bottom: $paragraph-margin-bottom; // TODO
+  margin-bottom: 1rem;
 }
 
 // Strong
@@ -173,7 +174,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: $font-family-code;
+  //font-family: $font-family-code;
   font-size: 1em; // Correct the odd `em` font sizing in all browsers.
 }
 
@@ -204,19 +205,19 @@ code {
   }
 }
 
-kbd {
-  padding: $kbd-padding-y $kbd-padding-x;
-  font-size: $kbd-font-size;
-  color: $kbd-color;
-  background-color: $kbd-bg;
-  //@include border-radius($border-radius-sm); // TODO
-
-  kbd {
-    padding: 0;
-    font-size: 1em;
-    font-weight: $nested-kbd-font-weight;
-  }
-}
+//kbd {
+//  padding: $kbd-padding-y $kbd-padding-x;
+//  font-size: $kbd-font-size;
+//  color: $kbd-color;
+//  background-color: $kbd-bg;
+//  //@include border-radius($border-radius-sm); // TODO
+//
+//  kbd {
+//    padding: 0;
+//    font-size: 1em;
+//    font-weight: $nested-kbd-font-weight;
+//  }
+//}
 
 figure {
   margin: 0 0 1rem; // Apply a consistent margin strategy (matches our type styles).
@@ -252,12 +253,12 @@ progress {
 // 1. Remove the gray background on active links in IE 10.
 a {
   color: rgba(var(--link-color-rgb), var(--link-opacity, 1));
-  text-decoration: $link-decoration;
+  //text-decoration: $link-decoration;
   background-color: transparent; // 1
 
   &:hover {
     --link-color-rgb: var(--link-hover-color-rgb);
-    text-decoration: $link-hover-decoration;
+    //text-decoration: $link-hover-decoration;
   }
 }
 
@@ -379,19 +380,19 @@ fieldset {
 //    This way the border of a fieldset wraps around the legend if present.
 // 2. Fix wrapping bug.
 //    See https://github.com/twbs/bootstrap/issues/29712
-legend {
-  float: left; // 1
-  width: 100%;
-  padding: 0;
-  margin-bottom: $legend-margin-bottom;
-  font-size: $legend-font-size;
-  font-weight: $legend-font-weight;
-  line-height: inherit;
-
-  + * {
-    clear: left; // 2
-  }
-}
+//legend {
+//  float: left; // 1
+//  width: 100%;
+//  padding: 0;
+//  margin-bottom: $legend-margin-bottom;
+//  font-size: $legend-font-size;
+//  font-weight: $legend-font-weight;
+//  line-height: inherit;
+//
+//  + * {
+//    clear: left; // 2
+//  }
+//}
 
 // Fix height of inputs with a type of datetime-local, date, month, week, or time
 // See https://github.com/twbs/bootstrap/issues/18842
@@ -478,21 +479,21 @@ table {
   border-collapse: collapse;
 }
 
-caption {
-  padding-top: $table-cell-padding-y;
-  padding-bottom: $table-cell-padding-y;
-  color: $table-caption-color;
-  text-align: left;
-}
+//caption {
+//  padding-top: $table-cell-padding-y;
+//  padding-bottom: $table-cell-padding-y;
+//  color: $table-caption-color;
+//  text-align: left;
+//}
 
 // 1. Removes font-weight bold by inheriting
 // 2. Matches default `<td>` alignment by inheriting `text-align`.
 // 3. Fix alignment for Safari
-th {
-  font-weight: $table-th-font-weight; // 1
-  text-align: inherit; // 2
-  text-align: -webkit-match-parent; // 3
-}
+//th {
+//  font-weight: $table-th-font-weight; // 1
+//  text-align: inherit; // 2
+//  text-align: -webkit-match-parent; // 3
+//}
 
 thead,
 tbody,

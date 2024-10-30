@@ -1,60 +1,83 @@
-// TODO
+// stylelint-disable function-disallowed-list
 
-.modal-open {
-  overflow: hidden;
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
 
-  .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-}
 
+// Container that the modal scrolls within
 .modal {
+  // scss-docs-start modal-css-vars
+  --modal-zindex: #{$zindex-modal};
+  --modal-width: #{$modal-md};
+  --modal-padding: #{$modal-inner-padding};
+  --modal-margin: #{$modal-dialog-margin};
+  --modal-color: #{$modal-content-color};
+  --modal-bg: #{$modal-content-bg};
+  --modal-border-color: #{$modal-content-border-color};
+  --modal-border-width: #{$modal-content-border-width};
+  --modal-border-radius: #{$modal-content-border-radius};
+  --modal-box-shadow: #{$modal-content-box-shadow-xs};
+  --modal-inner-border-radius: #{$modal-content-inner-border-radius};
+  --modal-header-padding-x: #{$modal-header-padding-x};
+  --modal-header-padding-y: #{$modal-header-padding-y};
+  --modal-header-padding: #{$modal-header-padding}; // Todo in v6: Split this padding into x and y
+  --modal-header-border-color: #{$modal-header-border-color};
+  --modal-header-border-width: #{$modal-header-border-width};
+  --modal-title-line-height: #{$modal-title-line-height};
+  --modal-footer-gap: #{$modal-footer-margin-between};
+  --modal-footer-bg: #{$modal-footer-bg};
+  --modal-footer-border-color: #{$modal-footer-border-color};
+  --modal-footer-border-width: #{$modal-footer-border-width};
+  // scss-docs-end modal-css-vars
+
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1050;
+  z-index: var(--modal-zindex);
   display: none;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
   outline: 0;
+  // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+  // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+  // See also https://github.com/twbs/bootstrap/issues/17695
 }
 
+// Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  margin: var(--modal-margin);
+  // allow clicks to pass through for custom click handling to close modal
   pointer-events: none;
-}
 
-.modal.fade .modal-dialog {
-  transition: transform 0.3s ease-out;
-  transform: translate(0, -50px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .modal.fade .modal-dialog {
-    transition: none;
+  // When fading in the modal, animate it to slide down
+  .modal.fade & {
+    @include transition($modal-transition);
+    transform: $modal-fade-transform;
   }
-}
+  .modal.show & {
+    transform: $modal-show-transform;
+  }
 
-.modal.show .modal-dialog {
-  transform: none;
+  // When trying to close, animate focus to scale
+  .modal.modal-static & {
+    transform: $modal-scale-transform;
+  }
 }
 
 .modal-dialog-scrollable {
-  display: flex;
-  max-height: calc(100% - 1rem);
+  height: calc(100% - var(--modal-margin) * 2);
 
   .modal-content {
-    max-height: calc(100vh - 1rem);
+    max-height: 100%;
     overflow: hidden;
-  }
-
-  .modal-header,
-  .modal-footer {
-    flex-shrink: 0;
   }
 
   .modal-body {
@@ -65,122 +88,149 @@
 .modal-dialog-centered {
   display: flex;
   align-items: center;
-  min-height: calc(100% - 1rem);
-
-  &::before {
-    display: block;
-    height: calc(100vh - 1rem);
-    content: "";
-  }
-
-  &.modal-dialog-scrollable {
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-
-    .modal-content {
-      max-height: none;
-    }
-
-    &::before {
-      content: none;
-    }
-  }
+  min-height: calc(100% - var(--modal-margin) * 2);
 }
 
+// Actual modal
 .modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+  // counteract the pointer-events: none; in the .modal-dialog
+  color: var(--modal-color);
   pointer-events: auto;
-  background-color: #fff;
+  background-color: var(--modal-bg);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: var(--modal-border-width) solid var(--modal-border-color);
+  @include border-radius(var(--modal-border-radius));
+  @include box-shadow(var(--modal-box-shadow));
+  // Remove focus outline from opened modal
   outline: 0;
 }
 
+// Modal background
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
+  // scss-docs-start modal-backdrop-css-vars
+  --backdrop-zindex: #{$zindex-modal-backdrop};
+  --backdrop-bg: #{$modal-backdrop-bg};
+  --backdrop-opacity: #{$modal-backdrop-opacity};
+  // scss-docs-end modal-backdrop-css-vars
 
-  &.fade {
-    opacity: 0;
-  }
-
-  &.show {
-    opacity: 0.5;
-  }
+  @include overlay-backdrop(var(--backdrop-zindex), var(--backdrop-bg), var(--backdrop-opacity));
 }
 
+// Modal header
+// Top section of the modal w/ title and dismiss
 .modal-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  flex-shrink: 0;
+  align-items: center;
+  padding: var(--modal-header-padding);
+  border-bottom: var(--modal-header-border-width) solid var(--modal-header-border-color);
+  @include border-top-radius(var(--modal-inner-border-radius));
 
-  .close {
-    padding: 1rem 1rem;
-    margin: -1rem -1rem -1rem auto;
+  .btn-close {
+    padding: calc(var(--modal-header-padding-y) * .5) calc(var(--modal-header-padding-x) * .5);
+    margin: calc(-.5 * var(--modal-header-padding-y)) calc(-.5 * var(--modal-header-padding-x)) calc(-.5 * var(--modal-header-padding-y)) auto;
   }
 }
 
+// Title text within header
 .modal-title {
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: var(--modal-title-line-height);
 }
 
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
+  // Enable `flex-grow: 1` so that the body take up as much space as possible
+  // when there should be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
-  padding: 1rem;
+  padding: var(--modal-padding);
 }
 
+// Footer (for actions)
 .modal-footer {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 1rem;
-  border-top: 1px solid #dee2e6;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center; // vertically center
+  justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
+  padding: calc(var(--modal-padding) - var(--modal-footer-gap) * .5);
+  background-color: var(--modal-footer-bg);
+  border-top: var(--modal-footer-border-width) solid var(--modal-footer-border-color);
+  @include border-bottom-radius(var(--modal-inner-border-radius));
 
-  & > :not(:first-child) {
-    margin-left: .25rem;
-  }
-
-  & > :not(:last-child) {
-    margin-right: .25rem;
+  // Place margin between footer elements
+  // This solution is far from ideal because of the universal selector usage,
+  // but is needed to fix https://github.com/twbs/bootstrap/issues/24800
+  > * {
+    margin: calc(var(--modal-footer-gap) * .5); // Todo in v6: replace with gap on parent class
   }
 }
 
-.modal-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll;
-}
+// Scale up the modal
+@include media-breakpoint-up(sm) {
+  .modal {
+    --modal-margin: #{$modal-dialog-margin-y-sm-up};
+    --modal-box-shadow: #{$modal-content-box-shadow-sm-up};
+  }
 
-@media (min-width: 576px) {
+  // Automatically set modal's width for larger viewports
   .modal-dialog {
-    max-width: 500px;
-    margin: 1.75rem auto;
+    max-width: var(--modal-width);
+    margin-right: auto;
+    margin-left: auto;
   }
-  .modal-dialog-scrollable {
-    max-height: calc(100% - 3.5rem);
-  }
-  .modal-dialog-scrollable .modal-content {
-    max-height: calc(100vh - 3.5rem);
-  }
-  .modal-dialog-centered {
-    min-height: calc(100% - 3.5rem);
-  }
-  .modal-dialog-centered::before {
-    height: calc(100vh - 3.5rem);
+
+  .modal-sm {
+    --modal-width: #{$modal-sm};
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .modal-lg,
+  .modal-xl {
+    --modal-width: #{$modal-lg};
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .modal-xl {
+    --modal-width: #{$modal-xl};
+  }
+}
+
+// scss-docs-start modal-fullscreen-loop
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  $postfix: if($infix != "", $infix + "-down", "");
+
+  @include media-breakpoint-down($breakpoint) {
+    .modal-fullscreen#{$postfix} {
+      width: 100vw;
+      max-width: none;
+      height: 100%;
+      margin: 0;
+
+      .modal-content {
+        height: 100%;
+        border: 0;
+        @include border-radius(0);
+      }
+
+      .modal-header,
+      .modal-footer {
+        @include border-radius(0);
+      }
+
+      .modal-body {
+        overflow-y: auto;
+      }
+    }
+  }
+}
+// scss-docs-end modal-fullscreen-loop

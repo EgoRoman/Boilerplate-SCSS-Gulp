@@ -1,31 +1,42 @@
-/** https://getbootstrap.com/docs/5.3/components/breadcrumb/ */
 .breadcrumb {
   // scss-docs-start breadcrumb-css-vars
-  --breadcrumb-padding-x: 0;
-  --breadcrumb-padding-y: 0;
-  --breadcrumb-margin-bottom: 1rem;
+  --breadcrumb-padding-x: #{$breadcrumb-padding-x};
+  --breadcrumb-padding-y: #{$breadcrumb-padding-y};
+  --breadcrumb-margin-bottom: #{$breadcrumb-margin-bottom};
+  @include rfs($breadcrumb-font-size, --breadcrumb-font-size);
   --breadcrumb-color: ;
-  --breadcrumb-font-size: ;
-  --breadcrumb-bg: ;
-  --breadcrumb-border-radius: ;
-  --breadcrumb-item-padding-x: .5rem;
-  --breadcrumb-item-active-color: ;
-  --breadcrumb-divider-color: ;
-  --breadcrumb-divider: '/';
+  --breadcrumb-bg: #{$breadcrumb-bg};
+  --breadcrumb-border-radius: #{$breadcrumb-border-radius};
+  --breadcrumb-divider-color: #{$breadcrumb-divider-color};
+  --breadcrumb-item-padding-x: #{$breadcrumb-item-padding-x};
+  --breadcrumb-hover-color: ;
+  --breadcrumb-item-active-color: #{$breadcrumb-active-color};
+  --breadcrumb-transition: color .2s ease-in-out;
   // scss-docs-end breadcrumb-css-vars
 
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0;
   padding: var(--breadcrumb-padding-y) var(--breadcrumb-padding-x);
   margin-bottom: var(--breadcrumb-margin-bottom);
-  font-size: var(--breadcrumb-font-size);
+  @include font-size(var(--breadcrumb-font-size));
   list-style: none;
   background-color: var(--breadcrumb-bg);
-  border-radius: var(--breadcrumb-border-radius);
+  @include border-radius(var(--breadcrumb-border-radius));
 }
 
 .breadcrumb-item {
-  color: var(--breadcrumb-color);
+  > a {
+    color: var(--breadcrumb-color);
+    text-decoration: none;
+    transition: var(--breadcrumb-transition);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--breadcrumb-hover-color);
+    }
+  }
 
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
@@ -34,17 +45,17 @@
     &::before {
       float: left; // Suppress inline spacings and underlining of the separator
       padding-right: var(--breadcrumb-item-padding-x);
-      color: var(--breadcrumb-color);
-      content: var(--breadcrumb-divider, "/");
-      /*
-      //TODO
-      content: var(--breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"!* rtl:"} var(--breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{'*!'};
-      */
+      color: var(--breadcrumb-divider-color);
+      content: var(--breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
     }
   }
 
   &.active {
     color: var(--breadcrumb-item-active-color);
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
@@ -52,6 +63,7 @@
 Theme styles
  */
 .breadcrumb--default {
-
+  --breadcrumb-color: var(--c-grey);
+  --breadcrumb-item-active-color: var(--c-grey2);
+  --breadcrumb-divider-color: var(--c-primary);
 }
-

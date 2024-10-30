@@ -1,66 +1,81 @@
-// TODO verify folder's order
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
 
-// 0. Vendors
+// 2. Include any default variable overrides here
 
-// 1. Abstracts
-@import 'abstracts/variables';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+//@import "../../node_modules/bootstrap/scss/variables";
+//@import "../../node_modules/bootstrap/scss/variables-dark";
 
-// 2. Base stuff
-@import 'base/reboot';
-@import 'base/base';
-@import 'base/grid';
-@import 'base/fonts';
-@import 'base/helpers';
-@import 'base/typography';
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+//@import "../../node_modules/bootstrap/scss/maps";
+//@import "../../node_modules/bootstrap/scss/mixins";
+//@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+//@import "../../node_modules/bootstrap/scss/utilities";
+//@import "../../node_modules/bootstrap/scss/reboot";
+//@import "../../node_modules/bootstrap/scss/type";
+//@import "../../node_modules/bootstrap/scss/images";
+//@import "../../node_modules/bootstrap/scss/containers";
+//@import "../../node_modules/bootstrap/scss/grid";
+//@import "../../node_modules/bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+//@import "../../node_modules/bootstrap/scss/utilities/api";
 
 /**
-2. Mixins
+// 8. Add additional custom code here
  */
-@import 'mixins/backdrop';
-@import 'mixins/breakpoints';
-
-// 5. Components
-@import 'components/accordion'; // TODO
-//@import 'components/alerts'; // TODO
-//@import 'components/badge'; // TODO
-@import 'components/breadcrumb';
-@import 'components/buttons';
-@import 'components/card';
-@import 'components/collapse';
-@import 'components/dropdown';
-@import 'components/forms';
-@import 'components/nav';
-//@import 'components/nav-pills';
-//@import 'components/nav-tabs';
-@import 'components/form';
-@import 'components/link';
-@import 'components/logo';
-@import 'components/nav';
-@import 'components/offcanvas';
-@import 'components/pagination';
-@import 'components/section';
-
-// Utilities
-@import 'utilities/display';
-@import 'utilities/flex';
-@import 'utilities/object';
-@import 'utilities/position';
-@import 'utilities/ratio';
-@import 'utilities/sizing';
-@import 'utilities/spacing';
-@import 'utilities/text';
-@import 'utilities/text-color';
-
-// 4. Layout-related sections
-@import 'layout/header';
-@import 'layout/footer';
 
 
+//@import "abstracts/functions";
+//@import 'abstracts/variables';
+//@import 'abstracts/variables-bootstrap-original';
+//@import 'abstracts/maps';
+//@import "abstracts/mixins";
+//@import "abstracts/utilities";
+//@import "abstracts/utilities/api";
+
+// Helpers
+//@import "abstracts/helpers";
+
+//@import 'layout/containers';
+//@import 'layout/grid';
+
+//@import 'base/reboot';
+//@import 'base/base';
+//@import 'base/typography';
+
+//@import 'components/badge';
+//@import 'components/breadcrumb';
+//@import 'components/button';
+//@import 'components/close';
+//@import 'components/card';
+//@import 'components/collapse';
+//@import 'components/dropdown';
+//@import 'components/form';
+//@import 'components/modal';
+//@import 'components/nav';
+//@import 'components/navbar';
+//@import 'components/offcanvas';
+//@import 'components/preload';
+//@import 'components/slider';
+
+//@import 'theme/animation';
+//@import 'theme/header';
+//@import 'theme/footer';
+//@import 'theme/section';
+//@import 'theme/nouislider';
+//@import 'theme/theme'; //TODO
 
 // 6. Page-specific styles
-@import 'pages/home';
+//@import 'pages/home';
+//@import 'pages/catalog';
+//@import 'pages/product';
 
-// 7. Themes
-@import 'themes/default';
+//html {
+//  scroll-behavior: smooth;
+//}

@@ -21,10 +21,12 @@ $spacers: (
   '11': $spacer * 2.75, // 2.75rem = 44px
   '12': $spacer * 3, // 3rem = 48px
   '14': $spacer * 3.5, // 3.5rem = 56px
+  '15': $spacer * 3.75, // 3.75rem = 60px
   '16': $spacer * 4, // 4rem = 64px
   '20': $spacer * 5, // 5rem = 80px
-  '24': $spacer * 6, // 6rem = 96px
-  '28': $spacer * 7, // 7rem = 112px
-  '32': $spacer * 8, // 8rem = 128px
+  '25': $spacer * 6.25, // 100px
+  '30': $spacer * 7.5, // 120px
+  //'28': $spacer * 7, // 7rem = 112px
+  //'32': $spacer * 8, // 8rem = 128px
 ) !default;
 // scss-docs-end spacer-variables-maps

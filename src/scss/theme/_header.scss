@@ -1,0 +1,151 @@
+.header {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: var(--c-white);
+  transition: background-color .3s;
+
+  //TODO temp
+  //height: 98px;
+}
+
+//.header-scrolled {
+//  background-color: rgba(0, 0, 0, .8);
+//}
+
+.header__navbar {
+  --navbar-padding-y: 1rem;
+}
+
+.header__logo {
+  max-width: 100px;
+
+  @media (min-width: 556px) {
+    max-width: 160px;
+  }
+}
+
+//.page-inner .header {
+//  background-color: rgba(0, 0, 0, .8);
+//}
+//
+//.page-inner main {
+//  min-height: 100vh;
+//}
+//
+//.header__navbar {
+//  @media (min-width: 1200px) {
+//
+//    padding: 1.5rem 2.5rem;
+//  }
+//
+//  .dropdown-menu {
+//    --dropdown-padding-y: 2rem;
+//    --dropdown-padding-x: 2.5rem;
+//    --dropdown-min-width: 20rem;
+//    --dropdown-border-radius: 0;
+//  }
+//}
+//
+//.header__logo {
+//  max-width: 120px;
+//  z-index: 1050;
+//
+//  @media (min-width: 576px) {
+//    max-width: 160px;
+//  }
+//}
+//
+//.header__nav {
+//  --navbar-nav-link-padding-x: 1.5rem;
+//  //--nav-link-font-size: ;
+//  --nav-link-color: var(--c-white);
+//  --nav-link-hover-color: var(--c-white);
+//  font-family: 'Unbounded', sans-serif;
+//  text-transform: uppercase;
+//  letter-spacing: 0.06em;
+//
+//  @media (min-width: 1200px) {
+//    --nav-link-padding-y: 30px;
+//    --navbar-nav-link-padding-x: 1.5rem;
+//    --nav-link-font-size: 13px;
+//    margin-right: 20px;
+//  }
+//
+//  @media (min-width: 1600px) {
+//    margin-right: 100px;
+//  }
+//}
+//
+///*MENU-TOGGLE*/
+//.menu-toggle {
+//  border: 2px solid transparent;
+//  border-radius: 5px;
+//  padding: 8px;
+//  background-color: transparent;
+//  color: var(--c-white);
+//  //outline: none;
+//  z-index: 15;
+//
+//  &:hover,
+//  &:focus {
+//    //border-color: var(--c-primary-dark);
+//    //outline: none;
+//  }
+//}
+//
+//.burger-icon {
+//  position: relative;
+//  margin-top: 8px;
+//  margin-bottom: 8px;
+//  user-select: none;
+//
+//  &,
+//  &::before,
+//  &::after {
+//    display: block;
+//    width: 22px;
+//    height: 2px;
+//    border-radius: 2px;
+//    background-color: currentColor;
+//    outline: 1px solid transparent;
+//    transition-property: background-color, transform;
+//    transition-duration: .2s;
+//  }
+//
+//  &::before,
+//  &::after {
+//    position: absolute;
+//    content: "";
+//  }
+//
+//  &::before {
+//    top: -7px
+//  }
+//
+//  &::after {
+//    top: 7px
+//  }
+//}
+//
+//.is-active .burger-icon {
+//  background-color: transparent
+//}
+//
+////TODO postition animation
+//.is-active .burger-icon::before {
+//  transform: translateY(8px) rotate(45deg);
+//  top: -9px;
+//
+//}
+//
+//.is-active .burger-icon::after {
+//  transform: translateY(-8px) rotate(-45deg);
+//  bottom: 8px;
+//}
+//
+//.mobile-nav {
+//  --offcanvas-bg: rgba(0, 0, 0, .85);
+//}

@@ -1,0 +1,17 @@
+:root {
+  --border-width: #{$border-width};
+  --border-style: #{$border-style};
+  //--border-color: #{$border-color};
+  --border-color: rgba(11, 29, 50, 0.1);
+  //--border-color-translucent: #{$border-color-translucent};
+
+  --border-radius: .375rem; // 6px
+  --border-radius-sm: .25rem;
+  //--border-radius-lg: .5rem;
+  --border-radius-xl: 1rem;
+  --border-radius-xxl: 2rem;
+  --border-radius-pill: 50rem;
+
+  // Theme styles
+  --border-radius-lg: .625rem; // 10px
+}

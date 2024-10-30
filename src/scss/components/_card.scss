@@ -5,8 +5,8 @@
 
 .card {
   // scss-docs-start card-css-vars
-  --card-spacer-y: 1rem;
-  --card-spacer-x: 1rem;
+  --card-padding-y: 1rem;
+  --card-padding-x: 1rem;
   --card-border-width: 0;
   --card-border-color: transparent;
   --card-border-radius: 0;
@@ -18,7 +18,7 @@
   //--card-cap-color: #{$card-cap-color};
   --card-height: 100%;
   --card-bg: var(--c-white);
-  --card-color: var(--c-text);
+  --card-color: var(--body-color);
   --card-font-size: 1rem;
   --card-line-height: ;
   --card-title-spacer-y: .5rem;
@@ -29,9 +29,12 @@
   --card-title-font-size: ;
   --card-title-line-height: ;
   --card-title-font-weight: ;
-  --card-img-overlay-padding: 1rem;
+  --card-img-overlay-padding: ;
   //--card-group-margin: #{$card-group-margin};
   // scss-docs-end card-css-vars
+  // TODO
+  //states
+  --card-hover-color: ;
 
   position: relative;
   display: flex;
@@ -85,7 +88,7 @@
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
-  padding: var(--card-spacer-y) var(--card-spacer-x);
+  padding: var(--card-padding-y) var(--card-padding-x);
   color: var(--card-color);
 }
 
@@ -139,6 +142,7 @@
 .card-img,
 .card-img-top,
 .card-img-bottom {
+  display: block;
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
 }
 
@@ -155,13 +159,104 @@
 }
 
 /**
-TODO
-- https://getbootstrap.com/docs/5.3/components/card/#images
-- https://getbootstrap.com/docs/5.3/components/card/#header-and-footer
-- https://getbootstrap.com/docs/5.3/components/card/#images-1
-- https://getbootstrap.com/docs/5.3/components/card/#horizontal
- */
-
-/**
 Theme styles
  */
+.product-card {
+  --card-padding-y: .75rem;
+  --card-padding-x: .5rem;
+  --card-title-font-size: 1rem;
+
+  @media (min-width: 992px) {
+    --card-padding-y: 1.25rem;
+    --card-padding-x: 1rem;
+    --card-title-font-size: 1rem;
+  }
+}
+
+.product-card--viewed {
+  --card-padding-y: .5rem;
+  --card-padding-x: 0;
+  --card-title-font-size: .75rem;
+
+  @media (min-width: 992px) {
+    --card-padding-y: 1rem;
+    --card-title-font-size: .875rem;
+  }
+}
+
+.product-card__image {
+  --aspect-ratio: 124%;
+  position: relative;
+  overflow: hidden;
+
+  /*Image cover*/
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 28, 28, .04);
+    user-select: none;
+  }
+}
+
+//.product-card__label {
+//  position: absolute;
+//  z-index: 2;
+//  margin: 14px;
+//  padding: 8px 10px;
+//  font-size: 12px;
+//  line-height: 1;
+//  border-radius: 6px;
+//
+//  // TODO
+//  left: auto;
+//  width: auto;
+//  height: auto;
+//}
+
+//.product-card__label--in-stock {
+//  top: 0;
+//  right: 0;
+//  background-color: var(--c-white);
+//}
+
+.product-card__buttons-group {
+  opacity: 0;
+  transition: opacity .3s;
+
+  .product-card:hover & {
+    opacity: 1;
+  }
+}
+
+.product-card__wishlist-btn {
+  --btn-icon-size: 12px;
+  --btn-padding-y: 8px;
+  --btn-padding-x: 8px;
+
+  &.active {
+    color: var(--c-red);
+  }
+
+  @media (min-width: 992px) {
+    --btn-icon-size: 16px;
+    --btn-padding-y: 10px;
+    --btn-padding-x: 10px;
+  }
+}
+
+.product-card__variant-label {
+  width: 40px;
+  height: 32px;
+  padding: 2px;
+  background-size: cover;
+}
+
+//.product-card:hover {
+//  box-shadow: 0 0.5rem 2rem -0.25rem hsla(216,9%,44%,.1);
+//  z-index: 2;
+//}

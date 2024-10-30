@@ -7,12 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?= SITE_TITLE; ?></title>
 
-  <!--Styles-->
+  <!--STYLES-->
   <!--TODO DEV / PROD link-->
-  <link rel="stylesheet" href="/dist/css/style.css?v=<?= filemtime('dist/css/style.css'); ?>">
+  <link href="/dist/css/style.css?v=<?= filemtime('dist/css/style.css'); ?>" rel="stylesheet">
   <!--END STYLES-->
 </head>
 
 <body>
 
-<header class="header">Header</header>
+<header class="header">
+  HEADER
+</header>

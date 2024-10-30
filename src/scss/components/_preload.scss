@@ -1,0 +1,34 @@
+.body-preload {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--c-primary);
+  transition: height .8s ease .2s, opacity .6s ease 1s;
+  z-index: 10000;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--c-dark-blue);
+    transform: translateY(100%);
+    transition: transform .8s ease;
+  }
+}
+
+.is-loaded .body-preload {
+  height: 0;
+  opacity: 0;
+
+  &::after {
+    transform: translateY(0);
+  }
+}

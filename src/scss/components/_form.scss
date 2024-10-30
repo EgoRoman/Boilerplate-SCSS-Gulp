@@ -1,0 +1,179 @@
+// TODO
+@import "form/form-check";
+@import "form/form-control";
+@import "form/floating-labels";
+@import "form/input-group";
+
+/**
+Theme styles
+ */
+.form--default {
+  --form-check-margin-bottom: 7px;
+  --input-padding-y: 15px;
+  --input-padding-x: 0;
+  --input-bg: transparent;
+  --input-focus-bg: transparent;
+  --input-border-color: rgba(11, 29, 50, 0.3);
+  --input-border-width: 0;
+  --input-border-radius: 0;
+  --input-color: var(--c-text, #000);
+  --input-focus-color: var(--input-color);
+  --input-font-size: 14px;
+  --input-line-height: 1;
+  --input-placeholder-color: var(--c-grey);
+
+  // scss-docs-start form-floating-variables
+  --form-floating-height: calc(3.5rem + calc(var(--input-border-width *2)));
+  --form-floating-line-height: 1.25;
+  --form-floating-padding-x: var(--input-padding-x);
+  --form-floating-padding-y: 15px;
+  --form-floating-input-padding-t: 21px;
+  --form-floating-input-padding-b: 9px;
+  --form-floating-label-height: 1.875em;
+  --form-floating-label-opacity: 1;
+  --form-floating-label-translate-y: calc(var(--form-floating-padding-y) * -.5);
+  --form-floating-label-translate-x: ;
+  --form-floating-label-transform: translateY(var(--form-floating-label-translate-y));
+  --form-floating-label-disabled-color: ;
+  --form-floating-transition: opacity .1s ease-in-out, font-size .1s ease-in-out, transform .1s ease-in-out;
+  // scss-docs-end form-floating-variables
+
+  font-family: 'Mulish', sans-serif;
+
+  .form-floating {
+    border-bottom: 1px solid var(--input-border-color);
+    font-size: var(--input-font-size);
+  }
+
+  @media (min-width: 768px) {
+    --form-check-margin-bottom: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    --input-padding-y: 21px;
+    --input-font-size: 1rem;
+    //
+    --form-floating-padding-y: 20px;
+    --form-floating-input-padding-t: 30px;
+    --form-floating-input-padding-b: 10px;
+  }
+
+  .form-check-input {
+    &:checked {
+      border-width: 2px;
+
+      &[type="radio"] {
+        background-image: url("data:image/svg+xml,%3csvg width='10' height='10' viewBox='0 0 10 10' fill='%23E84343' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='5' fill='%23E84343'/%3e%3c/svg%3e");
+        background-size: 9px;
+
+        @media (min-width: 1200px) {
+          background-size: 10px;
+        }
+      }
+    }
+  }
+
+  .form-check {
+    &:hover {
+      .form-check-input {
+        border-color: var(--form-check-input-focus-border);
+        outline: 0;
+        box-shadow: var(--form-check-input-focus-box-shadow);
+      }
+
+      .form-check-label {
+        color: var(--form-check-label-hover-color);
+      }
+    }
+  }
+}
+
+//.form-privacy {
+//  color: var(--c-grey);
+//  font-size: 11px;
+//  line-height: 1.2;
+//
+//  a {
+//    color: var(--c-text);
+//  }
+//
+//  @media (min-width: 1024px) {
+//    font-size: 13px;
+//  }
+//}
+
+// Count input
+/*TODO states styles*/
+.count-input {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  //background-color: $input-bg;
+  //border: var(--border-width) solid $input-border-color;
+  //border-radius: $input-border-radius;
+  //transform: translateZ(0);
+
+  .form-control {
+    //width: $btn-icon-size; // TODO
+    min-width: 60px;
+    //padding: 0 24px;
+    //font-weight: $font-weight-medium;
+    text-align: center;
+    /* stylelint-disable property-no-vendor-prefix */
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+    /* stylelint-enable property-no-vendor-prefix */
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+  }
+
+  .form-control-lg {
+    min-width: 80px;
+  }
+
+    //.btn:not(.btn-primary) {
+  //  --btn-hover-color: var(--c-primary);
+  //  --btn-hover-bg: var(--secondary-bg);
+  //  --btn-active-bg: var(--secondary-bg);
+  //}
+
+  //.btn-sm + .form-control {
+    //width: $btn-icon-size-sm;
+  //}
+
+  //&.disabled {
+    //background-color: $input-disabled-bg;
+    //border-color: $input-disabled-border-color;
+    //border-style: dashed;
+  //}
+}
+
+.count-input__btn {
+  --btn-icon-size: 12px;
+  --btn-padding-y: 14px;
+  --btn-padding-x: 10px;
+  --btn-hover-color: var(--c-primary);
+  //--btn-disabled-color: ;
+  --btn-disabled-opacity: 0.2;
+
+  border: 0;
+  border-radius: 0;
+}
+
+.count-input-collapsible {
+  &.collapsed {
+    [data-decrement],
+    .form-control {
+      display: none;
+    }
+  }
+}

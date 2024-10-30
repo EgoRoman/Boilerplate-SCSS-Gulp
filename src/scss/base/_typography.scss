@@ -1,145 +1,104 @@
-// TODO https://getbootstrap.com/docs/5.3/content/typography/
+//TODO
+// Lists
 
-// Typography
-//
-//    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
-//    margin for easier control within type scales as it avoids margin collapsing.
-.h1, .h2, .h3, .h4, .h5, .h6,
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: $headings-margin-bottom;
-  font-family: $headings-font-family;
-  font-style: $headings-font-style;
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
-  color: $headings-color;
-}
-
-h1, .h1 {
-  font-size: var(--h1-font-size);
-}
-
-h2, .h2 {
-  font-size: var(--h2-font-size);
-}
-
-h3, .h3 {
-  font-size: var(--h3-font-size);
-}
-
-h4, .h4 {
-  font-size: var(--h4-font-size);
-}
-
-h5, .h5 {
-  font-size: var(--h5-font-size);
-}
-
-h6, .h6 {
-  font-size: var(--h6-font-size);
-}
-
-// Vertical rule
-.vr {
-  display: inline-block;
-  align-self: stretch;
-  width: 1px;
-  min-height: 1em;
-  background-color: currentcolor;
-}
-
-blockquote {
-  position: relative;
+ol,
+ul {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  margin: 0 0 1rem;
-  background-color: #f4f4f4;
+  //gap: $spacer * .5;
+  gap: 1rem;
+  padding-left: $spacer * 1.5;
 
-  p {
-    margin-top: 0;
-    margin-bottom: 2rem;
-    font-style: italic;
-    line-height: 1.2;
-  }
-
-  cite {
-    color: var(--c-grey);
-    font-size: 14px;
-    text-align: right;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    background-image: url("data:image/svg+xml,%3Csvg width='53' height='36' viewBox='0 0 53 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.4213 23.7949C5.87751 23.7949 0.583369 18.4412 0.583369 11.8974C0.583369 5.35363 5.937 0 12.4808 0C19.0246 0 24.3782 5.35363 24.3782 11.8974C24.3782 25.0441 13.73 35.6923 0.583369 35.6923C0.583369 35.6923 8.37608 32.7773 12.4213 23.7949ZM28.5694 11.8974C28.5694 5.35363 33.923 0 40.4668 0C47.0106 0 52.3643 5.35363 52.3643 11.8974C52.3643 25.0441 41.7161 35.6923 28.5694 35.6923C28.5694 35.6923 36.3621 32.7773 40.4073 23.7949C33.8635 23.7949 28.5694 18.4408 28.5694 11.8974Z' fill='%23CFCFCF'/%3E%3C/svg%3E%0A");
-    background-repeat: no-repeat;
-  }
-
-  @media (min-width: 992px) {
-    padding: 40px 30px 40px 110px;
-    margin-bottom: 1.25rem;
-
-    p {
-      font-size: 18px;
-    }
-
-    &:after {
-      width: 58px;
-      height: 58px;
-    }
+  ul,
+  ol {
+    margin-top: $spacer * .5;
   }
 }
 
-// List Style Position
-.list-inside {
-  list-style-position: inside;
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: $spacer;
 }
 
-.list-outside {
-  list-style-position: outside;
+li::marker {
+  color: var(--c-primary);
 }
 
-// List Style Type
-.list-none {
-  list-style-type: none;
-}
+//dt {
+//  color: $dt-color;
+//}
+//
+//dd {
+//  margin-bottom: $spacer * .75;
+//}
 
-.list-disc {
-  list-style-type: disc;
-}
-
-.list-decimal {
-  list-style-type: decimal;
-}
-
-/*TODO*/
-.blockquote--card {
-  background-color: transparent;
-  padding: 0;
-
-  .blockquote__text {
-    position: relative;
-    display: -webkit-box;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  @media (min-width: 992px) {
-    padding-left: 80px;
-
-    &:after {
-      top: 0;
-      left: 0;
-    }
-  }
-}
-
-// Lists
+.list-inline,
 .list-unstyled {
-  padding-left: 0;
+  //display: flex;
+  //flex-direction: column;
   list-style: none;
+  padding-left: 0;
+}
+
+.list-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .625rem 1rem;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color, var(--c-black));
+  font-weight: 500;
+  line-height: 1.275;
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+
+/*TODO headings*/
+.h1, h1 {
+  @include font-size(3.125rem);
+  @include rfs(1.25rem, margin-bottom);
+}
+
+.h2, h2 {
+  @include font-size(2.5rem);
+  @include rfs(2rem, margin-bottom);
+}
+
+.h3, h3 {
+  @include font-size(2rem);
+}
+
+.h4, h4 {
+  @include font-size(1.5rem);
+}
+
+.h5, h5 {
+  @include font-size(1.25rem);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform .15s;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+.icon--star {
+  color: #AFAFAF;
+
+  &.filled {
+    color: #FFCC19;
+  }
 }

@@ -1,0 +1,15 @@
+// Utilities
+$utilities: () !default;
+
+@import 'utilities/borders';
+@import 'utilities/colors';
+@import 'utilities/display';
+@import 'utilities/flex';
+@import 'utilities/object-fit';
+@import 'utilities/opacity';
+@import 'utilities/overflow';
+@import 'utilities/sizing';
+@import 'utilities/position';
+@import 'utilities/ratio';
+@import 'utilities/spacing';
+@import 'utilities/text';

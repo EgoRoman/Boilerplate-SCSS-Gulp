@@ -1,0 +1,85 @@
+// Transparent background and border properties included for button version.
+// iOS requires the button element instead of an anchor tag.
+// If you want the anchor version, it requires `href="#"`.
+// See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+.btn-close {
+  // scss-docs-start close-css-vars
+  --btn-close-color: var(--c-black);
+  --btn-close-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23181d25' viewBox='0 0 16 16'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/%3E%3C/svg%3E");
+  --btn-close-opacity: .6;
+  --btn-close-hover-opacity: .9;
+  --btn-close-focus-shadow: 0 0 0 0.25rem var(--focus-ring-color);
+  --btn-close-focus-opacity: 1;
+  --btn-close-disabled-opacity: 0.3;
+  --btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+  // scss-docs-end close-css-vars
+
+  box-sizing: content-box;
+  width: .75rem;
+  height: .75rem;
+  padding: calc(var(--offcanvas-padding-y)*.5) calc(var(--offcanvas-padding-x)*.5);
+  color: var(--btn-close-color);
+  background: transparent var(--btn-close-bg) center / .75rem auto no-repeat; // include transparent for button elements
+  border: 0; // for button elements
+  //@include border-radius();
+  opacity: var(--btn-close-opacity);
+
+  // Override <a>'s hover style
+  &:hover {
+    color: var(--btn-close-color);
+    text-decoration: none;
+    opacity: var(--btn-close-hover-opacity);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: var(--btn-close-focus-shadow);
+    opacity: var(--btn-close-focus-opacity);
+  }
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: var(--btn-close-disabled-opacity);
+  }
+}
+
+@mixin btn-close-white() {
+  filter: var(--btn-close-white-filter);
+}
+
+.btn-close-white {
+  @include btn-close-white();
+}
+
+//@if $enable-dark-mode {
+//  @include color-mode(dark) {
+//    .btn-close {
+//      @include btn-close-white();
+//    }
+//  }
+//}
+
+// Close button
+// It is used to dismiss alerts, modals, etc.
+
+.btn-close {
+  --btn-close-size: 0.75em;
+
+  width: var(--btn-close-size);
+  height: var(--btn-close-size);
+  background-size: var(--btn-close-size) auto;
+  transition: opacity .2s ease-in-out;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--btn-close-focus-shadow);
+    opacity: var(--btn-close-focus-opacity);
+  }
+}
